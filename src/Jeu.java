@@ -2,18 +2,30 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Jeu {
+	
+	int [] combiS;
+	int size = 4;
 
-    public char [] choixCombiOrdi (){
+    public void choixCombiOrdi (String str){
 
-        int size = 4;
         Random rd = new Random();
 
-
-        char combi[] = new char[size];
+        System.out.print(str);
+        
+        combiS = new int[size];
         for (int i = 0; i < size; i++) {
-            combi[i] = (char) rd.nextInt(9);
+            combiS[i] = rd.nextInt(9);
         }
-        return combi;
+    }
+    
+    public void afficheCombi(int int[]){
+    	
+    	String tbStr = "";
+    	
+    	for (int i = 0; i < str.length; i++){
+    		tbStr = tbStr + int[i];
+    	}
+    	System.out.print(tbStr);
     }
 
     public char [] choixCombiHumain () {
@@ -93,7 +105,7 @@ public class Jeu {
             }
         }
 
-
+	*/
     }
- */
+ 
 }
