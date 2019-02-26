@@ -55,16 +55,41 @@ public class Jeu {
         return combiH;
 
     }
+    
+    public void compareProposition(int[] combi, int[] propo, String str){
+    	
+    	String [] repo = new String [combi.length];
+    	String reponse = "";
+    	
+    	
+    	for(int i = 0; i < combi.length; i++){
+    		if(combi [i] < propo[i]){
+    			repo[i] = "-";
+    		}
+    		if(combi [i] > propo[i]){
+    			repo[i] = "+";
+    		}
+    		if(combi [i] == propo[i]){
+    			repo[i] = "=";
+    		}
+    	}
+    	
+    	for (int i = 0; i < repo.length; i++){
+    		reponse = reponse + repo[i];
+    	}
+    	System.out.print(str + reponse);
+    }
 
     public void modeAttaquant() {
 
     	int[] propoH;
     	
-    	choixCombiOrdi("Combinaison Secrete : ");
+    	choixCombiOrdi("Combinaison Secrète : ");
     	afficheCombi(combiS);
     	System.out.println();
     	System.out.println();
     	propoH = choixCombiHumain("Proposition : ");
+    	compareProposition(combiS, propoH, " -> Réponse : ");
     	     
     }
  
