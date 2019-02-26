@@ -18,94 +18,54 @@ public class Jeu {
         }
     }
     
-    public void afficheCombi(int int[]){
+    public void afficheCombi(int str[]){
     	
     	String tbStr = "";
     	
     	for (int i = 0; i < str.length; i++){
-    		tbStr = tbStr + int[i];
+    		tbStr = tbStr + str[i];
     	}
     	System.out.print(tbStr);
     }
 
-    public char [] choixCombiHumain () {
+    public int [] choixCombiHumain (String str) {
     	  	
         Scanner sc = new Scanner(System.in);
         boolean testCombi = false;
-        String combiS;
+        String combi = "";
         
         do{
-        	combiS = sc.nextLine();
-        	try {
-        		int combiSe = Integer.parseInt(combiS);
+        	System.out.print(str);
+        	testCombi = sc.hasNextInt();
+        	if (testCombi) {
+        		combi = sc.nextLine();
         		testCombi = true;
-        	}catch(NumberFormatException e) {
+        	}else {
         		System.out.println("La combinaison n'est pas bonne, merci de rentrer un entier.");
+        		sc.nextLine();
         	}
         } while(testCombi != true);	
      
-        char [] combi = combiS.toCharArray();
-        return combi;
+        int [] combiH = new int[combi.length()];
+        
+        for(int i = 0; i < combi.length(); i++){
+        	combiH[i] = Character.digit(combi.charAt(i), 10);
+        }
+        
+        return combiH;
 
     }
 
     public void modeAttaquant() {
 
-        System.out.print("(Combinaison secrète : " + choixCombiOrdi() + " )");
-
-        
-        
-/**
-        Scanner sc = new Scanner(System.in);
-        Random rnd = new Random();
-        int combi;
-        int propo =0;
-        int i;
-        int j;
-        boolean verifInt = false;
-        boolean choixOk = false;
-
-        System.out.println("(Combinaison secrète :" + combi = rnd.nextInt(9999) + ")");
-
-        do {
-            System.out.println("Proposition : ");
-            verifInt = sc.hasNextInt();
-            if (verifInt) {
-                propo = sc.nextInt();
-                if (propo < 0 || propo > 9999) {
-                    System.out.println("Merci de saisir une proposition comprise à 4 chiffres.");
-                    choixOk = false;
-                } else {
-                    choixOk = true;
-                }
-            } else {
-                System.out.println("Vous n'avez pas saisi un nombre.");
-                sc.nextLine();
-            }
-        } while(!choixOk);
-
-        String cmb = "" + combi;
-        char [] tabc = cmb.toCharArray();
-
-        String str = "" + propo;
-        char [] tabp = str.toCharArray();
-
-        char [] tabs = new char[tabc.length]
-
-        for ( i = 0 ; i < tabp.length ; i++){
-            j = tabp [i] - tabc[i];
-            if (j == 0){
-                tabs[i] = '=';
-            }
-            if (j < 0){
-                tabs[i] = '+';
-            }
-            if (j > 0) {
-                tabs[i] = '-';
-            }
-        }
-
-	*/
+    	int[] propoH;
+    	
+    	choixCombiOrdi("Combinaison Secrete : ");
+    	afficheCombi(combiS);
+    	System.out.println();
+    	System.out.println();
+    	propoH = choixCombiHumain("Proposition : ");
+    	     
     }
  
 }
