@@ -22,7 +22,7 @@ public class Jeu {
     	
     	String tbStr = "";
     	
-    	for (int i = 0; i < str.length; i++){
+    	for (int i = 0; i < size; i++){
     		tbStr = tbStr + str[i];
     	}
     	System.out.print(tbStr);
@@ -46,9 +46,9 @@ public class Jeu {
         	}
         } while(testCombi != true);	
      
-        int [] combiH = new int[combi.length()];
+        int [] combiH = new int[size];
         
-        for(int i = 0; i < combi.length(); i++){
+        for(int i = 0; i < size; i++){
         	combiH[i] = Character.digit(combi.charAt(i), 10);
         }
         
@@ -56,13 +56,11 @@ public class Jeu {
 
     }
     
-    public void compareProposition(int[] combi, int[] propo, String str){
+    public String [] compareProposition(int[] combi, int[] propo){
     	
-    	String [] repo = new String [combi.length];
-    	String reponse = "";
+    	String [] repo = new String [size];    	
     	
-    	
-    	for(int i = 0; i < combi.length; i++){
+    	for(int i = 0; i < size; i++){
     		if(combi [i] < propo[i]){
     			repo[i] = "-";
     		}
@@ -73,23 +71,32 @@ public class Jeu {
     			repo[i] = "=";
     		}
     	}
+    	return repo;
+    }
     	
-    	for (int i = 0; i < repo.length; i++){
-    		reponse = reponse + repo[i];
+    public void afficheReponse(String[] tab) {
+    	
+    	String reponse = "";
+    	
+    	for (int i = 0; i < size; i++){
+    		reponse = reponse + tab[i];
     	}
-    	System.out.print(str + reponse);
+    	System.out.print(reponse);
     }
 
     public void modeAttaquant() {
 
     	int[] propoH;
+    	String [] reponse = new String[size];
     	
     	choixCombiOrdi("Combinaison Secrète : ");
     	afficheCombi(combiS);
     	System.out.println();
     	System.out.println();
     	propoH = choixCombiHumain("Proposition : ");
-    	compareProposition(combiS, propoH, " -> Réponse : ");
+    	System.out.print(" -> Réponse : ");
+    	reponse = compareProposition(combiS, propoH);
+    	afficheReponse(reponse);
     	     
     }
  
