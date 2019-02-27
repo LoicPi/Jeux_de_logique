@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class Jeu {
 	
 	int [] combiS;
+	int [] propoO;
 	int size = 4;
 	int nbreTour = 5;
 
@@ -17,6 +18,29 @@ public class Jeu {
         for (int i = 0; i < size; i++) {
             combiS[i] = rd.nextInt(9);
         }
+    }
+    
+    public void propoCombiOrdi (String [] tab, int[] com, String str){
+    	
+    	Random rd = new Random();
+    	propoO = new int[size];
+    	
+    	System.out.print(str);
+    	
+    	for (int i = 0; i < size; i++){
+    		if(tab[i] == null){
+    			propoO[i] = rd.nextInt(9);
+    		}
+    		if (tab[i] == "="){
+    			propoO[i] = com[i];
+    		}
+    		if (tab[i] == "+"){
+    			propoO[i] = (rd.nextInt((9-com[i]))) + (com[i]+1);
+    		}
+    		if (tab[i] == "-"){
+    			propoO[i] = (rd.nextInt((com[i]-1)));
+    		}
+    	}	
     }
     
     public void afficheCombi(int str[]){
@@ -111,7 +135,7 @@ public class Jeu {
     	boolean verifV = true;
     	int i = 1;
     	
-    	choixCombiOrdi("Combinaison Secrète : ");
+    	choixCombiOrdi("Combinaison secrète : ");
     	afficheCombi(combiS);
     	System.out.println();
     	System.out.println();
@@ -132,4 +156,35 @@ public class Jeu {
         	i++;
     	}     
     }
+    
+    public void modeDefenseur(){
+    	
+    	int[] combiH;
+    	String[] reponse = new String[size];
+    	boolean verifR = false;
+    	boolean verifV = true;
+    	int i = 1;
+    	
+    	combiH = choixCombiHumain("Combinaison secrète : ");
+    	System.out.println();
+    	System.out.println();
+    	
+    	while (!verifR && verifV){
+    		propoCombiOrdi(reponse, propoO, "Proposition : ");
+    		afficheCombi(propoO);
+        	System.out.print(" -> Réponse : ");
+        	reponse = compareProposition(combiH, propoO);
+        	afficheReponse(reponse);
+        	verifR = verifReponse(reponse);
+        	if (verifR == true){
+        		System.out.println("L'ordinateur a trouvé votre combinaison.");
+        	}
+        	verifV = verifTour(i);
+        	if (verifV == false){
+        		System.out.println("L'ordinateur n'a pas trouvé votre combinaison.");
+        	}
+        	i++;
+    	}     	
+    }
+    
 }
