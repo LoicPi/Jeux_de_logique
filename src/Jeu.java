@@ -5,6 +5,7 @@ public class Jeu {
 	
 	int [] combiS;
 	int size = 4;
+	int nbreTour = 5;
 
     public void choixCombiOrdi (String str){
 
@@ -83,21 +84,52 @@ public class Jeu {
     	}
     	System.out.print(reponse);
     }
+    
+    public boolean verifReponse (String[] tab){
+    	
+    	for (int i = 0; i < size; i++){
+    		if (tab[i] != "="){
+    			return false;
+    		}
+    	}
+    	return true;
+    }
+    
+    public boolean verifTour (int tour){
+    	
+    	if (tour < nbreTour){
+    		return true;
+    	}
+    	return false;
+    }
 
     public void modeAttaquant() {
 
     	int[] propoH;
     	String [] reponse = new String[size];
+    	boolean verifR = false;
+    	boolean verifV = true;
+    	int i = 1;
     	
     	choixCombiOrdi("Combinaison Secrète : ");
     	afficheCombi(combiS);
     	System.out.println();
     	System.out.println();
-    	propoH = choixCombiHumain("Proposition : ");
-    	System.out.print(" -> Réponse : ");
-    	reponse = compareProposition(combiS, propoH);
-    	afficheReponse(reponse);
-    	     
+    	
+    	while (!verifR && verifV){
+    		propoH = choixCombiHumain("Proposition : ");
+        	System.out.print(" -> Réponse : ");
+        	reponse = compareProposition(combiS, propoH);
+        	afficheReponse(reponse);
+        	verifR = verifReponse(reponse);
+        	if (verifR == true){
+        		System.out.println("Vous avez trouvé la combinaison.");
+        	}
+        	verifV = verifTour(i);
+        	if (verifV == false){
+        		System.out.println("Vous n'avez pas trouvé la combinaison.");
+        	}
+        	i++;
+    	}     
     }
- 
 }
