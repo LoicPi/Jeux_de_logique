@@ -187,4 +187,50 @@ public class Jeu {
     	}     	
     }
     
+    public void modeDuel(){
+    	
+    	int[] combiH;
+    	int[] propoH;
+    	String[] reponseH = new String[size];
+    	String[] reponseO = new String[size];
+    	boolean verifH = false;
+    	boolean verifO = false;
+    	boolean verifV = true;
+    	int i = 1;
+    	
+    	combiH = choixCombiHumain("Combinaison secrète : ");
+    	choixCombiOrdi("Combinaison secrète : ");
+    	afficheCombi(combiS);
+    	System.out.println();
+    	System.out.println();
+    	
+    	while (!verifH && !verifO && verifV){
+    		
+    		propoH = choixCombiHumain("Proposition : ");
+        	System.out.print(" -> Réponse : ");
+        	reponseH = compareProposition(combiS, propoH);
+        	afficheReponse(reponseH);
+    		propoCombiOrdi(reponseO, propoO, "Proposition Ordi : ");
+    		afficheCombi(propoO);
+        	System.out.print(" -> Réponse : ");
+        	reponseO = compareProposition(combiH, propoO);
+        	afficheReponse(reponseO);
+        	verifH = verifReponse(reponseH);
+        	verifO = verifReponse(reponseO);
+        	if (verifH == true && verifO == false){
+        		System.out.println("Vous avez trouvé la combinaison de l'ordinateur. Vous êtes plus rapide que la machine.");
+        	}
+        	if (verifH == false && verifO == true){
+        		System.out.println("L'ordinateur a trouvé votre combinaison. L'ordinateur a été plus rapide que vous.");
+        	}
+        	if (verifH == true && verifO == false){
+        		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
+        	}
+        	verifV = verifTour(i);
+        	if (verifV == false){
+        		System.out.println("Match nul. La combinaison n'a pas été trouvé dans le temps imparti.");
+        	}
+        	i++;
+    	}
+    }
 }
