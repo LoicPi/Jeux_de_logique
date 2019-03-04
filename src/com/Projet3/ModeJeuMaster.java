@@ -6,6 +6,8 @@ public class ModeJeuMaster {
 
     	Jeu jeu = new Jeu();
     	int[] propoH;
+    	int infoPlace[];
+    	String reponse;
     	boolean verifR = false;
     	boolean verifV = true;
     	int tour = 1;
@@ -17,8 +19,10 @@ public class ModeJeuMaster {
     	
     	while (!verifR && verifV){
     		propoH = jeu.choixCombiHumain("Proposition : ");
-        	System.out.println(" -> Réponse : "+ jeu.reponse(jeu.getCombiS(), propoH));
-        	verifR = jeu.verifPhraseReponse(jeu.reponse(jeu.getCombiS(), propoH));
+    		infoPlace = jeu.nombrePlacement(jeu.getCombiS(), propoH);
+    		reponse = jeu.reponse(infoPlace);
+        	System.out.println(" -> Réponse : " + reponse);
+        	verifR = jeu.verifPhraseReponse(reponse);
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.println("Vous n'avez pas trouvé la combinaison.");

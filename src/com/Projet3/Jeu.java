@@ -159,80 +159,54 @@ public class Jeu {
     	}
     	return false;
     }
-
-    public boolean[] chBienPlace(int[] combi, int[] propo) {
-
-        boolean[] bienPlace = new boolean[size];
-        
-        for (int i = 0; i < size; i++){
-        	if (combi[i] == propo [i]) {
-            	bienPlace[i] = true;            	
-            } else {
-            	bienPlace[i] = false;
-            }
-        }
-        return bienPlace;      
-    }
-    
-    public boolean[] chMalPlace (int[] combi, int[] propo, boolean[] bienPlace){
+ 
+    public int[] nombrePlacement (int[] combi, int[] propo){
     	
-    	boolean [] malPlace = new boolean[size];
-    	
-    	for (int i = 0; i < size; i++){
-    		if(!bienPlace[i]){
-    			malPlace[i] = nombreRecherche(combi, propo[i], bienPlace);
-    		}
-    		else{
-    			malPlace[i] = false;
-    		}
-    	}
-    	return malPlace;
-    }
-
-    public boolean nombreRecherche (int combi[], int propo, boolean[] bienPlace) {
-
-        for (int i = 0 ; i < size ; i++) {
-        	if(!bienPlace[i]){
-        		if (combi[i] == propo) {
-                    return true;
-                }
-        	} 
-        }
-        return false;
-    }
-    
-    public String reponse (int[] combi, int[] propo){
-    	
-    	boolean[] bienPlace = chBienPlace(combi, propo);
-    	boolean[] malPlace = chMalPlace(combi, propo, bienPlace);
+    	int[] combiPrim = new int[size];
+    	int[] propoPrim = new int[size];
     	int nbBienPlace = 0;
     	int nbMalPlace = 0;
-    	String rep = "";
     	
     	for (int i = 0; i < size; i++){
-    		if (bienPlace[i]){
+    		if (combi[i] == propo[i]){
     			nbBienPlace = nbBienPlace + 1;
-    		}
-    		if (malPlace[i]){
-    			nbMalPlace = nbMalPlace + 1;
+    			combiPrim[i] = -1;
+    			propoPrim[i] = -2;
+    		} else {
+    			combiPrim[i] = combi[i];
+    			propoPrim[i] = propo[i];
     		}
     	}
     	
-    	if (nbBienPlace == 0 && nbMalPlace == 0){
+    	for (int i = 0; i < size; i++){
+    		if (nombreRecherche2 (combiPrim, propoPrim[i])){
+    			nbMalPlace = nbMalPlace + 1;    			
+    		}
+    		
+       	}
+    	
+    	int nbPlace [] = {nbBienPlace, nbMalPlace};
+    	
+    	return nbPlace;
+    }	
+    	
+    public String reponse (int [] nbPlace){
+    	String rep = "";
+    	if (nbPlace[0] == 0 && nbPlace[1] == 0){
     		rep = "Aucun des nombres ne correspondent à la combinaison !";
     	}
-    	if (nbBienPlace == 0 && nbMalPlace != 0){
-    		rep =  nbMalPlace + " " + present(nbMalPlace);
+    	if (nbPlace[0] == 0 && nbPlace[1] != 0){
+    		rep =  nbPlace[1] + " " + present(nbPlace[1]);
     	}
-    	if (nbBienPlace != 0 && nbMalPlace == 0){
-    		if (nbBienPlace == size){
+    	if (nbPlace[0] != 0 && nbPlace[1] == 0){
+    		if (nbPlace[0] == size){
     			rep = "Vous avez trouvé la combinaison. Vous avez gagné !!!";
     		} else {
-    			rep = nbBienPlace + " bien " + place(nbBienPlace);
+    			rep = nbPlace[0] + " bien " + place(nbPlace[0]);
     		}
     	}
-    	if (nbBienPlace !=0 && nbMalPlace != 0){
-    		rep = nbMalPlace + " " + present(nbMalPlace) + ", " + nbBienPlace + " bien " + place(nbBienPlace);
+    	if (nbPlace[0] !=0 && nbPlace[1] != 0){
+    		rep = nbPlace[1] + " " + present(nbPlace[1]) + ", " + nbPlace[0] + " bien " + place(nbPlace[0]);
     	}
     	return rep;
     }
@@ -296,5 +270,16 @@ public class Jeu {
     			}
     		}
     	}	
+    }
+    
+    public boolean nombreRecherche2 (int combi[], int propo) {
+
+        for (int i = 0 ; i < size ; i++) {
+        	if (combi[i] == propo) {
+        		combi[i] = -1;
+                return true;
+            } 
+        }
+        return false;
     }
 }
