@@ -8,7 +8,7 @@ public class ModeJeuMaster {
     	int[] propoH;
     	boolean verifR = false;
     	boolean verifV = true;
-    	int i = 1;
+    	int tour = 1;
     	    	
     	jeu.choixCombiOrdi("Combinaison secrète : ");
     	jeu.afficheCombi(jeu.getCombiS());
@@ -19,24 +19,11 @@ public class ModeJeuMaster {
     		propoH = jeu.choixCombiHumain("Proposition : ");
         	System.out.println(" -> Réponse : "+ jeu.reponse(jeu.getCombiS(), propoH));
         	verifR = jeu.verifPhraseReponse(jeu.reponse(jeu.getCombiS(), propoH));
-        	verifV = jeu.verifTour(i);
+        	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.println("Vous n'avez pas trouvé la combinaison.");
         	}
-        	i++;
+        	tour++;
     	}     
     }
-	
-	public void modeDefenseur() {
-		Jeu jeu = new Jeu();
-		int[] combiH;
-		
-		combiH = jeu.choixCombiHumain("Combinaison secrete :");
-		System.out.println();
-		System.out.println();
-		
-		propo
-		
-	}
-	
-}
+}	

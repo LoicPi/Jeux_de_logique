@@ -180,7 +180,7 @@ public class Jeu {
     	
     	for (int i = 0; i < size; i++){
     		if(!bienPlace[i]){
-    			malPlace[i] = nombreRecherche(combi, propo[i]);
+    			malPlace[i] = nombreRecherche(combi, propo[i], bienPlace);
     		}
     		else{
     			malPlace[i] = false;
@@ -189,12 +189,14 @@ public class Jeu {
     	return malPlace;
     }
 
-    public boolean nombreRecherche (int combi[], int propo) {
+    public boolean nombreRecherche (int combi[], int propo, boolean[] bienPlace) {
 
         for (int i = 0 ; i < size ; i++) {
-            if (combi[i] == propo) {
-                return true;
-            }
+        	if(!bienPlace[i]){
+        		if (combi[i] == propo) {
+                    return true;
+                }
+        	} 
         }
         return false;
     }
@@ -220,19 +222,35 @@ public class Jeu {
     		rep = "Aucun des nombres ne correspondent à la combinaison !";
     	}
     	if (nbBienPlace == 0 && nbMalPlace != 0){
-    		rep = "Vous avez " + nbMalPlace + "chiffre de mal placé.";    				
+    		rep =  nbMalPlace + " " + present(nbMalPlace);
     	}
     	if (nbBienPlace != 0 && nbMalPlace == 0){
     		if (nbBienPlace == size){
     			rep = "Vous avez trouvé la combinaison. Vous avez gagné !!!";
     		} else {
-    			rep = "Vous avez " + nbBienPlace + " chiffre bien placé.";
+    			rep = nbBienPlace + " bien " + place(nbBienPlace);
     		}
     	}
     	if (nbBienPlace !=0 && nbMalPlace != 0){
-    		rep = "Vous avez " + nbMalPlace + " chiffre mal placé et " + nbBienPlace + " chiffre bien placé.";
+    		rep = nbMalPlace + " " + present(nbMalPlace) + ", " + nbBienPlace + " bien " + place(nbBienPlace);
     	}
     	return rep;
+    }
+    
+    public String present (int nb){
+    	if (nb>1){
+    		return "présents";
+    	} else {
+    		return "présent";
+    	}
+    }
+    
+    public String place (int nb){
+    	if (nb>1){
+    		return "placés";
+    	} else {
+    		return "placé";
+    	}
     }
     
     public boolean verifPhraseReponse (String reponse){
