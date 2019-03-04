@@ -1,4 +1,5 @@
 package com.Projet3;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -55,14 +56,13 @@ public class Jeu {
     
     public void propoCombiOrdi (String [] tab, int[] com, String str){
     	
-    	Random rd = new Random();
     	propoO = new int[size];
     	
     	System.out.print(str);
     	
     	for (int i = 0; i < size; i++){
     		if(tab[i] == null){
-    			propoO[i] = 5;
+    			propoO[i] = 7;
     		}
     		if (tab[i] == "="){
     			propoO[i] = com[i];
@@ -242,5 +242,41 @@ public class Jeu {
     	}
     	return false;
     }
-
+    
+    public void propoCombiOrdi2 (String [] tab, int tour, String str, int[] com){
+    	
+    	propoO = new int[size];
+    	
+    	System.out.print(str);
+    	
+    	for (int i = 0; i < size; i++){
+    		if(tour == 1){
+    			propoO[i] = 7;
+    		}
+    		if (tab[i] == "="){
+    			propoO[i] = com[i];
+    		}
+    		if (tab[i] == "+"){
+    			switch(tour){
+    				case 2 : propoO[i] = com[i] + 1;
+    				break;
+    				case 3 : if (com[i] == 8){
+    							propoO[i] = com[i] + 1;
+    						} else {
+    							propoO[i] = 5;
+    						}
+    				break;
+    				case 4 : propoO[i] = com[i] + 1;
+    				break;
+    			}
+    		}
+    		if (tab[i] == "-"){
+    			if (tour == 2){
+    				propoO[i] = 2;
+    			} else {
+    				propoO[i] = com[i] -1;
+    			}
+    		}
+    	}	
+    }
 }
