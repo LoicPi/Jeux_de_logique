@@ -62,16 +62,16 @@ public class Jeu {
     	
     	for (int i = 0; i < size; i++){
     		if(tab[i] == null){
-    			propoO[i] = rd.nextInt(9);
+    			propoO[i] = 5;
     		}
     		if (tab[i] == "="){
     			propoO[i] = com[i];
     		}
     		if (tab[i] == "+"){
-    			propoO[i] = (rd.nextInt((9-com[i]))) + (com[i]+1);
+    			propoO[i] = com[i] + 2;
     		}
     		if (tab[i] == "-"){
-    			propoO[i] = (rd.nextInt((com[i]-1)));
+    			propoO[i] = com[i] - 1;
     		}
     	}	
     }
@@ -139,7 +139,7 @@ public class Jeu {
     	for (int i = 0; i < size; i++){
     		reponse = reponse + tab[i];
     	}
-    	System.out.print(reponse);
+    	System.out.println(reponse);
     }
     
     public boolean verifReponse (String[] tab){
@@ -160,5 +160,87 @@ public class Jeu {
     	return false;
     }
 
+    public boolean[] chBienPlace(int[] combi, int[] propo) {
+
+        boolean[] bienPlace = new boolean[size];
+        
+        for (int i = 0; i < size; i++){
+        	if (combi[i] == propo [i]) {
+            	bienPlace[i] = true;            	
+            } else {
+            	bienPlace[i] = false;
+            }
+        }
+        return bienPlace;      
+    }
+    
+    public boolean[] chMalPlace (int[] combi, int[] propo, boolean[] bienPlace){
+    	
+    	boolean [] malPlace = new boolean[size];
+    	
+    	for (int i = 0; i < size; i++){
+    		if(!bienPlace[i]){
+    			malPlace[i] = nombreRecherche(combi, propo[i]);
+    		}
+    		else{
+    			malPlace[i] = false;
+    		}
+    	}
+    	return malPlace;
+    }
+
+    public boolean nombreRecherche (int combi[], int propo) {
+
+        for (int i = 0 ; i < size ; i++) {
+            if (combi[i] == propo) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public String reponse (int[] combi, int[] propo){
+    	
+    	boolean[] bienPlace = chBienPlace(combi, propo);
+    	boolean[] malPlace = chMalPlace(combi, propo, bienPlace);
+    	int nbBienPlace = 0;
+    	int nbMalPlace = 0;
+    	String rep = "";
+    	
+    	for (int i = 0; i < size; i++){
+    		if (bienPlace[i]){
+    			nbBienPlace = nbBienPlace + 1;
+    		}
+    		if (malPlace[i]){
+    			nbMalPlace = nbMalPlace + 1;
+    		}
+    	}
+    	
+    	if (nbBienPlace == 0 && nbMalPlace == 0){
+    		rep = "Aucun des nombres ne correspondent à la combinaison !";
+    	}
+    	if (nbBienPlace == 0 && nbMalPlace != 0){
+    		rep = "Vous avez " + nbMalPlace + "chiffre de mal placé.";    				
+    	}
+    	if (nbBienPlace != 0 && nbMalPlace == 0){
+    		if (nbBienPlace == size){
+    			rep = "Vous avez trouvé la combinaison. Vous avez gagné !!!";
+    		} else {
+    			rep = "Vous avez " + nbBienPlace + " chiffre bien placé.";
+    		}
+    	}
+    	if (nbBienPlace !=0 && nbMalPlace != 0){
+    		rep = "Vous avez " + nbMalPlace + " chiffre mal placé et " + nbBienPlace + " chiffre bien placé.";
+    	}
+    	return rep;
+    }
+    
+    public boolean verifPhraseReponse (String reponse){
+    	
+    	if (reponse.equals("Vous avez trouvé la combinaison. Vous avez gagné !!!")){
+    		return true;
+    	}
+    	return false;
+    }
 
 }
