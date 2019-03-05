@@ -1,4 +1,6 @@
 package com.Projet3;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,7 +9,7 @@ public class Jeu {
 	int [] combiS;
 	int [] propoO;
 	int size = 4;
-	int nbreTour = 5;
+	int nbreTour = 10;
 	
 	public int[] getCombiS() {
 		return combiS;
@@ -182,7 +184,7 @@ public class Jeu {
     	int[] propoPrim = new int[size];
     	int nbBienPlace = 0;
     	int nbMalPlace = 0;
-    	int nbPlace [] = {nbBienPlace, nbMalPlace};
+    	int nbPlace [] = new int[2];
     	
     	for (int i = 0; i < size; i++){
     		if (combi[i] == propo[i]){
@@ -199,8 +201,10 @@ public class Jeu {
     		if (nombreRecherche (combiPrim, propoPrim[i])){
     			nbMalPlace = nbMalPlace + 1;    			
     		}
-    		
        	}
+    	
+    	nbPlace[0] = nbBienPlace;
+    	nbPlace[1] = nbMalPlace;
     	
     	return nbPlace;
     }
@@ -268,31 +272,44 @@ public class Jeu {
     	return false;
     }
   
-    public void propoOrdiMaster (int [] propo, int [] nbPlace, String str, int tour){
+    public void propoOrdiMaster (int [] propo, int [] nbPlace, int [] combi, String str, int tour){
     	
     	Random rd = new Random();
     	propoO = new int[size];
+    	ArrayList<Integer> rot = new ArrayList<Integer>();
+    	ArrayList<Integer> tro = new ArrayList<Integer>();
     	
     	System.out.print(str);
     	
-    	for (int i = 0; i < size; i++){
-    		
-    		if (nbPlace[0] == 0)
-    			if (nbPlace[1] == 0){
-    				if (tour == 1){
-    					propoO[i] = rd.nextInt(9);
-    				} else {
-    					do {
-    						propoO[i] = rd.nextInt(9);
-    					} while (doublonNombre(propo, propo[i]));
-    				}
-    			}
-    			if (nbPlace[1] == size){
-    				propoO[0] = propo[size -1];
-    				propoO[i+1] = propo[i];
+    	if (tour == 1){
+    		for (int i = 0; i < size; i++){
+    			propoO[i] = rd.nextInt(9);
     		}
-    		
-    		
+		}
+		else {
+			for (int i = 0; i < size; i++){
+				if (nbPlace[1] != 0){
+					if (propo[i] != combi[i]) {
+						rot.add(propo [i]);
+					}	
+				tro = rotation(rot);
+				propoO = creationPropoOrdi(tro, combi, propo);
+				} else {
+					if (nbPlace[0] != 0){
+						if(propo[i] == combi[i]){
+							propoO[i] = propo[i];
+						} else {
+							do{
+								propoO[i] = rd.nextInt(9);
+							}while (propoO[i] != propo[i]);
+						}
+					} else {
+						do{
+							propoO[i] = rd.nextInt(9);
+						}while (propoO[i] != propo[i]);
+					}
+				}
+			}
     	}
     }
     
@@ -304,5 +321,33 @@ public class Jeu {
             } 
         }
         return false;
+    }
+    
+    public ArrayList<Integer> rotation (ArrayList<Integer> rot){
+    	
+    	ArrayList<Integer> rotPrim = new ArrayList<Integer>();
+    	
+    	for (int i = (rot.size()-1); i >= 0; i--){
+    		rotPrim.add(rot.get(i));
+    	}
+    	    	
+    	return rotPrim;	
+    }
+    
+    public int [] creationPropoOrdi (ArrayList<Integer> al, int[]combi, int[] propo){
+    	
+    	int[] creationPropo = new int[size];
+    	
+    	for (int i = 0; i < size; i++){
+    		if (combi[i] == propo[i]){
+    			al.add(i, propo[i]);
+    		}		
+    	}
+    	
+    	for (int i = 0; i < size; i++){
+    		creationPropo[i] = al.get(i);
+    	}
+    	
+    	return creationPropo;
     }
 }
