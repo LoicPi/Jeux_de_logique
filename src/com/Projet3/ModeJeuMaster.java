@@ -25,7 +25,7 @@ public class ModeJeuMaster {
         	verifR = jeu.verifPhraseReponse(reponse);
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
-        		System.out.println("Vous n'avez pas trouvé la combinaison.");
+        		System.out.println("Vous n'avez pas trouvé la combinaison dans le temps imparti.");
         	}
         	tour++;
     	}     

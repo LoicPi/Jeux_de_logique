@@ -8,6 +8,8 @@ public class Jeu {
 	int [] combiS;
 	int [] propoO;
 	int size = 4;
+	int nbreTour = 5;
+	
 	public int[] getCombiS() {
 		return combiS;
 	}
@@ -39,8 +41,6 @@ public class Jeu {
 	public void setNbreTour(int nbreTour) {
 		this.nbreTour = nbreTour;
 	}
-
-	int nbreTour = 5;
 
     public  void choixCombiOrdi (String str){
 
@@ -166,6 +166,7 @@ public class Jeu {
     	int[] propoPrim = new int[size];
     	int nbBienPlace = 0;
     	int nbMalPlace = 0;
+    	int nbPlace [] = {nbBienPlace, nbMalPlace};
     	
     	for (int i = 0; i < size; i++){
     		if (combi[i] == propo[i]){
@@ -179,25 +180,37 @@ public class Jeu {
     	}
     	
     	for (int i = 0; i < size; i++){
-    		if (nombreRecherche2 (combiPrim, propoPrim[i])){
+    		if (nombreRecherche (combiPrim, propoPrim[i])){
     			nbMalPlace = nbMalPlace + 1;    			
     		}
     		
        	}
     	
-    	int nbPlace [] = {nbBienPlace, nbMalPlace};
-    	
     	return nbPlace;
-    }	
+    }
+    
+    public boolean nombreRecherche (int combi[], int propo) {
+
+        for (int i = 0 ; i < size ; i++) {
+        	if (combi[i] == propo) {
+        		combi[i] = -1;
+                return true;
+            } 
+        }
+        return false;
+    }
     	
     public String reponse (int [] nbPlace){
     	String rep = "";
+    	
     	if (nbPlace[0] == 0 && nbPlace[1] == 0){
     		rep = "Aucun des nombres ne correspondent à la combinaison !";
     	}
+    	
     	if (nbPlace[0] == 0 && nbPlace[1] != 0){
     		rep =  nbPlace[1] + " " + present(nbPlace[1]);
     	}
+    	
     	if (nbPlace[0] != 0 && nbPlace[1] == 0){
     		if (nbPlace[0] == size){
     			rep = "Vous avez trouvé la combinaison. Vous avez gagné !!!";
@@ -205,13 +218,16 @@ public class Jeu {
     			rep = nbPlace[0] + " bien " + place(nbPlace[0]);
     		}
     	}
+    	
     	if (nbPlace[0] !=0 && nbPlace[1] != 0){
     		rep = nbPlace[1] + " " + present(nbPlace[1]) + ", " + nbPlace[0] + " bien " + place(nbPlace[0]);
     	}
+    	
     	return rep;
     }
     
     public String present (int nb){
+    	
     	if (nb>1){
     		return "présents";
     	} else {
@@ -220,6 +236,7 @@ public class Jeu {
     }
     
     public String place (int nb){
+    	
     	if (nb>1){
     		return "placés";
     	} else {
@@ -270,16 +287,5 @@ public class Jeu {
     			}
     		}
     	}	
-    }
-    
-    public boolean nombreRecherche2 (int combi[], int propo) {
-
-        for (int i = 0 ; i < size ; i++) {
-        	if (combi[i] == propo) {
-        		combi[i] = -1;
-                return true;
-            } 
-        }
-        return false;
     }
 }
