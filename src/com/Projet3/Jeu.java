@@ -1,5 +1,4 @@
 package com.Projet3;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -42,7 +41,7 @@ public class Jeu {
 		this.nbreTour = nbreTour;
 	}
 
-    public  void choixCombiOrdi (String str){
+    public  void combiOrdi (String str){
 
         Random rd = new Random();
 
@@ -54,24 +53,39 @@ public class Jeu {
         }
     }
     
-    public void propoCombiOrdi (String [] tab, int[] com, String str){
+    public void propoOrdi (String [] tab, int tour, String str, int[] com){
     	
     	propoO = new int[size];
     	
     	System.out.print(str);
     	
     	for (int i = 0; i < size; i++){
-    		if(tab[i] == null){
+    		if(tour == 1){
     			propoO[i] = 7;
     		}
     		if (tab[i] == "="){
     			propoO[i] = com[i];
     		}
     		if (tab[i] == "+"){
-    			propoO[i] = com[i] + 2;
+    			switch(tour){
+    				case 2 : propoO[i] = com[i] + 1;
+    				break;
+    				case 3 : if (com[i] == 8){
+    							propoO[i] = com[i] + 1;
+    						} else {
+    							propoO[i] = 5;
+    						}
+    				break;
+    				case 4 : propoO[i] = com[i] + 1;
+    				break;
+    			}
     		}
     		if (tab[i] == "-"){
-    			propoO[i] = com[i] - 1;
+    			if (tour == 2){
+    				propoO[i] = 2;
+    			} else {
+    				propoO[i] = com[i] -1;
+    			}
     		}
     	}	
     }
@@ -86,7 +100,7 @@ public class Jeu {
     	System.out.print(tbStr);
     }
 
-    public int [] choixCombiHumain (String str) {
+    public int [] combiHumain (String str) {
     	  	
         Scanner sc = new Scanner(System.in);
         boolean testCombi = false;
@@ -97,7 +111,10 @@ public class Jeu {
         	testCombi = sc.hasNextInt();
         	if (testCombi) {
         		combi = sc.nextLine();
-        		testCombi = true;
+        		if (combi.length() != size){
+        			System.out.println("Merci de proposer une combinaison de taille " + size +".");
+                    testCombi = false;
+        		}
         	}else {
         		System.out.println("La combinaison n'est pas bonne, merci de rentrer un entier.");
         		sc.nextLine();
@@ -109,9 +126,8 @@ public class Jeu {
         for(int i = 0; i < size; i++){
         	combiH[i] = Character.digit(combi.charAt(i), 10);
         }
-        
+        sc.close();
         return combiH;
-
     }
     
     public String [] compareProposition(int[] combi, int[] propo){
@@ -244,48 +260,49 @@ public class Jeu {
     	}
     }
     
-    public boolean verifPhraseReponse (String reponse){
+    public boolean verifNombreBienPlace (int [] nbPlace){
     	
-    	if (reponse.equals("Vous avez trouvé la combinaison. Vous avez gagné !!!")){
+    	if (nbPlace[0] == size) {
     		return true;
     	}
     	return false;
     }
-    
-    public void propoCombiOrdi2 (String [] tab, int tour, String str, int[] com){
+  
+    public void propoOrdiMaster (int [] propo, int [] nbPlace, String str, int tour){
     	
+    	Random rd = new Random();
     	propoO = new int[size];
     	
     	System.out.print(str);
     	
     	for (int i = 0; i < size; i++){
-    		if(tour == 1){
-    			propoO[i] = 7;
-    		}
-    		if (tab[i] == "="){
-    			propoO[i] = com[i];
-    		}
-    		if (tab[i] == "+"){
-    			switch(tour){
-    				case 2 : propoO[i] = com[i] + 1;
-    				break;
-    				case 3 : if (com[i] == 8){
-    							propoO[i] = com[i] + 1;
-    						} else {
-    							propoO[i] = 5;
-    						}
-    				break;
-    				case 4 : propoO[i] = com[i] + 1;
-    				break;
+    		
+    		if (nbPlace[0] == 0)
+    			if (nbPlace[1] == 0){
+    				if (tour == 1){
+    					propoO[i] = rd.nextInt(9);
+    				} else {
+    					do {
+    						propoO[i] = rd.nextInt(9);
+    					} while (doublonNombre(propo, propo[i]));
+    				}
     			}
+    			if (nbPlace[1] == size){
+    				propoO[0] = propo[size -1];
+    				propoO[i+1] = propo[i];
     		}
-    		if (tab[i] == "-"){
-    			if (tour == 2){
-    				propoO[i] = 2;
-    			} else {
-    				propoO[i] = com[i] -1;
-    			}
-    		}
-    	}	
+    		
+    		
+    	}
+    }
+    
+    public boolean doublonNombre (int combi[], int propo) {
+
+        for (int i = 0 ; i < size ; i++) {
+        	if (combi[i] == propo) {
+                return true;
+            } 
+        }
+        return false;
     }
 }

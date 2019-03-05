@@ -9,15 +9,15 @@ public class ModeJeuRech {
     	int[] propoH;
     	boolean verifR = false;
     	boolean verifV = true;
-    	int i = 1;
+    	int tour = 1;
     	    	
-    	jeu.choixCombiOrdi("Combinaison secrète : ");
+    	jeu.combiOrdi("Combinaison secrète : ");
     	jeu.afficheCombi(jeu.getCombiS());
     	System.out.println();
     	System.out.println();
     	
     	while (!verifR && verifV){
-    		propoH = jeu.choixCombiHumain("Proposition : ");
+    		propoH = jeu.combiHumain("Proposition : ");
         	System.out.print(" -> Réponse : ");
         	reponse = jeu.compareProposition(jeu.getCombiS(), propoH);
         	jeu.afficheReponse(reponse);
@@ -25,11 +25,11 @@ public class ModeJeuRech {
         	if (verifR == true){
         		System.out.println("Vous avez trouvé la combinaison.");
         	}
-        	verifV = jeu.verifTour(i);
+        	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.println("Vous n'avez pas trouvé la combinaison.");
         	}
-        	i++;
+        	tour++;
     	}     
     }
     
@@ -42,12 +42,12 @@ public class ModeJeuRech {
     	boolean verifV = true;
     	int tour = 1;
     	
-    	combiH = jeu.choixCombiHumain("Combinaison secrète : ");
+    	combiH = jeu.combiHumain("Combinaison secrète : ");
     	System.out.println();
     	System.out.println();
     	
     	while (!verifR && verifV){
-    		jeu.propoCombiOrdi2(reponse, tour, "Proposition : ", jeu.getPropoO());
+    		jeu.propoOrdi(reponse, tour, "Proposition : ", jeu.getPropoO());
     		jeu.afficheCombi(jeu.getPropoO());
         	System.out.print(" -> Réponse : ");
         	reponse = jeu.compareProposition(combiH, jeu.getPropoO());
@@ -74,21 +74,21 @@ public class ModeJeuRech {
     	boolean verifH = false;
     	boolean verifO = false;
     	boolean verifV = true;
-    	int i = 1;
+    	int tour = 1;
     	
-    	combiH = jeu.choixCombiHumain("Combinaison secrète : ");
-    	jeu.choixCombiOrdi("Combinaison secrète : ");
+    	combiH = jeu.combiHumain("Combinaison secrète : ");
+    	jeu.combiOrdi("Combinaison secrète : ");
     	jeu.afficheCombi(jeu.getCombiS());
     	System.out.println();
     	System.out.println();
     	
     	while (!verifH && !verifO && verifV){
     		
-    		propoH = jeu.choixCombiHumain("Proposition : ");
+    		propoH = jeu.combiHumain("Proposition : ");
         	System.out.print(" -> Réponse : ");
         	reponseH = jeu.compareProposition(jeu.getCombiS(), propoH);
         	jeu.afficheReponse(reponseH);
-    		jeu.propoCombiOrdi(reponseO, jeu.getPropoO(), "Proposition Ordi : ");
+    		jeu.propoOrdi(reponseO,tour, "Proposition Ordi : ", jeu.getPropoO());
     		jeu.afficheCombi(jeu.getPropoO());
         	System.out.print(" -> Réponse : ");
         	reponseO = jeu.compareProposition(combiH, jeu.getPropoO());
@@ -104,11 +104,11 @@ public class ModeJeuRech {
         	if (verifH == true && verifO == false){
         		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
         	}
-        	verifV = jeu.verifTour(i);
+        	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.println("Match nul. La combinaison n'a pas été trouvé dans le temps imparti.");
         	}
-        	i++;
+        	tour++;
     	}
     }
 

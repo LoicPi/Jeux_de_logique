@@ -12,17 +12,17 @@ public class ModeJeuMaster {
     	boolean verifV = true;
     	int tour = 1;
     	    	
-    	jeu.choixCombiOrdi("Combinaison secrète : ");
+    	jeu.combiOrdi("Combinaison secrète : ");
     	jeu.afficheCombi(jeu.getCombiS());
     	System.out.println();
     	System.out.println();
     	
     	while (!verifR && verifV){
-    		propoH = jeu.choixCombiHumain("Proposition : ");
+    		propoH = jeu.combiHumain("Proposition : ");
     		infoPlace = jeu.nombrePlacement(jeu.getCombiS(), propoH);
     		reponse = jeu.reponse(infoPlace);
         	System.out.println(" -> Réponse : " + reponse);
-        	verifR = jeu.verifPhraseReponse(reponse);
+        	verifR = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiS(), propoH));
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.println("Vous n'avez pas trouvé la combinaison dans le temps imparti.");
