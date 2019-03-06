@@ -89,14 +89,15 @@ public class CreationJeu {
     	}	
     }
     
-    public void afficheCombi(int str[]){
+    public String afficheCombi(int str[]){
     	
     	String tbStr = "";
     	
     	for (int i = 0; i < size; i++){
     		tbStr = tbStr + str[i];
     	}
-    	System.out.println(tbStr);
+    	
+    	return tbStr;
     }
 
     public int [] combiHumain (String str) {

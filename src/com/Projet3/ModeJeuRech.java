@@ -25,11 +25,13 @@ public class ModeJeuRech {
         	verifR = jeu.verifReponse(reponse);
         	if (verifR == true){
         		System.out.println("Vous avez trouvé la combinaison.");
+        		rejouer();
         	}
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Vous n'avez pas trouvé la combinaison. Celle-ci était : ");
-        		jeu.afficheCombi(jeu.getCombiS());
+        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		rejouer();
         	}
         	tour++;
     	}     
@@ -50,17 +52,19 @@ public class ModeJeuRech {
     	
     	while (!verifR && verifV){
     		jeu.propoOrdi(reponse, tour, "Proposition : ", jeu.getPropoO());
-    		jeu.afficheCombi(jeu.getPropoO());
+    		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
         	System.out.print(" -> Réponse : ");
         	reponse = jeu.compareProposition(combiH, jeu.getPropoO());
         	jeu.afficheReponse(reponse);
         	verifR = jeu.verifReponse(reponse);
         	if (verifR == true){
         		System.out.println("L'ordinateur a trouvé votre combinaison.");
+        		rejouer();
         	}
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.println("L'ordinateur n'a pas trouvé votre combinaison dans le temps imparti.");
+        		rejouer();
         	}
         	tour ++;
     	}     	
@@ -91,7 +95,7 @@ public class ModeJeuRech {
         	reponseH = jeu.compareProposition(jeu.getCombiS(), propoH);
         	jeu.afficheReponse(reponseH);
     		jeu.propoOrdi(reponseO,tour, "Proposition Ordi : ", jeu.getPropoO());
-    		jeu.afficheCombi(jeu.getPropoO());
+    		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
         	System.out.print(" -> Réponse : ");
         	reponseO = jeu.compareProposition(combiH, jeu.getPropoO());
         	jeu.afficheReponse(reponseO);
@@ -99,18 +103,22 @@ public class ModeJeuRech {
         	verifO = jeu.verifReponse(reponseO);
         	if (verifH == true && verifO == false){
         		System.out.println("Vous avez trouvé la combinaison de l'ordinateur.");
+        		rejouer();
         	}
         	if (verifH == false && verifO == true){
         		System.out.print("L'ordinateur a trouvé votre combinaison. La combinaison de l'ordinateur était : ");
-        		jeu.afficheCombi(jeu.getCombiS());
+        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		rejouer();
         	}
         	if (verifH == true && verifO == true){
         		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
+        		rejouer();
         	}
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Match nul. Les combinaison n'ont pas été trouvé dans le temps imparti. La combinaison de l'ordinateur était : ");
-        		jeu.afficheCombi(jeu.getCombiS());
+        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		rejouer();
         	}
         	tour++;
     	}
@@ -123,6 +131,7 @@ public void rejouer (){
 		int choixRejouer = 0;
 		Jeu rejouer = new Jeu();
 		
+		System.out.println();
 		System.out.println("Que voulez vous faire ?");
 		System.out.println("	1 - Rejouer au même jeu");
 		System.out.println("	2 - Revenir au menu principal");
