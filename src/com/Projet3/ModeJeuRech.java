@@ -101,7 +101,7 @@ public class ModeJeuRech {
         	if (verifH == false && verifO == true){
         		System.out.println("L'ordinateur a trouvé votre combinaison. L'ordinateur a été plus rapide que vous.");
         	}
-        	if (verifH == true && verifO == false){
+        	if (verifH == true && verifO == true){
         		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
         	}
         	verifV = jeu.verifTour(tour);

@@ -1,6 +1,6 @@
 package com.Projet3;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -232,11 +232,7 @@ public class Jeu {
     	}
     	
     	if (nbPlace[0] != 0 && nbPlace[1] == 0){
-    		if (nbPlace[0] == size){
-    			rep = "Vous avez trouvé la combinaison. Vous avez gagné !!!";
-    		} else {
-    			rep = nbPlace[0] + " bien " + place(nbPlace[0]);
-    		}
+    		rep = nbPlace[0] + " bien " + place(nbPlace[0]);
     	}
     	
     	if (nbPlace[0] !=0 && nbPlace[1] != 0){
@@ -287,30 +283,32 @@ public class Jeu {
     		}
 		}
 		else {
-			for (int i = 0; i < size; i++){
-				if (nbPlace[1] != 0){
+			if (nbPlace[1] != 0){
+				for (int i = 0; i < size; i++){
 					if (propo[i] != combi[i]) {
 						rot.add(propo [i]);
-					}	
-				tro = rotation(rot);
-				propoO = creationPropoOrdi(tro, combi, propo);
-				} else {
+					}
+				}
+			tro = rotation(rot);
+			propoO = creationPropoOrdi(tro, combi, propo);
+			} else {
+				for (int i = 0; i < size; i++){
 					if (nbPlace[0] != 0){
 						if(propo[i] == combi[i]){
 							propoO[i] = propo[i];
 						} else {
 							do{
 								propoO[i] = rd.nextInt(9);
-							}while (propoO[i] != propo[i]);
+							}while (propoO[i] == propo[i]);
 						}
 					} else {
 						do{
 							propoO[i] = rd.nextInt(9);
-						}while (propoO[i] != propo[i]);
+						}while (propoO[i] == propo[i]);
 					}
 				}
 			}
-    	}
+		}
     }
     
     public boolean doublonNombre (int combi[], int propo) {
@@ -325,27 +323,28 @@ public class Jeu {
     
     public ArrayList<Integer> rotation (ArrayList<Integer> rot){
     	
-    	ArrayList<Integer> rotPrim = new ArrayList<Integer>();
+    	int temp = rot.get(rot.size()-1);
     	
-    	for (int i = (rot.size()-1); i >= 0; i--){
-    		rotPrim.add(rot.get(i));
+    	for (int i = (rot.size()-1); i > 0; i--){
+    		rot.set(i,rot.get(i-1));
     	}
-    	    	
-    	return rotPrim;	
+    	rot.set(0, temp);
+    	
+    	return rot;	
     }
     
-    public int [] creationPropoOrdi (ArrayList<Integer> al, int[]combi, int[] propo){
+    public int [] creationPropoOrdi (ArrayList<Integer> rot, int[]combi, int[] propo){
     	
     	int[] creationPropo = new int[size];
     	
     	for (int i = 0; i < size; i++){
     		if (combi[i] == propo[i]){
-    			al.add(i, propo[i]);
+    			rot.add(i, propo[i]);
     		}		
     	}
     	
     	for (int i = 0; i < size; i++){
-    		creationPropo[i] = al.get(i);
+    		creationPropo[i] = rot.get(i);
     	}
     	
     	return creationPropo;
