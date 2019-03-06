@@ -6,7 +6,7 @@ public class Main {
 		// TODO Auto-generated method stub
 
 		ModeJeuMaster jeu = new ModeJeuMaster();
-		jeu.modeDefenseur();
+		jeu.modeAttaquant();
 	}
 
 }

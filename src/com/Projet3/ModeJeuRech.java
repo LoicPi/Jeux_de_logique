@@ -11,8 +11,7 @@ public class ModeJeuRech {
     	boolean verifV = true;
     	int tour = 1;
     	    	
-    	jeu.combiOrdi("Combinaison secrète : ");
-    	jeu.afficheCombi(jeu.getCombiS());
+    	jeu.combiOrdi();
     	System.out.println();
     	System.out.println();
     	
@@ -27,7 +26,8 @@ public class ModeJeuRech {
         	}
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
-        		System.out.println("Vous n'avez pas trouvé la combinaison.");
+        		System.out.print("Vous n'avez pas trouvé la combinaison. Celle-ci était : ");
+        		jeu.afficheCombi(jeu.getCombiS());
         	}
         	tour++;
     	}     
@@ -77,8 +77,8 @@ public class ModeJeuRech {
     	int tour = 1;
     	
     	combiH = jeu.combiHumain("Combinaison secrète : ");
-    	jeu.combiOrdi("Combinaison secrète : ");
-    	jeu.afficheCombi(jeu.getCombiS());
+    	jeu.combiOrdi();
+    	
     	System.out.println();
     	System.out.println();
     	
@@ -96,17 +96,19 @@ public class ModeJeuRech {
         	verifH = jeu.verifReponse(reponseH);
         	verifO = jeu.verifReponse(reponseO);
         	if (verifH == true && verifO == false){
-        		System.out.println("Vous avez trouvé la combinaison de l'ordinateur. Vous êtes plus rapide que la machine.");
+        		System.out.println("Vous avez trouvé la combinaison de l'ordinateur.");
         	}
         	if (verifH == false && verifO == true){
-        		System.out.println("L'ordinateur a trouvé votre combinaison. L'ordinateur a été plus rapide que vous.");
+        		System.out.print("L'ordinateur a trouvé votre combinaison. La combinaison de l'ordinateur était : ");
+        		jeu.afficheCombi(jeu.getCombiS());
         	}
         	if (verifH == true && verifO == true){
         		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
         	}
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
-        		System.out.println("Match nul. La combinaison n'a pas été trouvé dans le temps imparti.");
+        		System.out.print("Match nul. Les combinaison n'ont pas été trouvé dans le temps imparti. La combinaison de l'ordinateur était : ");
+        		jeu.afficheCombi(jeu.getCombiS());
         	}
         	tour++;
     	}

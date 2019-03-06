@@ -43,11 +43,9 @@ public class Jeu {
 		this.nbreTour = nbreTour;
 	}
 
-    public  void combiOrdi (String str){
+    public  void combiOrdi (){
 
         Random rd = new Random();
-
-        System.out.print(str);
         
         combiS = new int[size];
         for (int i = 0; i < size; i++) {
@@ -99,7 +97,7 @@ public class Jeu {
     	for (int i = 0; i < size; i++){
     		tbStr = tbStr + str[i];
     	}
-    	System.out.print(tbStr);
+    	System.out.println(tbStr);
     }
 
     public int [] combiHumain (String str) {
@@ -128,7 +126,6 @@ public class Jeu {
         for(int i = 0; i < size; i++){
         	combiH[i] = Character.digit(combi.charAt(i), 10);
         }
-        sc.close();
         return combiH;
     }
     
