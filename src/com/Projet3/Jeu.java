@@ -2,10 +2,27 @@ package com.Projet3;
 
 import java.util.Scanner;
 
-public class Jeu {
+/**
+ * Jeu est une classe contenant toutes les méthodes de présentation des jeux et permettant d'effectuer son choix
+ * Chacune des méthodes va faire appel aux méthodes contenu dans les classes ModeJeuRech et ModeJeuMaster.
+ * @see Classe ModeJeuRech
+ * @see Classe ModeJeuMaster
+ * 
+ * @author Loïc
+ * @version 1.0
+ */
 
+public class Jeu {
+	
+	/**
+	 * Paramètre d'entrée des choix de la personne
+	 */
 	Scanner sc = new Scanner(System.in);
 	
+	/**
+	 * Menu principal du jeu
+	 * On va faire ici le choix du jeu et va nous emmener dans les méthodes de présentations de Recherche +/- ou Mastermind
+	 */
 	public void presentationJeu (){
 	
 		int choixJeu = 0;
@@ -47,6 +64,13 @@ public class Jeu {
 		}
 	}
 	
+	/**
+	 * Menu du jeu Recherche +/-
+	 * Va permettre de faire le choix entre les différents modes et va emmener dans la classe ModeJeuRech pour utiliser la bonne méthode selon le choix fait
+	 * 
+	 * @see Classe ModeJeuRech
+	 * 		Pour utilisation des méthodes après le choix effectué
+	 */	
 	public void presentationRecherche(){
 		
         int choixMode = 0;
@@ -57,9 +81,9 @@ public class Jeu {
         System.out.println();
         System.out.println("Le but du jeu est de retrouver la combinaison secrète en un nombre de tour prédéfini.");
         System.out.println("Pour cela des indications +, -, = seront données sur chacun des chiffres proposés.");
-        System.out.println("Si le chiffre proposé est plus petit alors il sera indiqué par un +.");
-        System.out.println("Si le chiffre proposé est plus grand alors il sera indiqué par un -.");
-        System.out.println("Si le chiffre proposé est plus petit alors il sera indiqué par un =.");
+        System.out.println("Si le chiffre cherché est plus petit que celui proposé alors il sera indiqué par un +.");
+        System.out.println("Si le chiffre cherché est plus grand que celui proposé alors il sera indiqué par un -.");
+        System.out.println("Si le chiffre cherché est correct alors il sera indiqué par un =.");
         System.out.println();
         System.out.println("3 modes de jeu s'offre à vous : ");
         System.out.println("    1 - Mode Challenger : Trouverez vous la combinaison secrète de l'ordinateur ?");
@@ -105,6 +129,13 @@ public class Jeu {
         }
     }
 	
+	/**
+	 * Menu du jeu Mastermind
+	 * Va permettre de faire le choix entre les différents modes et va emmener dans la classe ModeJeuMaster pour utiliser la bonne méthode selon le choix fait
+	 * 
+	 * @see Classe ModeJeuMaster
+	 * 		Pour utilisation des méthodes après le choix effectué
+	 */
 	public void presentationMastermind(){
 		
 		int choixMode = 0;

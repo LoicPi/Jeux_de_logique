@@ -2,8 +2,24 @@ package com.Projet3;
 
 import java.util.Scanner;
 
-public class ModeJeuMaster {
+/**
+ * ModeJeuMaster est une classe contenant toutes les méthodes des différents modes contenu dans le jeu Mastermind
+ * Chacune des méthodes va faire appel aux méthodes contenu dans la classe CreationJeu.
+ * @see Classe CreationJeu
+ * @see Classe Jeu
+ * 
+ * @author Loïc
+ * @version 1.0
+ */
 
+public class ModeJeuMaster {
+	
+	/**
+	 * Cette méthode crée le mode Challenger permettant à une personne de trouver la combinaison de l'ordinateur
+	 * 
+	 * @see Classe CreationJeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 */
 	public void modeChallenger() {
 
     	CreationJeu jeu = new CreationJeu();
@@ -18,10 +34,10 @@ public class ModeJeuMaster {
     	
     	while (!verifR && verifV){
     		propoH = jeu.combiHumain("Proposition : ");
-    		infoPlace = jeu.nombrePlacement(jeu.getCombiS(), propoH);
+    		infoPlace = jeu.nombrePlacement(jeu.getCombiO(), propoH);
     		reponse = jeu.reponse(infoPlace);
         	System.out.println(" -> Réponse : " + reponse);
-        	verifR = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiS(), propoH));
+        	verifR = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiO(), propoH));
         	if (verifR){
         		System.out.println("Vous avez trouvé la combinaison.");
         		rejouer ();
@@ -29,13 +45,19 @@ public class ModeJeuMaster {
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Vous n'avez pas trouvé la combinaison dans le temps imparti. Celle-ci était : "); 
-        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer ();
         	}
         	tour++;
     	}     
     }
 	
+	/**
+	 * Cette méthode crée le mode Defenseur permettant à l'ordinateur de trouver votre combinaison
+	 * 
+	 * @see Classe CreationJeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 */
 	public void modeDefenseur () {
 		
 		CreationJeu jeu = new CreationJeu();
@@ -70,6 +92,12 @@ public class ModeJeuMaster {
     	}		
 	}
 	
+	/**
+	 * Cette méthode crée le mode Duel permettant à une personne de se confronter à l'ordinateur
+	 * 
+	 * @see Classe CreationJeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 */
 	public void modeDuel () {
 		
 		CreationJeu jeu = new CreationJeu();
@@ -92,7 +120,7 @@ public class ModeJeuMaster {
     	while (!verifH && !verifO && verifV){
     		
     		propoH = jeu.combiHumain("Proposition : ");
-    		infoPlaceH = jeu.nombrePlacement(jeu.getCombiS(), propoH);
+    		infoPlaceH = jeu.nombrePlacement(jeu.getCombiO(), propoH);
     		reponseH = jeu.reponse(infoPlaceH);
         	System.out.println(" -> Réponse : " + reponseH);
         	jeu.propoOrdiMaster(jeu.getPropoO(), infoPlaceO, combiH, "Proposition : ", tour);
@@ -100,14 +128,14 @@ public class ModeJeuMaster {
     		infoPlaceO = jeu.nombrePlacement(combiH, jeu.getPropoO());
     		reponseO = jeu.reponse(infoPlaceO);
         	System.out.println(" -> Réponse : " + reponseO);
-        	verifH = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiS(), propoH));
+        	verifH = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiO(), propoH));
         	if (verifH == true && verifO == false){
         		System.out.println("Vous avez trouvé la combinaison de l'ordinateur. Vous êtes plus rapide que la machine.");
         		rejouer ();
         	}
         	if (verifH == false && verifO == true){
         		System.out.print("L'ordinateur a trouvé votre combinaison. Sa combinaison était : ");
-        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer ();
         	}
         	if (verifH == true && verifO == true){
@@ -117,13 +145,19 @@ public class ModeJeuMaster {
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Match nul. La combinaison n'a pas été trouvé dans le temps imparti.La combinaison de l'ordinateur était :");
-        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer ();
         	}
         	tour++;
     	}
 	}
 	
+	/**
+	 * Cette méthode permet de questionner sur le choix de la personne à la fin d'un jeu
+	 * 
+	 * @see Classe Jeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci car elle renvoi vers les différents jeux
+	 */
 	public void rejouer (){
 		
 		Scanner sc = new Scanner(System.in);
@@ -154,8 +188,10 @@ public class ModeJeuMaster {
 		
 		switch(choixRejouer){
 			case 1 :
+				System.out.println();
 				rejouer.presentationMastermind();
 			case 2 :
+				System.out.println();
 				rejouer.presentationJeu();
 			case 3 :
 				System.exit(0);

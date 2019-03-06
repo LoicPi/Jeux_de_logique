@@ -2,8 +2,24 @@ package com.Projet3;
 
 import java.util.Scanner;
 
+/**
+ * ModeJeuRech est une classe contenant toutes les méthodes des différents modes contenu dans le jeu Recherche+/-
+ * Chacune des méthodes va faire appel aux méthodes contenu dans la classe CreationJeu.
+ * @see Classe CreationJeu
+ * @see Classe Jeu
+ * 
+ * @author Loïc
+ * @version 1.0
+ */
+
 public class ModeJeuRech {
 	
+	/**
+	 * Cette méthode crée le mode Challenger permettant à une personne de trouver la combinaison de l'ordinateur
+	 * 
+	 * @see Classe CreationJeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 */
     public void modeChallenger() {
 
     	CreationJeu jeu = new CreationJeu();
@@ -14,13 +30,11 @@ public class ModeJeuRech {
     	int tour = 1;
     	    	
     	jeu.combiOrdi();
-    	System.out.println();
-    	System.out.println();
     	
     	while (!verifR && verifV){
     		propoH = jeu.combiHumain("Proposition : ");
         	System.out.print(" -> Réponse : ");
-        	reponse = jeu.compareProposition(jeu.getCombiS(), propoH);
+        	reponse = jeu.compareProposition(jeu.getCombiO(), propoH);
         	jeu.afficheReponse(reponse);
         	verifR = jeu.verifReponse(reponse);
         	if (verifR == true){
@@ -30,13 +44,19 @@ public class ModeJeuRech {
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Vous n'avez pas trouvé la combinaison. Celle-ci était : ");
-        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer();
         	}
         	tour++;
     	}     
     }
     
+    /**
+	 * Cette méthode crée le mode Defenseur permettant à l'ordinateur de trouver votre combinaison
+	 * 
+	 * @see Classe CreationJeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 */
     public void modeDefenseur(){
     	
     	CreationJeu jeu = new CreationJeu();
@@ -70,6 +90,12 @@ public class ModeJeuRech {
     	}     	
     }
     
+    /**
+	 * Cette méthode crée le mode Duel permettant à une personne de se confronter à l'ordinateur
+	 * 
+	 * @see Classe CreationJeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 */
     public void modeDuel(){
     	
     	CreationJeu jeu = new CreationJeu();
@@ -84,7 +110,6 @@ public class ModeJeuRech {
     	
     	combiH = jeu.combiHumain("Combinaison secrète : ");
     	jeu.combiOrdi();
-    	
     	System.out.println();
     	System.out.println();
     	
@@ -92,7 +117,7 @@ public class ModeJeuRech {
     		
     		propoH = jeu.combiHumain("Proposition : ");
         	System.out.print(" -> Réponse : ");
-        	reponseH = jeu.compareProposition(jeu.getCombiS(), propoH);
+        	reponseH = jeu.compareProposition(jeu.getCombiO(), propoH);
         	jeu.afficheReponse(reponseH);
     		jeu.propoOrdi(reponseO,tour, "Proposition Ordi : ", jeu.getPropoO());
     		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
@@ -107,7 +132,7 @@ public class ModeJeuRech {
         	}
         	if (verifH == false && verifO == true){
         		System.out.print("L'ordinateur a trouvé votre combinaison. La combinaison de l'ordinateur était : ");
-        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer();
         	}
         	if (verifH == true && verifO == true){
@@ -117,14 +142,20 @@ public class ModeJeuRech {
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Match nul. Les combinaison n'ont pas été trouvé dans le temps imparti. La combinaison de l'ordinateur était : ");
-        		System.out.println(jeu.afficheCombi(jeu.getCombiS()));
+        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer();
         	}
         	tour++;
     	}
     }
-
-public void rejouer (){
+    
+    /**
+	 * Cette méthode permet de questionner sur le choix de la personne à la fin d'un jeu
+	 * 
+	 * @see Classe Jeu
+	 * 		Pour les différentes méthodes utilisés dans celle-ci car elle renvoi vers les différents jeux
+	 */
+    public void rejouer (){
 		
 		Scanner sc = new Scanner(System.in);
 		boolean testRejouer = false;
@@ -154,10 +185,13 @@ public void rejouer (){
 		
 		switch(choixRejouer){
 			case 1 :
+				System.out.println();
 				rejouer.presentationRecherche();
 			case 2 :
+				System.out.println();
 				rejouer.presentationJeu();
 			case 3 :
+				System.out.println();
 				System.exit(0);
 		}
 	}
