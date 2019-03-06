@@ -1,10 +1,13 @@
 package com.Projet3;
 
+import java.util.Scanner;
+
 public class ModeJeuMaster {
 
-	public void modeAttaquant() {
+	public void modeChallenger() {
 
-    	Jeu jeu = new Jeu();
+    	CreationJeu jeu = new CreationJeu();
+    	Jeu retour = new Jeu();
     	int[] propoH;
     	int[] infoPlace;
     	String reponse;
@@ -34,7 +37,7 @@ public class ModeJeuMaster {
 	
 	public void modeDefenseur () {
 		
-		Jeu jeu = new Jeu();
+		CreationJeu jeu = new CreationJeu();
     	int[] combiH;
     	int[] infoPlace = new int[2];
     	String reponse;
@@ -66,7 +69,7 @@ public class ModeJeuMaster {
 	
 	public void modeDuel () {
 		
-		Jeu jeu = new Jeu();
+		CreationJeu jeu = new CreationJeu();
     	int[] combiH;
     	int[] propoH;
     	int[] infoPlaceH;
@@ -112,6 +115,43 @@ public class ModeJeuMaster {
         	}
         	tour++;
     	}
+	}
+	
+	public void rejouer (){
+		
+		Scanner sc = new Scanner(System.in);
+		boolean testRejouer = false;
+		int choixRejouer = 0;
+		Jeu rejouer = new Jeu();
+		
+		System.out.println("Que voulez vous faire ?");
+		System.out.println("	1 - Rejouer au même jeu");
+		System.out.println("	2 - Revenir au menu principal");
+		System.out.println("	3 - Quitter le jeu");
+		
+		do {
+            System.out.println("Quel est votre choix ?");
+            testRejouer = sc.hasNextInt();
+            if(testRejouer){
+                choixRejouer = sc.nextInt();
+                if (choixRejouer != 1 && choixRejouer != 2 && choixRejouer != 3){
+                    System.out.println("Merci de choisir entre les choix 1, 2, 3.");
+                    testRejouer = false;
+                }
+            } else{
+                System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3.");
+                sc.nextLine();
+            }
+        }while (!testRejouer );
+		
+		switch(choixRejouer){
+			case 1 :
+				rejouer.presentationMastermind();
+			case 2 :
+				rejouer.presentationJeu();
+			case 3 :
+				System.exit(0);
+		}
 	}
 	
 }	

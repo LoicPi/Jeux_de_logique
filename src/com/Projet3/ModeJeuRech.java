@@ -1,10 +1,12 @@
 package com.Projet3;
 
+import java.util.Scanner;
+
 public class ModeJeuRech {
 	
-    public void modeAttaquant() {
+    public void modeChallenger() {
 
-    	Jeu jeu = new Jeu();
+    	CreationJeu jeu = new CreationJeu();
     	String [] reponse = new String[jeu.getSize()];
     	int[] propoH;
     	boolean verifR = false;
@@ -35,7 +37,7 @@ public class ModeJeuRech {
     
     public void modeDefenseur(){
     	
-    	Jeu jeu = new Jeu();
+    	CreationJeu jeu = new CreationJeu();
     	int[] combiH;
     	String[] reponse = new String[jeu.getSize()];
     	boolean verifR = false;
@@ -66,7 +68,7 @@ public class ModeJeuRech {
     
     public void modeDuel(){
     	
-    	Jeu jeu = new Jeu();
+    	CreationJeu jeu = new CreationJeu();
     	int[] combiH;
     	int[] propoH;
     	String[] reponseH = new String[jeu.getSize()];
@@ -114,4 +116,41 @@ public class ModeJeuRech {
     	}
     }
 
+public void rejouer (){
+		
+		Scanner sc = new Scanner(System.in);
+		boolean testRejouer = false;
+		int choixRejouer = 0;
+		Jeu rejouer = new Jeu();
+		
+		System.out.println("Que voulez vous faire ?");
+		System.out.println("	1 - Rejouer au même jeu");
+		System.out.println("	2 - Revenir au menu principal");
+		System.out.println("	3 - Quitter le jeu");
+		
+		do {
+            System.out.println("Quel est votre choix ?");
+            testRejouer = sc.hasNextInt();
+            if(testRejouer){
+                choixRejouer = sc.nextInt();
+                if (choixRejouer != 1 && choixRejouer != 2 && choixRejouer != 3){
+                    System.out.println("Merci de choisir entre les choix 1, 2, 3.");
+                    testRejouer = false;
+                }
+            } else{
+                System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3.");
+                sc.nextLine();
+            }
+        }while (!testRejouer );
+		
+		switch(choixRejouer){
+			case 1 :
+				rejouer.presentationRecherche();
+			case 2 :
+				rejouer.presentationJeu();
+			case 3 :
+				System.exit(0);
+		}
+	}
+    
 }
