@@ -144,7 +144,7 @@ public class Jeu {
 
         System.out.println("		Mastermind");
         System.out.println();
-        System.out.println("Le but du jeu est de retrouver la combinaison secrète en un nombre de tour prédéfini.");
+        System.out.println("Le but du jeu est de retrouver la combinaison secrète de 5 couleurs en un nombre de tour prédéfini.");
         System.out.println("Pour cela des indications sur chacun des chiffres proposés est indiqués.");
         System.out.println("A savoir le nombre de chiffre bien placés et ceux présent dans la combinaison mais mal placé.");
         System.out.println();

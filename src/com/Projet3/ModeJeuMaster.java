@@ -29,11 +29,11 @@ public class ModeJeuMaster {
     	boolean verifR = false;
     	boolean verifV = true;
     	int tour = 1;
-    	    	
-    	jeu.combiOrdi();
+    	
+    	jeu.combiMasterOrdi();
     	
     	while (!verifR && verifV){
-    		propoH = jeu.combiHumain("Proposition : ");
+    		propoH = jeu.combiMasterHumain("Proposition : ");
     		infoPlace = jeu.nombrePlacement(jeu.getCombiO(), propoH);
     		reponse = jeu.reponse(infoPlace);
         	System.out.println(" -> Réponse : " + reponse);
@@ -68,7 +68,7 @@ public class ModeJeuMaster {
     	boolean verifV = true;
     	int tour = 1;
     	
-    	combiH = jeu.combiHumain("( Combinaison secrète : ");
+    	combiH = jeu.combiMasterHumain("Combinaison secrète : ");
     	System.out.println();
     	System.out.println();
     	
@@ -112,14 +112,14 @@ public class ModeJeuMaster {
     	boolean verifV = true;
     	int tour = 1;
     	
-    	combiH = jeu.combiHumain("Combinaison secrète : ");
-    	jeu.combiOrdi();
+    	combiH = jeu.combiMasterHumain("Combinaison secrète : ");
+    	jeu.combiMasterOrdi();
     	System.out.println();
     	System.out.println();
     	
     	while (!verifH && !verifO && verifV){
     		
-    		propoH = jeu.combiHumain("Proposition : ");
+    		propoH = jeu.combiMasterHumain("Proposition : ");
     		infoPlaceH = jeu.nombrePlacement(jeu.getCombiO(), propoH);
     		reponseH = jeu.reponse(infoPlaceH);
         	System.out.println(" -> Réponse : " + reponseH);
@@ -130,7 +130,7 @@ public class ModeJeuMaster {
         	System.out.println(" -> Réponse : " + reponseO);
         	verifH = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiO(), propoH));
         	if (verifH == true && verifO == false){
-        		System.out.println("Vous avez trouvé la combinaison de l'ordinateur. Vous êtes plus rapide que la machine.");
+        		System.out.println("Vous avez trouvé la combinaison de l'ordinateur.");
         		rejouer ();
         	}
         	if (verifH == false && verifO == true){
@@ -194,6 +194,7 @@ public class ModeJeuMaster {
 				System.out.println();
 				rejouer.presentationJeu();
 			case 3 :
+				System.out.println("A très bientôt sur Jeu de Logique !");
 				System.exit(0);
 		}
 	}

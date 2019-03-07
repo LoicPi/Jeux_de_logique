@@ -23,6 +23,8 @@ public class CreationJeu {
 	int [] propoO;
 	int size = 4;
 	int nbreTour = 10;
+	int nbreCouleurs = 5;
+	ArrayList<Integer> chiffreOccurence = new ArrayList<Integer>();
 	
 	/**
 	 * Retourne la combinaison de l'ordinateur
@@ -101,7 +103,7 @@ public class CreationJeu {
         
         combiO = new int[size];
         for (int i = 0; i < size; i++) {
-            combiO[i] = rd.nextInt(9);
+            combiO[i] = rd.nextInt(10);
         }
     }
     
@@ -294,7 +296,67 @@ public class CreationJeu {
     	}
     	return false;
     }
+    
+    /**
+     * Créer une combinaison secrète par l'ordinateur via un random
+	 * Remplit le tableau combiO de chiffre aléatoire entre 0 et le nombre de couleurs déterminé par le joueur.
+     * @param nbreCouleurs
+     * 		Le nombre de couleurs est déterminé par le joueur, ce nombre est compris entre 4 et 10
+     */
+    public  void combiMasterOrdi (){
 
+        Random rd = new Random();
+        
+        combiO = new int[size];
+        for (int i = 0; i < size; i++) {
+            combiO[i] = rd.nextInt(nbreCouleurs+1);
+        }
+    }
+    
+    /**
+     * Créer une proposition faite par une personne en tenant compte de la taille de la proposition
+     * et si elle ne contient que des entiers
+     * Cette proposition est soumise à une vérification sur le type de données rentrés et sur la taille de l'entrée
+     * Ensuite cette proposition est mise dans un tableau d'entier qui sera renvoyé
+     * @param str
+     * 		Le paramètre permet d'afficher une chaîne de caractère avant la proposition taper par la personne
+     * @return
+     * 		Retourne un tableau d'entier composé des chiffres tapées par la personne
+     */
+    public int [] combiMasterHumain (String str) {
+    	  	
+        Scanner sc = new Scanner(System.in);
+        boolean testCombi = false;
+        String combi = "";
+        int [] combiH = new int[size];
+        
+        do{
+        	System.out.print(str);
+        	testCombi = sc.hasNextInt();
+        	if (testCombi) {
+        		combi = sc.nextLine();
+        		if (combi.length() != size){
+        			System.out.println("Merci de proposer une combinaison de taille " + size +".");
+                    testCombi = false;
+        		} else {        	        
+        	        for(int i = 0; i < size; i++){
+        	        	combiH[i] = Character.digit(combi.charAt(i), 10);
+        	        	if (combiH[i] > nbreCouleurs){
+        	        		System.out.println("Merci de proposer une combinaison où les chiffres sont compris entre 0 et " + nbreCouleurs +".");
+        	        		testCombi = false;
+        	        		break;
+        	        	}
+        	        }
+        		}
+        	}else {
+        		System.out.println("La combinaison n'est pas bonne, merci de rentrer un entier.");
+        		sc.nextLine();
+        	}
+        } while(testCombi != true);	
+     
+        return combiH;
+    }
+    
     /**
      * Créer un tableau d'entier contenant le nombre de chiffres bien placés et mal placés pour le jeu Mastermind
      * On compare les tableaux combinaisons et propositions.
@@ -467,12 +529,14 @@ public class CreationJeu {
     	propoO = new int[size];
     	ArrayList<Integer> rot = new ArrayList<Integer>();
     	ArrayList<Integer> tro = new ArrayList<Integer>();
+    	int verifRandom;
+    	boolean testRandom = true;
     	
     	System.out.print(str);
     	
     	if (tour == 1){
     		for (int i = 0; i < size; i++){
-    			propoO[i] = rd.nextInt(9);
+    			propoO[i] = rd.nextInt(nbreCouleurs+1);
     		}
 		}
 		else {
@@ -490,13 +554,24 @@ public class CreationJeu {
 						if(propo[i] == combi[i]){
 							propoO[i] = propo[i];
 						} else {
-							do{
-								propoO[i] = rd.nextInt(9);
-							}while (propoO[i] == propo[i]);
+							if (nbPlace[0] != (size-1)){
+								do{
+									propoO[i] = rd.nextInt(nbreCouleurs+1);
+								}while (propoO[i] == propo[i]);
+							} else {
+								do {
+									verifRandom = rd.nextInt(nbreCouleurs+1);
+									testRandom = chiffreOccurence.contains(verifRandom);
+									if (!testRandom){
+										chiffreOccurence.add(verifRandom);
+										propoO[i] = verifRandom;
+									}					
+								} while (testRandom == true);
+							}
 						}
 					} else {
 						do{
-							propoO[i] = rd.nextInt(9);
+							propoO[i] = rd.nextInt(nbreCouleurs+1);
 						}while (propoO[i] == propo[i]);
 					}
 				}
