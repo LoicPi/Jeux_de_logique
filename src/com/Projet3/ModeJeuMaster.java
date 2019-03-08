@@ -75,9 +75,14 @@ public class ModeJeuMaster {
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
-	public void modeChallenger() {
+	public void modeChallenger(String str) {
 
     	jeu.combiMasterOrdi();
+    	if (str.equals("true")){
+    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO()));
+    		System.out.println();
+    		System.out.println();
+    	}
     	
     	while (!verifR && verifV){
     		propoH = jeu.combiMasterHumain("Votre proposition : ");
@@ -88,13 +93,13 @@ public class ModeJeuMaster {
         	verifR = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiO(), propoH));
         	if (verifR){
         		System.out.println("Vous avez trouvé la combinaison.");
-        		rejouer ();
+        		rejouer (str);
         	}
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Vous n'avez pas trouvé la combinaison dans le temps imparti. Celle-ci était : "); 
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
-        		rejouer ();
+        		rejouer (str);
         	}
         	System.out.println ("Il vous reste encore " + (tourMax-tour) + proposition((tourMax-tour)));
         	System.out.println ();
@@ -108,7 +113,7 @@ public class ModeJeuMaster {
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
-	public void modeDefenseur () {
+	public void modeDefenseur (String str) {
     	
     	combiH = jeu.combiMasterHumain("Votre combinaison secrète : ");
     	System.out.println();
@@ -124,12 +129,12 @@ public class ModeJeuMaster {
         	verifR = jeu.verifNombreBienPlace(infoPlace);
         	if (verifR){
         		System.out.println("L'ordinateur a trouvé votre combinaison.");
-        		rejouer ();
+        		rejouer (str);
         	}
         	verifV = jeu.verifTour(tour);
         	if (!verifV){
         		System.out.println("L'ordinateur n'a pas trouvé votre combinaison dans le temps imparti.");
-        		rejouer ();
+        		rejouer (str);
         	}
         	System.out.println ("Il vous reste encore " + (tourMax -tour) + proposition((tourMax-tour)));
         	System.out.println ();
@@ -143,7 +148,7 @@ public class ModeJeuMaster {
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
-	public void modeDuel () {
+	public void modeDuel (String str) {
 
     	int[] infoPlaceH;
     	int[] infoPlaceO = new int[2];
@@ -154,6 +159,9 @@ public class ModeJeuMaster {
     	
     	combiH = jeu.combiMasterHumain("Votre combinaison secrète : ");
     	jeu.combiMasterOrdi();
+    	if (str.equals("true")){
+    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO()));
+    	}
     	System.out.println();
     	System.out.println();
     	
@@ -172,22 +180,22 @@ public class ModeJeuMaster {
         	verifH = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiO(), propoH));
         	if (verifH == true && verifO == false){
         		System.out.println("Vous avez trouvé la combinaison de l'ordinateur.");
-        		rejouer ();
+        		rejouer (str);
         	}
         	if (verifH == false && verifO == true){
         		System.out.print("L'ordinateur a trouvé votre combinaison. Sa combinaison était : ");
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
-        		rejouer ();
+        		rejouer (str);
         	}
         	if (verifH == true && verifO == true){
         		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
-        		rejouer ();
+        		rejouer (str);
         	}
         	verifV = jeu.verifTour(tour);
         	if (verifV == false){
         		System.out.print("Match nul. La combinaison n'a pas été trouvé dans le temps imparti.La combinaison de l'ordinateur était :");
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
-        		rejouer ();
+        		rejouer (str);
         	}
         	System.out.println ("Il vous reste encore " + (tourMax-tour) + proposition((tourMax-tour)));
         	System.out.println ();
@@ -217,7 +225,7 @@ public class ModeJeuMaster {
 	 * @see Classe Jeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci car elle renvoi vers les différents jeux
 	 */
-	public void rejouer (){
+	public void rejouer (String str){
 		
 		boolean testRejouer = false;
 		int choixRejouer = 0;
@@ -247,10 +255,10 @@ public class ModeJeuMaster {
 		switch(choixRejouer){
 			case 1 :
 				System.out.println();
-				rejouer.presentationMastermind();
+				rejouer.presentationMastermind(str);
 			case 2 :
 				System.out.println();
-				rejouer.presentationJeu();
+				rejouer.presentationJeu(str);
 			case 3 :
 				System.out.println();
 				System.out.println("A très bientôt sur Jeu de Logique !");

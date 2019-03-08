@@ -194,12 +194,12 @@ public class CreationJeu {
      * @return
      * 		Retourne une chaîne de caractère
      */
-    public String afficheCombi(int str[]){
+    public String afficheCombi(int tab[]){
     	
     	String tbStr = "";
     	
     	for (int i = 0; i < size; i++){
-    		tbStr = tbStr + str[i];
+    		tbStr = tbStr + tab[i];
     	}
     	
     	return tbStr;

@@ -6,9 +6,9 @@ public class Main {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-
+		ProprieteJeu prop = new ProprieteJeu();
 		Jeu jeu = new Jeu();
-		jeu.presentationJeu();
+		jeu.presentationJeu(prop.valeurPropriete("jeu.modeDeveloppeur"));
 	}
 
 }
