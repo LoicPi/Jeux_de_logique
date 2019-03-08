@@ -20,6 +20,11 @@ public class ModeJeuMaster {
 	CreationJeu jeu = new CreationJeu();
 	
 	/**
+	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier
+	 */
+	ProprieteJeu prop = new ProprieteJeu();
+	
+	/**
 	 * Tableau d'entier utilisé dans les méthodes pour contenir la combinaison secrete de l'humain
 	 */
 	int[] combiH;
@@ -55,6 +60,11 @@ public class ModeJeuMaster {
 	int tour = 1;
 	
 	/**
+	 * Définition de nombre de propositions restantes	
+	 */
+	int proposition = (Integer.parseInt(prop.valeurPropriete("jeu.nbreTour"))-tour);
+	
+	/**
 	 * Permet de créer un objet Scanner qui va récupérer les entrées des utilisateurs
 	 */
 	Scanner sc = new Scanner(System.in);
@@ -86,6 +96,8 @@ public class ModeJeuMaster {
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer ();
         	}
+        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println ();
         	tour++;
     	}     
     }
@@ -119,6 +131,8 @@ public class ModeJeuMaster {
         		System.out.println("L'ordinateur n'a pas trouvé votre combinaison dans le temps imparti.");
         		rejouer ();
         	}
+        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println ();
         	tour ++;	
     	}		
 	}
@@ -175,6 +189,8 @@ public class ModeJeuMaster {
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer ();
         	}
+        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println ();
         	tour++;
     	}
 	}

@@ -20,6 +20,12 @@ public class ModeJeuRech {
 	CreationJeu jeu = new CreationJeu();
 	
 	/**
+	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier
+	 */
+	ProprieteJeu prop = new ProprieteJeu();
+	
+	
+	/**
 	 * Tableau d'entier utilisé dans les méthodes pour contenir la combinaison secrete de l'humain
 	 */
 	int[] combiH;
@@ -33,6 +39,11 @@ public class ModeJeuRech {
 	 * Définiton du nombre de tour, commencant à 1
 	 */
 	int tour = 1;
+	
+	/**
+	 * Définition de nombre de propositions restantes	
+	 */
+	int proposition = (Integer.parseInt(prop.valeurPropriete("jeu.nbreTour"))-tour);
 	
 	/**
 	 * Tableau de chaine de caractere pour contenir la reponse à la proposition
@@ -70,7 +81,6 @@ public class ModeJeuRech {
         	System.out.print(" -> Réponse à votre proposition : ");
         	reponse = jeu.compareProposition(jeu.getCombiO(), propoH);
         	jeu.afficheReponse(reponse);
-        	System.out.println();
         	verifR = jeu.verifReponse(reponse);
         	if (verifR == true){
         		System.out.println("Vous avez trouvé la combinaison.");
@@ -82,6 +92,8 @@ public class ModeJeuRech {
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer();
         	}
+        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println();
         	tour++;
     	}     
     }
@@ -115,6 +127,8 @@ public class ModeJeuRech {
         		System.out.println("L'ordinateur n'a pas trouvé votre combinaison dans le temps imparti.");
         		rejouer();
         	}
+        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println();
         	tour ++;
     	}     	
     }
@@ -149,7 +163,6 @@ public class ModeJeuRech {
         	System.out.print(" -> Réponse à sa proposition : ");
         	reponseO = jeu.compareProposition(combiH, jeu.getPropoO());
         	jeu.afficheReponse(reponseO);
-        	System.out.println();
         	verifH = jeu.verifReponse(reponseH);
         	verifO = jeu.verifReponse(reponseO);
         	if (verifH == true && verifO == false){
@@ -171,6 +184,8 @@ public class ModeJeuRech {
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer();
         	}
+        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println ();
         	tour++;
     	}
     }
