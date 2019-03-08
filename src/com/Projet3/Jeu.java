@@ -15,6 +15,21 @@ import java.util.Scanner;
 public class Jeu {
 	
 	/**
+	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   
+	 */
+	ProprieteJeu prop = new ProprieteJeu();
+	
+	/**
+	 * Définition d'un booléen pour vérifier le choix effectuer par l'utilisateur
+	 */
+	boolean testChoix = false;
+	
+	/**
+	 * Définition du nombre déterminant le choix de l'utilisateur mis à 0 par défaut
+	 */
+	int choixJeu = 0;
+	
+	/**
 	 * Paramètre d'entrée des choix de la personne
 	 */
 	Scanner sc = new Scanner(System.in);
@@ -25,8 +40,6 @@ public class Jeu {
 	 */
 	public void presentationJeu (){
 	
-		int choixJeu = 0;
-		boolean testChoix = false;
 		
 		System.out.println("		Bienvenue dans Jeu de Logique.		");
 		System.out.println();
@@ -73,13 +86,11 @@ public class Jeu {
 	 */	
 	public void presentationRecherche(){
 		
-        int choixMode = 0;
-        boolean testMode = false;
-        ModeJeuRech mode = new ModeJeuRech();
-
+		ModeJeuRech mode = new ModeJeuRech();
+		
         System.out.println("		Recherche de Combinaison");
         System.out.println();
-        System.out.println("Le but du jeu est de retrouver la combinaison secrète en un nombre de tour prédéfini.");
+        System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres en " +prop.valeurPropriete("jeu.nbreTour") + " tours maximum.");
         System.out.println("Pour cela des indications +, -, = seront données sur chacun des chiffres proposés.");
         System.out.println("Si le chiffre cherché est plus petit que celui proposé alors il sera indiqué par un +.");
         System.out.println("Si le chiffre cherché est plus grand que celui proposé alors il sera indiqué par un -.");
@@ -93,20 +104,20 @@ public class Jeu {
 
         do {
             System.out.println("Quel est votre choix ?");
-            testMode = sc.hasNextInt();
-            if(testMode){
-                choixMode = sc.nextInt();
-                if (choixMode != 1 && choixMode != 2 && choixMode != 3 && choixMode != 4){
+            testChoix = sc.hasNextInt();
+            if(testChoix){
+                choixJeu = sc.nextInt();
+                if (choixJeu != 1 && choixJeu != 2 && choixJeu != 3 && choixJeu != 4){
                     System.out.println("Merci de choisir entre les choix 1, 2, 3, 4.");
-                    testMode = false;
+                    testChoix = false;
                 }
             } else{
                 System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3, 4.");
                 sc.nextLine();
             }
-        }while (!testMode );
+        }while (!testChoix );
 
-        switch (choixMode) {
+        switch (choixJeu) {
         	case 1 :
         		System.out.println("Vous avez choisi le Mode Challenger.");
         		System.out.println();
@@ -137,15 +148,14 @@ public class Jeu {
 	 * 		Pour utilisation des méthodes après le choix effectué
 	 */
 	public void presentationMastermind(){
-		
-		int choixMode = 0;
-        boolean testMode = false;
+		        
         ModeJeuMaster mode = new ModeJeuMaster();
 
         System.out.println("		Mastermind");
         System.out.println();
-        System.out.println("Le but du jeu est de retrouver la combinaison secrète de 5 couleurs en un nombre de tour prédéfini.");
-        System.out.println("Pour cela des indications sur chacun des chiffres proposés est indiqués.");
+        System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres de " + prop.valeurPropriete("jeu.nbreCouleurs") + " couleurs.");
+        System.out.println("Il faut effectuer cela en " +prop.valeurPropriete("jeu.nbreTour") + " tours maximum.");
+        System.out.println("Des indications sur chacun des chiffres proposés est indiqués.");
         System.out.println("A savoir le nombre de chiffre bien placés et ceux présent dans la combinaison mais mal placé.");
         System.out.println();
         System.out.println("3 modes de jeu s'offre à vous : ");
@@ -156,20 +166,20 @@ public class Jeu {
 
         do {
             System.out.println("Quel est votre choix ?");
-            testMode = sc.hasNextInt();
-            if(testMode){
-                choixMode = sc.nextInt();
-                if (choixMode != 1 && choixMode != 2 && choixMode != 3 && choixMode != 4){
+            testChoix = sc.hasNextInt();
+            if(testChoix){
+                choixJeu = sc.nextInt();
+                if (choixJeu != 1 && choixJeu != 2 && choixJeu != 3 && choixJeu != 4){
                     System.out.println("Merci de choisir entre les choix 1, 2, 3, 4.");
-                    testMode = false;
+                    testChoix = false;
                 }
             } else{
                 System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3, 4.");
                 sc.nextLine();
             }
-        }while (!testMode );
+        }while (!testChoix );
 
-        switch (choixMode) {
+        switch (choixJeu) {
         	case 1 :
         		System.out.println("Vous avez choisi le Mode Challenger.");
         		System.out.println();

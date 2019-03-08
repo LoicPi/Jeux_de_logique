@@ -15,20 +15,54 @@ import java.util.Scanner;
 public class ModeJeuRech {
 	
 	/**
+	 * Créer un objet jeu afin de pouvoir l'appeler dans les différentes méthodes
+	 */
+	CreationJeu jeu = new CreationJeu();
+	
+	/**
+	 * Tableau d'entier utilisé dans les méthodes pour contenir la combinaison secrete de l'humain
+	 */
+	int[] combiH;
+	
+	/**
+	 * Tableau d'entier utilisé dans les méthodes pour contenir la proposition de l'humain
+	 */
+	int[] propoH;
+
+	/**
+	 * Définiton du nombre de tour, commencant à 1
+	 */
+	int tour = 1;
+	
+	/**
+	 * Tableau de chaine de caractere pour contenir la reponse à la proposition
+	 */
+	String [] reponse = new String[jeu.getSize()];
+	
+	/**
+	 * Définition de booléen pour vérifier si la réponse est bonne
+	 */
+	boolean verifR = false;
+	
+	/**
+	 * Définition d'un booléen pour vérifier le nombre de tour
+	 */
+	boolean verifV = true;
+	
+	/**
+	 * Permet de créer un objet Scanner qui va récupérer les entrées des utilisateurs
+	 */
+	Scanner sc = new Scanner(System.in);
+	
+	
+	/**
 	 * Cette méthode crée le mode Challenger permettant à une personne de trouver la combinaison de l'ordinateur
 	 * 
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
     public void modeChallenger() {
-
-    	CreationJeu jeu = new CreationJeu();
-    	String [] reponse = new String[jeu.getSize()];
-    	int[] propoH;
-    	boolean verifR = false;
-    	boolean verifV = true;
-    	int tour = 1;
-    	    	
+   	
     	jeu.combiOrdi();
     	
     	while (!verifR && verifV){
@@ -58,13 +92,6 @@ public class ModeJeuRech {
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
     public void modeDefenseur(){
-    	
-    	CreationJeu jeu = new CreationJeu();
-    	int[] combiH;
-    	String[] reponse = new String[jeu.getSize()];
-    	boolean verifR = false;
-    	boolean verifV = true;
-    	int tour = 1;
     	
     	combiH = jeu.combiHumain("Combinaison secrète : ");
     	System.out.println();
@@ -98,15 +125,11 @@ public class ModeJeuRech {
 	 */
     public void modeDuel(){
     	
-    	CreationJeu jeu = new CreationJeu();
-    	int[] combiH;
-    	int[] propoH;
     	String[] reponseH = new String[jeu.getSize()];
     	String[] reponseO = new String[jeu.getSize()];
     	boolean verifH = false;
     	boolean verifO = false;
     	boolean verifV = true;
-    	int tour = 1;
     	
     	combiH = jeu.combiHumain("Combinaison secrète : ");
     	jeu.combiOrdi();
@@ -156,8 +179,7 @@ public class ModeJeuRech {
 	 * 		Pour les différentes méthodes utilisés dans celle-ci car elle renvoi vers les différents jeux
 	 */
     public void rejouer (){
-		
-		Scanner sc = new Scanner(System.in);
+	
 		boolean testRejouer = false;
 		int choixRejouer = 0;
 		Jeu rejouer = new Jeu();

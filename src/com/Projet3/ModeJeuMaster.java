@@ -15,6 +15,51 @@ import java.util.Scanner;
 public class ModeJeuMaster {
 	
 	/**
+	 * Créer un objet jeu afin de pouvoir l'appeler dans les différentes méthodes
+	 */
+	CreationJeu jeu = new CreationJeu();
+	
+	/**
+	 * Tableau d'entier utilisé dans les méthodes pour contenir la combinaison secrete de l'humain
+	 */
+	int[] combiH;
+	
+	/**
+	 * Tableau d'entier utilisé dans les méthodes pour contenir la proposition de l'humain
+	 */
+	int[] propoH;
+	
+	/**
+	 * Tableau d'entier utilisé dans les méthodes pour contenir les nombres bien placés et mal placés
+	 */
+	int[] infoPlace = new int[2];
+	
+	/**
+	 * Définition d'une chaîne de caractère pour retourner la réponse à la proposition
+	 */
+	String reponse;
+	
+	/**
+	 * Définition de booléen pour vérifier si la réponse est bonne
+	 */
+	boolean verifR = false;
+	
+	/**
+	 * Définition d'un booléen pour vérifier le nombre de tour
+	 */
+	boolean verifV = true;
+	
+	/**
+	 * Définiton du nombre de tour, commencant à 1
+	 */
+	int tour = 1;
+	
+	/**
+	 * Permet de créer un objet Scanner qui va récupérer les entrées des utilisateurs
+	 */
+	Scanner sc = new Scanner(System.in);
+	
+	/**
 	 * Cette méthode crée le mode Challenger permettant à une personne de trouver la combinaison de l'ordinateur
 	 * 
 	 * @see Classe CreationJeu
@@ -22,14 +67,6 @@ public class ModeJeuMaster {
 	 */
 	public void modeChallenger() {
 
-    	CreationJeu jeu = new CreationJeu();
-    	int[] propoH;
-    	int[] infoPlace;
-    	String reponse;
-    	boolean verifR = false;
-    	boolean verifV = true;
-    	int tour = 1;
-    	
     	jeu.combiMasterOrdi();
     	
     	while (!verifR && verifV){
@@ -59,14 +96,6 @@ public class ModeJeuMaster {
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
 	public void modeDefenseur () {
-		
-		CreationJeu jeu = new CreationJeu();
-    	int[] combiH;
-    	int[] infoPlace = new int[2];
-    	String reponse;
-    	boolean verifR = false;
-    	boolean verifV = true;
-    	int tour = 1;
     	
     	combiH = jeu.combiMasterHumain("Combinaison secrète : ");
     	System.out.println();
@@ -99,18 +128,13 @@ public class ModeJeuMaster {
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
 	public void modeDuel () {
-		
-		CreationJeu jeu = new CreationJeu();
-    	int[] combiH;
-    	int[] propoH;
+
     	int[] infoPlaceH;
     	int[] infoPlaceO = new int[2];
     	String reponseH;
     	String reponseO;
     	boolean verifH = false;
     	boolean verifO = false;
-    	boolean verifV = true;
-    	int tour = 1;
     	
     	combiH = jeu.combiMasterHumain("Combinaison secrète : ");
     	jeu.combiMasterOrdi();
@@ -160,7 +184,6 @@ public class ModeJeuMaster {
 	 */
 	public void rejouer (){
 		
-		Scanner sc = new Scanner(System.in);
 		boolean testRejouer = false;
 		int choixRejouer = 0;
 		Jeu rejouer = new Jeu();

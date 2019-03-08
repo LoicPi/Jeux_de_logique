@@ -13,18 +13,45 @@ import java.util.Scanner;
 public class CreationJeu {
 	
 	/**
-	 * combiO tableau d'entier contenant la combinaison de l'ordinateur 
-	 * propoO tableau d'entier prévu pour contenir la combinaison de l'ordinateur
-	 * size définit la taille des combinaisons
-	 * nbreTour définit le nombre de tour de jeu 
+	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   
 	 */
+	ProprieteJeu prop = new ProprieteJeu();
 	
+	/**
+	 * size définit la taille des combinaisons
+	 */
+	int size = Integer.parseInt(prop.valeurPropriete("jeu.size"));
+	
+	/**
+	 * nbreTour définit le nombre de tour de jeu
+	 */
+	int nbreTour = Integer.parseInt(prop.valeurPropriete("jeu.nbreTour"));
+	
+	/**
+	 * nbreCouleurs définit le nombre de couleurs dans le Mastermind, il est définit entre 4 et 10
+	 */
+	int nbreCouleurs = Integer.parseInt(prop.valeurPropriete("jeu.nbreCouleurs"));
+	/**
+	 * combiO tableau d'entier contenant la combinaison de l'ordinateur
+	 */
 	int [] combiO;
+	
+	/**
+	 * propoO tableau d'entier prévu pour contenir la combinaison de l'ordinateur
+	 */
 	int [] propoO;
-	int size = 4;
-	int nbreTour = 10;
-	int nbreCouleurs = 5;
+	
+	/**
+	 * chiffreOccurence est une liste de chiffre, elle est utilisé dans la méthode de création d'une proposition de l'Ordi pour le Mastermind
+	 */
 	ArrayList<Integer> chiffreOccurence = new ArrayList<Integer>();
+	
+	/**
+	 * Permet de créer un objet Scanner qui va récupérer les entrées des utilisateurs
+	 */
+	Scanner sc = new Scanner(System.in);
+	
+	
 	
 	/**
 	 * Retourne la combinaison de l'ordinateur
@@ -189,8 +216,7 @@ public class CreationJeu {
      * 		Retourne un tableau d'entier composé des chiffres tapées par la personne
      */
     public int [] combiHumain (String str) {
-    	  	
-        Scanner sc = new Scanner(System.in);
+
         boolean testCombi = false;
         String combi = "";
         
@@ -324,8 +350,7 @@ public class CreationJeu {
      * 		Retourne un tableau d'entier composé des chiffres tapées par la personne
      */
     public int [] combiMasterHumain (String str) {
-    	  	
-        Scanner sc = new Scanner(System.in);
+
         boolean testCombi = false;
         String combi = "";
         int [] combiH = new int[size];
