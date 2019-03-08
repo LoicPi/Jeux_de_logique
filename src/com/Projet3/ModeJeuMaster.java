@@ -70,10 +70,11 @@ public class ModeJeuMaster {
     	jeu.combiMasterOrdi();
     	
     	while (!verifR && verifV){
-    		propoH = jeu.combiMasterHumain("Proposition : ");
+    		propoH = jeu.combiMasterHumain("Votre proposition : ");
     		infoPlace = jeu.nombrePlacement(jeu.getCombiO(), propoH);
     		reponse = jeu.reponse(infoPlace);
-        	System.out.println(" -> Réponse : " + reponse);
+        	System.out.println(" -> Réponse à votre proposition : " + reponse);
+        	System.out.println();
         	verifR = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiO(), propoH));
         	if (verifR){
         		System.out.println("Vous avez trouvé la combinaison.");
@@ -97,16 +98,17 @@ public class ModeJeuMaster {
 	 */
 	public void modeDefenseur () {
     	
-    	combiH = jeu.combiMasterHumain("Combinaison secrète : ");
+    	combiH = jeu.combiMasterHumain("Votre combinaison secrète : ");
     	System.out.println();
     	System.out.println();
     	
     	while (!verifR && verifV){
-    		jeu.propoOrdiMaster(jeu.getPropoO(), infoPlace, combiH, "Proposition : ", tour);
+    		jeu.propoOrdiMaster(jeu.getPropoO(), infoPlace, combiH, "Proposition de l'ordinateur : ", tour);
     		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
     		infoPlace = jeu.nombrePlacement(combiH, jeu.getPropoO());
     		reponse = jeu.reponse(infoPlace);
-        	System.out.println(" -> Réponse : " + reponse);
+        	System.out.println(" -> Réponse à sa proposition : " + reponse);
+        	System.out.println();
         	verifR = jeu.verifNombreBienPlace(infoPlace);
         	if (verifR){
         		System.out.println("L'ordinateur a trouvé votre combinaison.");
@@ -136,22 +138,23 @@ public class ModeJeuMaster {
     	boolean verifH = false;
     	boolean verifO = false;
     	
-    	combiH = jeu.combiMasterHumain("Combinaison secrète : ");
+    	combiH = jeu.combiMasterHumain("Votre combinaison secrète : ");
     	jeu.combiMasterOrdi();
     	System.out.println();
     	System.out.println();
     	
     	while (!verifH && !verifO && verifV){
     		
-    		propoH = jeu.combiMasterHumain("Proposition : ");
+    		propoH = jeu.combiMasterHumain("Votre proposition : ");
     		infoPlaceH = jeu.nombrePlacement(jeu.getCombiO(), propoH);
     		reponseH = jeu.reponse(infoPlaceH);
-        	System.out.println(" -> Réponse : " + reponseH);
-        	jeu.propoOrdiMaster(jeu.getPropoO(), infoPlaceO, combiH, "Proposition : ", tour);
+        	System.out.println(" -> Réponse à votre proposition : " + reponseH);
+        	jeu.propoOrdiMaster(jeu.getPropoO(), infoPlaceO, combiH, "Proposition de l'ordinateur : ", tour);
     		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
     		infoPlaceO = jeu.nombrePlacement(combiH, jeu.getPropoO());
     		reponseO = jeu.reponse(infoPlaceO);
-        	System.out.println(" -> Réponse : " + reponseO);
+        	System.out.println(" -> Réponse à la proposition de l'ordinateur : " + reponseO);
+        	System.out.println();
         	verifH = jeu.verifNombreBienPlace(jeu.nombrePlacement(jeu.getCombiO(), propoH));
         	if (verifH == true && verifO == false){
         		System.out.println("Vous avez trouvé la combinaison de l'ordinateur.");
@@ -217,6 +220,7 @@ public class ModeJeuMaster {
 				System.out.println();
 				rejouer.presentationJeu();
 			case 3 :
+				System.out.println();
 				System.out.println("A très bientôt sur Jeu de Logique !");
 				System.exit(0);
 		}

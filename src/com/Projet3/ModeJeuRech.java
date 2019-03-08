@@ -66,10 +66,11 @@ public class ModeJeuRech {
     	jeu.combiOrdi();
     	
     	while (!verifR && verifV){
-    		propoH = jeu.combiHumain("Proposition : ");
-        	System.out.print(" -> Réponse : ");
+    		propoH = jeu.combiHumain("Votre proposition : ");
+        	System.out.print(" -> Réponse à votre proposition : ");
         	reponse = jeu.compareProposition(jeu.getCombiO(), propoH);
         	jeu.afficheReponse(reponse);
+        	System.out.println();
         	verifR = jeu.verifReponse(reponse);
         	if (verifR == true){
         		System.out.println("Vous avez trouvé la combinaison.");
@@ -93,16 +94,17 @@ public class ModeJeuRech {
 	 */
     public void modeDefenseur(){
     	
-    	combiH = jeu.combiHumain("Combinaison secrète : ");
+    	combiH = jeu.combiHumain("Votre combinaison secrète : ");
     	System.out.println();
     	System.out.println();
     	
     	while (!verifR && verifV){
-    		jeu.propoOrdi(reponse, tour, "Proposition : ", jeu.getPropoO());
+    		jeu.propoOrdi(reponse, tour, "Proposition de l'ordinateur : ", jeu.getPropoO());
     		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
-        	System.out.print(" -> Réponse : ");
+        	System.out.print(" -> Réponse à sa proposition : ");
         	reponse = jeu.compareProposition(combiH, jeu.getPropoO());
         	jeu.afficheReponse(reponse);
+        	System.out.println();
         	verifR = jeu.verifReponse(reponse);
         	if (verifR == true){
         		System.out.println("L'ordinateur a trouvé votre combinaison.");
@@ -131,22 +133,23 @@ public class ModeJeuRech {
     	boolean verifO = false;
     	boolean verifV = true;
     	
-    	combiH = jeu.combiHumain("Combinaison secrète : ");
+    	combiH = jeu.combiHumain("Votre combinaison secrète : ");
     	jeu.combiOrdi();
     	System.out.println();
     	System.out.println();
     	
     	while (!verifH && !verifO && verifV){
     		
-    		propoH = jeu.combiHumain("Proposition : ");
-        	System.out.print(" -> Réponse : ");
+    		propoH = jeu.combiHumain("Votre proposition : ");
+        	System.out.print(" -> Réponse à votre proposition : ");
         	reponseH = jeu.compareProposition(jeu.getCombiO(), propoH);
         	jeu.afficheReponse(reponseH);
-    		jeu.propoOrdi(reponseO,tour, "Proposition Ordi : ", jeu.getPropoO());
+    		jeu.propoOrdi(reponseO,tour, "Proposition de l'ordinateur : ", jeu.getPropoO());
     		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
-        	System.out.print(" -> Réponse : ");
+        	System.out.print(" -> Réponse à sa proposition : ");
         	reponseO = jeu.compareProposition(combiH, jeu.getPropoO());
         	jeu.afficheReponse(reponseO);
+        	System.out.println();
         	verifH = jeu.verifReponse(reponseH);
         	verifO = jeu.verifReponse(reponseO);
         	if (verifH == true && verifO == false){

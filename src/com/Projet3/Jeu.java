@@ -153,7 +153,7 @@ public class Jeu {
 
         System.out.println("		Mastermind");
         System.out.println();
-        System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres de " + prop.valeurPropriete("jeu.nbreCouleurs") + " couleurs.");
+        System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres compris entre 0 et " + prop.valeurPropriete("jeu.nbreCouleurs") + " inclus.");
         System.out.println("Il faut effectuer cela en " +prop.valeurPropriete("jeu.nbreTour") + " tours maximum.");
         System.out.println("Des indications sur chacun des chiffres proposés est indiqués.");
         System.out.println("A savoir le nombre de chiffre bien placés et ceux présent dans la combinaison mais mal placé.");
@@ -163,6 +163,7 @@ public class Jeu {
         System.out.println("    2 - Mode Défenseur  : L'ordinateur trouvera-t-il votre combinaison secrète ?");
         System.out.println("    3 - Mode Duel       : Combattez l'ordinateur, qui gagnera ?");
         System.out.println("    4 - Revenir au Menu Principal");
+        System.out.println();
 
         do {
             System.out.println("Quel est votre choix ?");
@@ -181,16 +182,19 @@ public class Jeu {
 
         switch (choixJeu) {
         	case 1 :
+        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Challenger.");
         		System.out.println();
         		mode.modeChallenger();
         		break;
         	case 2 :
+        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Défenseur.");
         		System.out.println();
         		mode.modeDefenseur();
         		break;
         	case 3 :
+        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Duel.");
         		System.out.println();
         		mode.modeDuel();
