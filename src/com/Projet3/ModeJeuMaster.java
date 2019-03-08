@@ -60,9 +60,9 @@ public class ModeJeuMaster {
 	int tour = 1;
 	
 	/**
-	 * Définition de nombre de propositions restantes	
+	 * Définition du nombre de tour maximum	
 	 */
-	int proposition = (Integer.parseInt(prop.valeurPropriete("jeu.nbreTour"))-tour);
+	int tourMax = Integer.parseInt(prop.valeurPropriete("jeu.nbreTour"));
 	
 	/**
 	 * Permet de créer un objet Scanner qui va récupérer les entrées des utilisateurs
@@ -96,7 +96,7 @@ public class ModeJeuMaster {
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer ();
         	}
-        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println ("Il vous reste encore " + (tourMax-tour) + proposition((tourMax-tour)));
         	System.out.println ();
         	tour++;
     	}     
@@ -131,7 +131,7 @@ public class ModeJeuMaster {
         		System.out.println("L'ordinateur n'a pas trouvé votre combinaison dans le temps imparti.");
         		rejouer ();
         	}
-        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println ("Il vous reste encore " + (tourMax -tour) + proposition((tourMax-tour)));
         	System.out.println ();
         	tour ++;	
     	}		
@@ -189,11 +189,27 @@ public class ModeJeuMaster {
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		rejouer ();
         	}
-        	System.out.println ("Il vous reste encore " + proposition + " propositions.");
+        	System.out.println ("Il vous reste encore " + (tourMax-tour) + proposition((tourMax-tour)));
         	System.out.println ();
         	tour++;
     	}
 	}
+	
+	/**
+     * Permet de mettre le mot placé au singulier ou au pluriel
+     * @param nb
+     * 		Nombre de proposition restante
+     * @return
+     * 		Retourne le mot " proposition(s) " au singulier ou au pluriel
+     */
+    public String proposition (int nb){
+    	
+    	if (nb>1){
+    		return " propositions.";
+    	} else {
+    		return " proposition.";
+    	}
+    }
 	
 	/**
 	 * Cette méthode permet de questionner sur le choix de la personne à la fin d'un jeu
