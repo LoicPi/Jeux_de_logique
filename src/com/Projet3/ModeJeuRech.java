@@ -2,6 +2,8 @@ package com.Projet3;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 /**
  * ModeJeuRech est une classe contenant toutes les méthodes des différents modes contenu dans le jeu Recherche+/-
  * Chacune des méthodes va faire appel aux méthodes contenu dans la classe CreationJeu.
@@ -13,6 +15,8 @@ import java.util.Scanner;
  */
 
 public class ModeJeuRech {
+	
+	static Logger logger = Logger.getLogger(ModeJeuRech.class);
 	
 	/**
 	 * Créer un objet jeu afin de pouvoir l'appeler dans les différentes méthodes
@@ -67,8 +71,7 @@ public class ModeJeuRech {
 	
 	
 	/**
-	 * Cette méthode crée le mode Challenger permettant à une personne de trouver la combinaison de l'ordinateur
-	 * 
+	 * Crée le mode Challenger	 * 
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
@@ -106,8 +109,7 @@ public class ModeJeuRech {
     }
     
     /**
-	 * Cette méthode crée le mode Defenseur permettant à l'ordinateur de trouver votre combinaison
-	 * 
+	 * Crée le mode Defenseur
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
@@ -141,8 +143,7 @@ public class ModeJeuRech {
     }
     
     /**
-	 * Cette méthode crée le mode Duel permettant à une personne de se confronter à l'ordinateur
-	 * 
+	 * Crée le mode Duel 
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
 	 */
@@ -218,8 +219,7 @@ public class ModeJeuRech {
     }
     
     /**
-	 * Cette méthode permet de questionner sur le choix de la personne à la fin d'un jeu
-	 * 
+     * Méthode pour le choix utilisateur en fin de jeu 
 	 * @see Classe Jeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci car elle renvoi vers les différents jeux
 	 */

@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 /**
  * CreationJeu est une classe contenant toutes les méthodes permettant la création de Recherche +/- et Mastermind.
  * 
@@ -11,6 +13,11 @@ import java.util.Scanner;
  */
 
 public class CreationJeu {
+	
+	/**
+	 * Création d'un objet logger pour retranscrire les infos dans le fichier de log
+	 */
+	static Logger logger = Logger.getLogger(CreationJeu.class);
 	
 	/**
 	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   
@@ -125,7 +132,7 @@ public class CreationJeu {
 	 * Remplit le tableau combiO de chiffre aléatoire entre 0 et 9
 	 */
     public  void combiOrdi (){
-
+    	logger.debug("On crée une combinaison.");
         Random rd = new Random();
         
         combiO = new int[size];
@@ -135,11 +142,7 @@ public class CreationJeu {
     }
     
     /**
-     * Créer une proposition faite par l'odinateur en prenant en compte des paramètres
-     * Il tient compte des tours pour créer sa proposition.
-     * Cette méthode permet de s'assurer que l'ordinateur trouve la solution en 5 tours maximum 
-     * La méthode permet le remplissage du tableau propoO via des conditions de tour,
-     * et en tenant compte de la réponse précédente ainsi que du chiffre de la propositon précédente
+     * Créer une proposition faite par l'odinateur en tenant compte de la proposition précédente
      * @param tab 
      * 		La réponse à l'ancienne propositon
      * @param tour 
@@ -156,13 +159,19 @@ public class CreationJeu {
     	System.out.print(str);
     	
     	for (int i = 0; i < size; i++){
+    		//Si on se trouve au tour 1 dans ce cas la combinaison est composé que du chiffre 7 pour départ
     		if(tour == 1){
     			propoO[i] = 7;
     		}
+    		//Si le tableau de réponse à la position i est "=" dans ce cas il garde la valeur de sa précédente proposition
     		if (tab[i] == "="){
+    			logger.debug("La position " + i + "du tableau de réponse est =");
     			propoO[i] = com[i];
     		}
+    		//Si le tableau de réponse à la position i est "+" dans ce cas suivant la proposition s'adapte au numéro de tour auquel on est
     		if (tab[i] == "+"){
+    			logger.debug("La position" + i + "du tableau de réponse est +");
+    			logger.debug("On est au tour n° " + tour);
     			switch(tour){
     				case 2 : propoO[i] = com[i] + 1;
     				break;
@@ -176,6 +185,7 @@ public class CreationJeu {
     				break;
     			}
     		}
+    		//Si le tableau de réponse à la position i est "-" dans ce cas suivant la proposition s'adapte au numéro de tour auquel on est
     		if (tab[i] == "-"){
     			if (tour == 2){
     				propoO[i] = 2;
@@ -187,8 +197,7 @@ public class CreationJeu {
     }
     
     /**
-     * Affiche un tableau d'entier en chaîne de caractère
-     * Cela permet d'afficher sur une console la combinaison ou la proposition générer par l'ordinateur
+     * Transforme un tableau d'entier en chaîne de caractère
      * @param str
      * 		Tableau d'entier
      * @return
@@ -206,10 +215,7 @@ public class CreationJeu {
     }
 
     /**
-     * Créer une proposition faite par une personne en tenant compte de la taille de la proposition
-     * et si elle ne contient que des entiers
-     * Cette proposition est soumise à une vérification sur le type de données rentrés et sur la taille de l'entrée
-     * Ensuite cette proposition est mise dans un tableau d'entier qui sera renvoyé
+     * Renvoi un tableau d'entier suite à une proposition saisi par l'utilisateur
      * @param str
      * 		Le paremètre permet d'afficher une chaîne de caractère avant la proposition taper par la personne
      * @return
@@ -220,16 +226,19 @@ public class CreationJeu {
         boolean testCombi = false;
         String combi = "";
         
+        //Tant que la chaîne de caractère n'est pas un entier ou de taille de "size" alors il réitère la demande de propositon ou combinaison
         do{
         	System.out.print(str);
         	testCombi = sc.hasNextInt();
         	if (testCombi) {
         		combi = sc.nextLine();
         		if (combi.length() != size){
+        			logger.error("La taille n'est pas bonne, elle est de " + combi.length() + " au lieu de " + size + ".");
         			System.out.println("Merci de proposer une combinaison de taille " + size +".");
                     testCombi = false;
         		}
         	}else {
+        		logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
         		System.out.println("La combinaison n'est pas bonne, merci de rentrer un entier.");
         		sc.nextLine();
         	}
@@ -237,6 +246,7 @@ public class CreationJeu {
      
         int [] combiH = new int[size];
         
+        //Transforme chacun des caractères de la chaîne de caractère en un entier sur une base 10
         for(int i = 0; i < size; i++){
         	combiH[i] = Character.digit(combi.charAt(i), 10);
         }
@@ -244,10 +254,7 @@ public class CreationJeu {
     }
     
     /**
-     * Compare la proposition et la combinaison dans le jeu Recherche.
-     * A savoir chacun des chiffres des deux tableaux est comparés 
-     * et suivant la comparaison une chaîne de caractère (+, -, =) est mise dans le tableau de réponse.
-     * Ce tableau de chaîne de caractère est ensuite renvoyé.
+     * Renvoi un tableau de chaîne de caractère suite à la comparaison de 2 tableaux d'entiers dans le jeu Recherche +/-
      * @param combi
      * 		Le tableau de combinaison secrète de l'humain ou de l'ordinateur
      * @param propo
@@ -259,6 +266,7 @@ public class CreationJeu {
     	
     	String [] repo = new String [size];    	
     	
+    	//On compare pour les deux tableaux à la position i afin de renvoyer une réponse en chaîne de caractère. Cette réponse est mise à la position i dans le tableau de chaîne de caractère
     	for(int i = 0; i < size; i++){
     		if(combi [i] < propo[i]){
     			repo[i] = "-";
@@ -274,8 +282,8 @@ public class CreationJeu {
     }
 
     /**
-     * Affiche un tableau de chaîne de caractère en une chaîne de caractère
-     * Renvoi la chaine de caractère affiché par la console.
+     * Transforme un tableau de chaîne de caractère en une chaîne de caractère
+     * Renvoi la chaine de caractère en sortie
      * @param tab
      * 		Tableau de chaîne de caractère
      */
@@ -290,7 +298,7 @@ public class CreationJeu {
     }
     
     /**
-     * Vérifie si le tableau de réponse contient un élèment différent de =
+     * Vérifie si le tableau de réponse dans Recherche +/- contient un élèment différent de =
      * Cela permet de savoir si la combinaison secrète a été trouvé
      * @param tab
      * 		Tableau de réponse en chaîne de caractère
@@ -324,10 +332,10 @@ public class CreationJeu {
     }
     
     /**
-     * Créer une combinaison secrète par l'ordinateur via un random
-	 * Remplit le tableau combiO de chiffre aléatoire entre 0 et le nombre de couleurs déterminé par le joueur.
+     * Créer une combinaison secrète par l'ordinateur via un méthode aléatoire
+	 * Remplit le tableau combiO de chiffre aléatoire entre 0 et le nombre de couleurs prédéterminé.
      * @param nbreCouleurs
-     * 		Le nombre de couleurs est déterminé par le joueur, ce nombre est compris entre 4 et 10
+     * 		Le nombre de couleurs est prédéterminé dans le fichier de configuration, il est compris entre 0 et 9
      */
     public  void combiMasterOrdi (){
 
@@ -335,15 +343,13 @@ public class CreationJeu {
         
         combiO = new int[size];
         for (int i = 0; i < size; i++) {
+        	//On met nbreCouleurs+1 car le chiffre de couleurs doit être compris entre 4 et 10 et nbreCouleurs est compris entre 0 et 9 
             combiO[i] = rd.nextInt(nbreCouleurs+1);
         }
     }
     
     /**
-     * Créer une proposition faite par une personne en tenant compte de la taille de la proposition
-     * et si elle ne contient que des entiers
-     * Cette proposition est soumise à une vérification sur le type de données rentrés et sur la taille de l'entrée
-     * Ensuite cette proposition est mise dans un tableau d'entier qui sera renvoyé
+     * Créer une proposition suite à une saisi utilisateur et renvoi un tableau d'entier
      * @param str
      * 		Le paramètre permet d'afficher une chaîne de caractère avant la proposition taper par la personne
      * @return
@@ -355,15 +361,18 @@ public class CreationJeu {
         String combi = "";
         int [] combiH = new int[size];
         
+        
         do{
         	System.out.print(str);
         	testCombi = sc.hasNextInt();
         	if (testCombi) {
         		combi = sc.nextLine();
+        		//Tant que la chaîne de caractère n'est pas de taille de "size" alors il réitère la demande de propositon ou combinaison
         		if (combi.length() != size){
         			System.out.println("Merci de proposer une combinaison de taille " + size +".");
                     testCombi = false;
-        		} else {        	        
+        		} else {
+        			//Il transforme chacun des caractères de la chaîne de caractère en entier de base 10 et vérifie que cet entier n'est pas strictement supérieur à nbreCouleurs
         	        for(int i = 0; i < size; i++){
         	        	combiH[i] = Character.digit(combi.charAt(i), 10);
         	        	if (combiH[i] > nbreCouleurs){
@@ -374,6 +383,7 @@ public class CreationJeu {
         	        }
         		}
         	}else {
+        		//Tant que la chaîne de caractère n'est pas un entier alors il réitère la demande de propositon ou combinaison
         		System.out.println("La combinaison n'est pas bonne, merci de rentrer un entier.");
         		sc.nextLine();
         	}
@@ -384,13 +394,7 @@ public class CreationJeu {
     
     /**
      * Créer un tableau d'entier contenant le nombre de chiffres bien placés et mal placés pour le jeu Mastermind
-     * On compare les tableaux combinaisons et propositions.
-     * Suivant des conditions le nombre de chiffres bien placés augmentent comme celui des nombres mal placés.
-     * On utilise des tableaux d'entiers Proposition Prim et Combinaison Prim définit dans cette méthode
-     * Dès qu'un chiffre est bien placé, on modifie les chiffres bien placés dans combiPrim et propoPrim.
-     * On utilise la méthode nombreRecherche pour trouver si un chiffre de la proposition Prim se trouve dans la combinaison Prim
-     * cela permet de déterminer le nombre de chiffres mal placés.
-     * On incrémente le tableau des nombres placés par ceux deux chiffres obtenus.     * 
+     * Retourne ensuite ce tableau
      * @param combi
      * 		Tableau d'entier de la combinaison
      * @param propo
@@ -409,6 +413,8 @@ public class CreationJeu {
     	int nbPlace [] = new int[2];
     	
     	for (int i = 0; i < size; i++){
+    		// Compare à la position i les valeurs des tableaux de combinaison et de proposition et suivant si elles sont égales ou non 
+    		// Il va remplir différement les tableaux combinaison Prim et proposition Prim
     		if (combi[i] == propo[i]){
     			nbBienPlace = nbBienPlace + 1;
     			combiPrim[i] = -1;
@@ -419,12 +425,15 @@ public class CreationJeu {
     		}
     	}
     	
+    	// Ensuite pour chacune des valeurs aux positions i du tableau de proposition Prim on recherche cette valeur dans le tableau de combinaison Prim
+    	// Si il s'y trouve dans ce cas le nombre de chiffre mal placé augmente
     	for (int i = 0; i < size; i++){
     		if (nombreRecherche (combiPrim, propoPrim[i])){
     			nbMalPlace = nbMalPlace + 1;    			
     		}
        	}
     	
+    	// On incrémente alors le tableau d'entier des valeurs de chiffres bien placés et mal placés
     	nbPlace[0] = nbBienPlace;
     	nbPlace[1] = nbMalPlace;
     	
@@ -433,7 +442,6 @@ public class CreationJeu {
     
     /**
      * Vérifie si un nombre se trouve dans un tableau d'entier
-     * Cette méthode est utilisé dans la méthode nombrePlacement
      * @see nombrePlacement
      * 		Pour son utilisation
      * @param combi
@@ -447,6 +455,9 @@ public class CreationJeu {
     public boolean nombreRecherche (int combi[], int propo) {
 
         for (int i = 0 ; i < size ; i++) {
+        	// Pour chaque élément à la position i on regarde si il est égale à l'entier et si cela s'avère vrai
+        	// Si cela s'avère vrai, on modifie la valeur dans le tableau à la position i
+        	// Cela permet d'éviter les doublons de présence si deux chiffres identiques dans la proposition mais un seul présent dans la combinaison
         	if (combi[i] == propo) {
         		combi[i] = -1;
                 return true;
@@ -456,7 +467,7 @@ public class CreationJeu {
     }
     
     /**
-     * Créer la phrase de réponse en prenant en compte les éléments du tableau d'entier des chiffres bien et mal placés
+     * Créer une phrase de réponse en prenant en compte less chiffres bien et mal placés
      * @param nbPlace
      * 		Tableau d'entier indiquant le nombre de chiffres bien placés et le nombre de chiffres mal placés
      * @return
@@ -532,11 +543,8 @@ public class CreationJeu {
     }
 
     /**
-     * Créer une proposition de chiffres par l'ordinateur
-     * On commence par vérifier le tour sur lesquels on se trouve.
-     * Ensuite on vérifie le nombre de chiffres mal placés.
-     * Si on en a on va effectuer une rotation des chiffres autres que ceux bien placés afin de retrouver le bon emplacement du ou des chiffres mal placés
-     * Si on n'a pas de chiffre mal placés, on regarde le nombre de chiffre bien placés et on génère des chiffres aléatoires
+     * Créer une proposition de combinaison par l'ordinateur
+     * Elle renvoi un tableau d'entier
      * @param propo
      * 		Tableau d'entier contenant la dernière proposition de l'ordinateur
      * @param nbPlace
@@ -559,31 +567,44 @@ public class CreationJeu {
     	
     	System.out.print(str);
     	
+    	// Si on se trouve au tour dans ce cas on crée une proposition aléatoire entre 0 et 1+nbreCouleurs (définit dans le fichier properties)
     	if (tour == 1){
     		for (int i = 0; i < size; i++){
     			propoO[i] = rd.nextInt(nbreCouleurs+1);
     		}
 		}
 		else {
+			
+			// Si le nbre de chiffre mal placés est différent de 0
 			if (nbPlace[1] != 0){
+				// Vérification à chacune des positions i des valeurs du tableau de combinaison et proposition 
 				for (int i = 0; i < size; i++){
+					// Si elles sont différentes alors il ajoute à une liste la valeur à la position i du tableau de proposition 
 					if (propo[i] != combi[i]) {
 						rot.add(propo [i]);
 					}
 				}
+			// Il effectue alors une rotation des valeurs de la liste crée via la boucle for 	
 			tro = rotation(rot);
+			// Il crée la proposition de l'ordinateur
 			propoO = creationPropoOrdi(tro, combi, propo);
 			} else {
+				// Sinon pour chacune des valeurs à la position i
 				for (int i = 0; i < size; i++){
 					if (nbPlace[0] != 0){
+						// Si le le nombre de chiffres bien placés est différents de 0 et que les valeurs à la position i 
+						// de la combinaison et de la proposition sont égales alors on garde la valeur de la proposition à la position i
 						if(propo[i] == combi[i]){
 							propoO[i] = propo[i];
 						} else {
 							if (nbPlace[0] != (size-1)){
+								// Sinon si le nombre de chiffres bien placés est différent de la (taille-1) on prend un chiffre aux hasards tant que ce chiffre est différent aux chiffres de la proposition précédente
 								do{
 									propoO[i] = rd.nextInt(nbreCouleurs+1);
 								}while (propoO[i] == propo[i]);
 							} else {
+								// Sinon on choisit aléatoirement un chiffre on vérifie que celui ci n'est pas présent dans une liste qui contient les chiffres déjà testé et si il n'est pas présent on le rajoute à la list et on met cette valeur dans la proposition
+								// Cela permet à l'ordinateur de ne pas proposer toujours la même valeur pour le dernier chiffre de la combinaison à trouver
 								do {
 									verifRandom = rd.nextInt(nbreCouleurs+1);
 									testRandom = chiffreOccurence.contains(verifRandom);
@@ -595,6 +616,7 @@ public class CreationJeu {
 							}
 						}
 					} else {
+						// Sinon si le chiffre de bien placés est nul alors on crée une combinaison de chiffre aléatoire
 						do{
 							propoO[i] = rd.nextInt(nbreCouleurs+1);
 						}while (propoO[i] == propo[i]);
@@ -605,7 +627,7 @@ public class CreationJeu {
     }
     
     /**
-     * Vérifie si un chiffre est présent dans un tableau. Cette méthode est utilisé dans la construction de la proposition de l'ordinateur
+     * Vérifie si un chiffre est présent dans un tableau.
      * @see propoOrdiMaster
      * 		Renvoi à cette méthode pour son utilisation
      * @param combi
@@ -627,7 +649,7 @@ public class CreationJeu {
     
     /**
      * Effectue la rotation des éléments d'une liste d'entier
-     * Cette méthode est utilisé dans la méthode de création de la proposition par l'ordinateur
+     * Renvoi la liste suite à la rotation
      * @see propoOrdiMaster
      * 		Renvoi à cette méthode pour son utilisation
      * @param rot
@@ -636,18 +658,21 @@ public class CreationJeu {
      */
     public ArrayList<Integer> rotation (ArrayList<Integer> rot){
     	
+    	// On affecte à un entier la valeur du dernier élémént de la liste
     	int temp = rot.get(rot.size()-1);
     	
     	for (int i = (rot.size()-1); i > 0; i--){
+    		//Pour tous les éléments de la liste d'entier on affecte à la place i l'élément situé à la place i-1 en partant de l'avant dernier élément et en descendant
     		rot.set(i,rot.get(i-1));
     	}
+    	// On affecte à la position 0 l'entier définit au début de la méthode
     	rot.set(0, temp);
     	
     	return rot;	
     }
     
     /**
-     * Créer un tableau d'entier de proposition pour un des cas de la méthode propoOrdiMaster
+     * Créer un tableau d'entier qu'elle retourne
      * @see propoOrdiMaster
      * 		Renvoi à cette méthode pour son utilisation
      * @param rot
@@ -664,11 +689,14 @@ public class CreationJeu {
     	int[] creationPropo = new int[size];
     	
     	for (int i = 0; i < size; i++){
+    		// On compare les éléments à la position i des deux tableaux d'entier
     		if (combi[i] == propo[i]){
+    			// Si ils sont égaux, on ajoute à la liste d'entier à la position i, la valeur à la position i du tableau de proposition
     			rot.add(i, propo[i]);
     		}		
     	}
     	
+    	// On effectue ensuite une boucle afin de créer le tableau d'entier en ajoutant à la position i la valeur de la liste d'entier à la même position
     	for (int i = 0; i < size; i++){
     		creationPropo[i] = rot.get(i);
     	}

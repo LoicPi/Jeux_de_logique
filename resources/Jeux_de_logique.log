@@ -1,0 +1,16 @@
+2019-03-11 16:02:00 DEBUG Main:13 - Test 1
+2019-03-11 16:02:31 DEBUG CreationJeu:132 - On crée 
+2019-03-11 16:04:13 DEBUG CreationJeu:164 - On est au tour 1
+2019-03-11 16:04:13 DEBUG CreationJeu:164 - On est au tour 1
+2019-03-11 16:04:13 DEBUG CreationJeu:164 - On est au tour 1
+2019-03-11 16:04:13 DEBUG CreationJeu:164 - On est au tour 1
+2019-03-11 16:04:13 DEBUG CreationJeu:168 - La position1du tableau de réponse est =
+2019-03-11 16:04:13 DEBUG CreationJeu:172 - La position2du tableau de réponse est +
+2019-03-11 16:04:13 DEBUG CreationJeu:173 - On est au tour n° 3
+2019-03-11 16:04:13 DEBUG CreationJeu:172 - La position3du tableau de réponse est +
+2019-03-11 16:04:13 DEBUG CreationJeu:173 - On est au tour n° 3
+2019-03-11 16:04:13 DEBUG CreationJeu:168 - La position0du tableau de réponse est =
+2019-03-11 16:04:13 DEBUG CreationJeu:168 - La position1du tableau de réponse est =
+2019-03-11 16:04:13 DEBUG CreationJeu:168 - La position0du tableau de réponse est =
+2019-03-11 16:04:13 DEBUG CreationJeu:168 - La position1du tableau de réponse est =
+2019-03-11 16:04:13 DEBUG CreationJeu:168 - La position3du tableau de réponse est =

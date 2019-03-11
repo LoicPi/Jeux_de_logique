@@ -2,6 +2,8 @@ package com.Projet3;
 
 import java.util.Scanner;
 
+import org.apache.log4j.Logger;
+
 /**
  * Jeu est une classe contenant toutes les méthodes de présentation des jeux et permettant d'effectuer son choix
  * Chacune des méthodes va faire appel aux méthodes contenu dans les classes ModeJeuRech et ModeJeuMaster.
@@ -13,6 +15,8 @@ import java.util.Scanner;
  */
 
 public class Jeu {
+	
+	static Logger logger = Logger.getLogger(Jeu.class);
 	
 	/**
 	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   
@@ -35,8 +39,7 @@ public class Jeu {
 	Scanner sc = new Scanner(System.in);
 	
 	/**
-	 * Menu principal du jeu
-	 * On va faire ici le choix du jeu et va nous emmener dans les méthodes de présentations de Recherche +/- ou Mastermind
+	 * Présentation du menu principal du jeu
 	 */
 	public void presentationJeu (String str){
 	
@@ -79,8 +82,6 @@ public class Jeu {
 	
 	/**
 	 * Menu du jeu Recherche +/-
-	 * Va permettre de faire le choix entre les différents modes et va emmener dans la classe ModeJeuRech pour utiliser la bonne méthode selon le choix fait
-	 * 
 	 * @see Classe ModeJeuRech
 	 * 		Pour utilisation des méthodes après le choix effectué
 	 */	
@@ -142,8 +143,6 @@ public class Jeu {
 	
 	/**
 	 * Menu du jeu Mastermind
-	 * Va permettre de faire le choix entre les différents modes et va emmener dans la classe ModeJeuMaster pour utiliser la bonne méthode selon le choix fait
-	 * 
 	 * @see Classe ModeJeuMaster
 	 * 		Pour utilisation des méthodes après le choix effectué
 	 */
