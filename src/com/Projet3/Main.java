@@ -24,9 +24,21 @@ public class Main {
 		 */
 		Jeu jeu = new Jeu();
 		
-		// Lancement du jeu via la méthode presentationJeu de la classe Jeu
-		jeu.presentationJeu(prop.valeurPropriete("jeu.modeDeveloppeur"));
-		logger.info("Le jeu est lancé en mode debug : " + prop.valeurPropriete("jeu.modeDeveloppeur"));
+		boolean modeDev = false;
+		
+		if (args.length != 0 && args[0].equals("dev")) {
+				modeDev = true;
+		}
+		if (prop.valeurPropriete("jeu.modeDeveloppeur").equals("true")) {
+				modeDev = true;
+		} 
+		
+		jeu.presentationJeu(modeDev);
+		
+		if (modeDev){
+			logger.info("Le jeu est lancé en mode développeur.");
+		} else {
+			logger.info("Le jeu n'est pas lancé en mode développeur.");
+		}
 	}
-
 }

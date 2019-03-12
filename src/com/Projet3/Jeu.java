@@ -47,7 +47,7 @@ public class Jeu {
 	/**
 	 * Présentation du menu principal du jeu
 	 */
-	public void presentationJeu (String str){
+	public void presentationJeu (boolean value){
 	
 		
 		System.out.println("		Bienvenue dans Jeu de Logique.		" + "\n\n");
@@ -77,11 +77,11 @@ public class Jeu {
 		switch (choixJeu){
 			case 1 : 
 				System.out.println("Vous avez choisi la Recherche +/-." + "\n");
-				presentationRecherche(str);
+				presentationRecherche(value);
 				break;				
 			case 2 :
 				System.out.println("Vous avez choisi Mastermind." + "\n");
-				presentationMastermind(str);
+				presentationMastermind(value);
 				break;
 			case 3 :
 				System.out.println();
@@ -95,7 +95,7 @@ public class Jeu {
 	 * @see Classe ModeJeuRech
 	 * 		Pour utilisation des méthodes après le choix effectué
 	 */	
-	public void presentationRecherche(String str){
+	public void presentationRecherche(boolean value){
 		
 		ModeJeuRech mode = new ModeJeuRech();
 		
@@ -135,21 +135,21 @@ public class Jeu {
         	case 1 :
         		System.out.println("Vous avez choisi le Mode Challenger.");
         		System.out.println();
-        		mode.modeChallenger(str);
+        		mode.modeChallenger(value);
         		break;
         	case 2 :
         		System.out.println("Vous avez choisi le Mode Défenseur.");
         		System.out.println();
-        		mode.modeDefenseur(str);
+        		mode.modeDefenseur(value);
         		break;
         	case 3 :
         		System.out.println("Vous avez choisi le Mode Duel.");
         		System.out.println();
-        		mode.modeDuel(str);
+        		mode.modeDuel(value);
         		break;
         	case 4 :
         		System.out.println();
-        		presentationJeu (str);
+        		presentationJeu (value);
         		break;
         }
     }
@@ -159,7 +159,7 @@ public class Jeu {
 	 * @see Classe ModeJeuMaster
 	 * 		Pour utilisation des méthodes après le choix effectué
 	 */
-	public void presentationMastermind(String str){
+	public void presentationMastermind(boolean value){
 		        
         ModeJeuMaster mode = new ModeJeuMaster();
 
@@ -200,23 +200,23 @@ public class Jeu {
         		System.out.println();
         		System.out.println("Vous avez choisi le Mode Challenger.");
         		System.out.println();
-        		mode.modeChallenger(str);
+        		mode.modeChallenger(value);
         		break;
         	case 2 :
         		System.out.println();
         		System.out.println("Vous avez choisi le Mode Défenseur.");
         		System.out.println();
-        		mode.modeDefenseur(str);
+        		mode.modeDefenseur(value);
         		break;
         	case 3 :
         		System.out.println();
         		System.out.println("Vous avez choisi le Mode Duel.");
         		System.out.println();
-        		mode.modeDuel(str);
+        		mode.modeDuel(value);
         		break;
         	case 4 :
         		System.out.println();
-        		presentationJeu (str);
+        		presentationJeu (value);
         		break;
         }
 	}
