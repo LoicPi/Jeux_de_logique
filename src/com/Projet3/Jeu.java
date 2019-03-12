@@ -22,7 +22,7 @@ public class Jeu {
 	/**
 	 * Création d'un objet logger pour retranscrire les infos dans le fichier de log
 	 */
-	static Logger logger = LogManager.getLogger(Main.class.getName());
+	static Logger logger = LogManager.getLogger(Jeu.class.getName());
 	
 	/**
 	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   
@@ -50,39 +50,43 @@ public class Jeu {
 	public void presentationJeu (String str){
 	
 		
-		System.out.println("		Bienvenue dans Jeu de Logique.		");
-		System.out.println();
-		System.out.println();
+		System.out.println("		Bienvenue dans Jeu de Logique.		" + "\n\n");
 		System.out.println("Dans Jeu de Logique, vous avez la possibilité de choisir entre deux jeux :");
 		System.out.println("	1 - Recherche +/- : Recherche d'une combinaison chiffré grâce à des indications +, -, =	");
 		System.out.println("	2 - Mastermind	  : Recherche d'une combinaison chiffré grâce à des indications sur les chiffres bien placés ou mal placés");
-		System.out.println();
+		System.out.println("	3 - Quitter le jeu " + "\n");
+
 		do {
             System.out.println("Quel est votre choix ?");
             testChoix = sc.hasNextInt();
             if(testChoix){
                 choixJeu = sc.nextInt();
-                if (choixJeu != 1 && choixJeu != 2){
-                    System.out.println("Merci de choisir un jeu existant.");
+                if (choixJeu != 1 && choixJeu != 2 && choixJeu != 3){
+                	logger.error("Le choix n'est pas bon, l'utilisateur a mis " + sc + " au lieu de 1, 2 ou 3.");
+                    System.out.println("Merci de faire votre choix entre les numéros 1, 2, 3.");
                     testChoix = false;
                 }
             } else{
-                System.out.println("Votre saisi est incorrect. Merci de saisir le chiffre 1 ou 2 selon votre choix de jeu.");
+            	logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
+                System.out.println("Votre saisi est incorrect. Merci de saisir le chiffre 1, 2 ou 3 selon votre choix.");
                 sc.nextLine();
             }
         }while (!testChoix );
+		logger.info("Le choix de l'utilisateur est " + choixJeu);
 		
 		switch (choixJeu){
 			case 1 : 
-				System.out.println("Vous avez choisi la Recherche +/-.");
-				System.out.println();
+				System.out.println("Vous avez choisi la Recherche +/-." + "\n");
 				presentationRecherche(str);
 				break;				
 			case 2 :
-				System.out.println("Vous avez choisi Mastermind.");
-				System.out.println();
+				System.out.println("Vous avez choisi Mastermind." + "\n");
 				presentationMastermind(str);
 				break;
+			case 3 :
+				System.out.println();
+				System.out.println("A très bientôt sur Jeu de Logique !");
+				System.exit(0);	
 		}
 	}
 	
@@ -115,15 +119,18 @@ public class Jeu {
             if(testChoix){
                 choixJeu = sc.nextInt();
                 if (choixJeu != 1 && choixJeu != 2 && choixJeu != 3 && choixJeu != 4){
+                	logger.error("Le choix n'est pas bon, l'utilisateur a mis " + sc + " au lieu de 1, 2, 3 ou 4.");
                     System.out.println("Merci de choisir entre les choix 1, 2, 3, 4.");
                     testChoix = false;
                 }
             } else{
+            	logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
                 System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3, 4.");
                 sc.nextLine();
             }
         }while (!testChoix );
-
+        logger.info("Le choix de l'utilisateur est " + choixJeu);
+        
         switch (choixJeu) {
         	case 1 :
         		System.out.println("Vous avez choisi le Mode Challenger.");
@@ -176,15 +183,18 @@ public class Jeu {
             if(testChoix){
                 choixJeu = sc.nextInt();
                 if (choixJeu != 1 && choixJeu != 2 && choixJeu != 3 && choixJeu != 4){
+                	logger.error("Le choix n'est pas bon, l'utilisateur a mis " + sc + " au lieu de 1, 2, 3 ou 4.");
                     System.out.println("Merci de choisir entre les choix 1, 2, 3, 4.");
                     testChoix = false;
                 }
             } else{
+            	logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
                 System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3, 4.");
                 sc.nextLine();
             }
         }while (!testChoix );
-
+        logger.info("Le choix de l'utilisateur est " + choixJeu);
+        
         switch (choixJeu) {
         	case 1 :
         		System.out.println();

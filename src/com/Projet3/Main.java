@@ -14,12 +14,19 @@ public class Main {
 	static Logger logger = LogManager.getLogger(Main.class.getName());
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		
-		logger.info("Test 1");
+		/**
+		 * Création d'un objet prop afin d'appeler les caractéristiques de propriété du jeu
+		 */
 		ProprieteJeu prop = new ProprieteJeu();
+		
+		/**
+		 * Création d'un objet jeu afin de lancer le jeu 
+		 */
 		Jeu jeu = new Jeu();
+		
+		// Lancement du jeu via la méthode presentationJeu de la classe Jeu
 		jeu.presentationJeu(prop.valeurPropriete("jeu.modeDeveloppeur"));
+		logger.info("Le jeu est lancé en mode debug : " + prop.valeurPropriete("jeu.modeDeveloppeur"));
 	}
 
 }

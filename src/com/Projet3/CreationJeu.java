@@ -18,7 +18,7 @@ public class CreationJeu {
 	/**
 	 * Création d'un objet logger pour retranscrire les infos dans le fichier de log
 	 */
-	static Logger logger = LogManager.getLogger(Main.class.getName());
+	static Logger logger = LogManager.getLogger(CreationJeu.class.getName());
 	
 	/**
 	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   
@@ -39,6 +39,7 @@ public class CreationJeu {
 	 * nbreCouleurs définit le nombre de couleurs dans le Mastermind, il est définit entre 4 et 10
 	 */
 	int nbreCouleurs = Integer.parseInt(prop.valeurPropriete("jeu.nbreCouleurs"));
+	
 	/**
 	 * combiO tableau d'entier contenant la combinaison de l'ordinateur
 	 */
@@ -133,7 +134,6 @@ public class CreationJeu {
 	 * Remplit le tableau combiO de chiffre aléatoire entre 0 et 9
 	 */
     public  void combiOrdi (){
-    	logger.debug("On crée une combinaison.");
         Random rd = new Random();
         
         combiO = new int[size];
@@ -166,13 +166,10 @@ public class CreationJeu {
     		}
     		//Si le tableau de réponse à la position i est "=" dans ce cas il garde la valeur de sa précédente proposition
     		if (tab[i] == "="){
-    			logger.debug("La position " + i + "du tableau de réponse est =");
     			propoO[i] = com[i];
     		}
     		//Si le tableau de réponse à la position i est "+" dans ce cas suivant la proposition s'adapte au numéro de tour auquel on est
     		if (tab[i] == "+"){
-    			logger.debug("La position" + i + "du tableau de réponse est +");
-    			logger.debug("On est au tour n° " + tour);
     			switch(tour){
     				case 2 : propoO[i] = com[i] + 1;
     				break;
@@ -288,14 +285,15 @@ public class CreationJeu {
      * @param tab
      * 		Tableau de chaîne de caractère
      */
-    public void afficheReponse(String[] tab) {
+    public String afficheReponse(String[] tab) {
     	
     	String reponse = "";
     	
     	for (int i = 0; i < size; i++){
     		reponse = reponse + tab[i];
     	}
-    	System.out.println(reponse);
+    	
+    	return reponse;
     }
     
     /**
@@ -370,6 +368,7 @@ public class CreationJeu {
         		combi = sc.nextLine();
         		//Tant que la chaîne de caractère n'est pas de taille de "size" alors il réitère la demande de propositon ou combinaison
         		if (combi.length() != size){
+        			logger.error("La taille n'est pas bonne, elle est de " + combi.length() + " au lieu de " + size + ".");
         			System.out.println("Merci de proposer une combinaison de taille " + size +".");
                     testCombi = false;
         		} else {
@@ -377,6 +376,7 @@ public class CreationJeu {
         	        for(int i = 0; i < size; i++){
         	        	combiH[i] = Character.digit(combi.charAt(i), 10);
         	        	if (combiH[i] > nbreCouleurs){
+        	        		logger.error("La combinaison n'est pas bonne sur le nombre de couleurs, l'utilisateur a entré " + combiH[i] + " alors que le nombre de couleurs doit être compris entre 0 et " + nbreCouleurs + ".");
         	        		System.out.println("Merci de proposer une combinaison où les chiffres sont compris entre 0 et " + nbreCouleurs +".");
         	        		testCombi = false;
         	        		break;
@@ -385,6 +385,7 @@ public class CreationJeu {
         		}
         	}else {
         		//Tant que la chaîne de caractère n'est pas un entier alors il réitère la demande de propositon ou combinaison
+        		logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
         		System.out.println("La combinaison n'est pas bonne, merci de rentrer un entier.");
         		sc.nextLine();
         	}
