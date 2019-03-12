@@ -81,6 +81,8 @@ public class ModeJeuMaster {
 	 * Création du mode Challenger
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 * @param value
+	 * 		Booléen pour vérifier si le mode Challenger est lancé en mode développeur ou non
 	 */
 	public void modeChallenger(Boolean value) {
 
@@ -125,6 +127,8 @@ public class ModeJeuMaster {
 	 * Crée le mode Defenseur 
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 * @param value
+	 * 		Booléen pour vérifier si le mode Defenseur est lancé en mode développeur ou non
 	 */
 	public void modeDefenseur (boolean value) {
     	
@@ -166,6 +170,8 @@ public class ModeJeuMaster {
 	 * Crée le mode Duel
 	 * @see Classe CreationJeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci ainsi que certains paramètres
+	 * @param value
+	 * 		Booléen pour vérifier si le mode Duel est lancé en mode développeur ou non
 	 */
 	public void modeDuel (boolean value) {
 
@@ -257,6 +263,8 @@ public class ModeJeuMaster {
 	 * Méthode pour le choix utilisateur en fin de jeu 
 	 * @see Classe Jeu
 	 * 		Pour les différentes méthodes utilisés dans celle-ci car elle renvoi vers les différents jeux
+	 * @param value
+	 * 		Booléen pour le mode développeur mis en paramètre afin de le faire hériter au choix de fait
 	 */
 	public void rejouer (boolean value){
 		
