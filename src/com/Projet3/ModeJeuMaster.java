@@ -60,7 +60,7 @@ public class ModeJeuMaster {
 	/**
 	 * Définition d'un booléen pour vérifier le nombre de tour
 	 */
-	boolean verifV = true;
+	boolean verifV = false;
 	
 	/**
 	 * Définiton du nombre de tour, commencant à 1
@@ -91,7 +91,7 @@ public class ModeJeuMaster {
     		System.out.print("\n\n");
     	}
     	
-    	while (!verifR && verifV){
+    	while (!verifR && !verifV){
     		propoH = jeu.combiMasterHumain("Votre proposition : ");
     		logger.info("La proposition de l'utilisateur au tour " + tour + " est : " + jeu.afficheCombi(propoH));
     		infoPlace = jeu.nombrePlacement(jeu.getCombiO(), propoH);
@@ -107,8 +107,8 @@ public class ModeJeuMaster {
         		rejouer (str);
         	}
         	verifV = jeu.verifTour(tour);
-        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum n'est pas dépassé.");
-        	if (verifV == false){
+        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
+        	if (verifV){
         		System.out.print("Vous n'avez pas trouvé la combinaison dans le temps imparti. Celle-ci était : "); 
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'utilisateur n'a pas trouvé la combinaison secrète en " + tourMax + " tours.");
@@ -132,7 +132,7 @@ public class ModeJeuMaster {
     	logger.info("La combinaison donné par l'utilisateur est : " + jeu.afficheCombi(combiH));
     	System.out.print("\n\n");
     	
-    	while (!verifR && verifV){
+    	while (!verifR && !verifV){
     		jeu.propoOrdiMaster(jeu.getPropoO(), infoPlace, combiH, "Proposition de l'ordinateur : ", tour);
     		logger.info("La proposition donné par l'ordinateur au tour " + tour + "est : " + jeu.afficheCombi(jeu.getPropoO()));
     		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
@@ -149,8 +149,8 @@ public class ModeJeuMaster {
         		rejouer (str);
         	}
         	verifV = jeu.verifTour(tour);
-        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum n'est pas dépassé.");
-        	if (!verifV){
+        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
+        	if (verifV){
         		System.out.println("L'ordinateur n'a pas trouvé votre combinaison dans le temps imparti.");
         		logger.info("L'ordinateur n'a pas trouvé la combinaison secrète en " + tourMax + " tours.");
         		rejouer (str);
@@ -185,7 +185,7 @@ public class ModeJeuMaster {
     	}
     	System.out.print("\n\n");
     	
-    	while (!verifH && !verifO && verifV){
+    	while (!verifH && !verifO && !verifV){
     		
     		propoH = jeu.combiMasterHumain("Votre proposition : ");
     		logger.info("La proposition de l'utilisateur au tour " + tour + " est : " + jeu.afficheCombi(propoH));
@@ -223,8 +223,8 @@ public class ModeJeuMaster {
         		rejouer (str);
         	}
         	verifV = jeu.verifTour(tour);
-        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum n'est pas dépassé.");
-        	if (verifV == false){
+        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
+        	if (verifV){
         		System.out.print("Match nul. La combinaison n'a pas été trouvé dans le temps imparti.La combinaison de l'ordinateur était :");
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'ordinateur et l'utilisateur n'ont pas trouvé la combinaison secrète en " + tourMax + " tours.");

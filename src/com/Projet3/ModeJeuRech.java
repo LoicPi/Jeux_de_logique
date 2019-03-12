@@ -67,7 +67,7 @@ public class ModeJeuRech {
 	/**
 	 * Définition d'un booléen pour vérifier le nombre de tour
 	 */
-	boolean verifV = true;
+	boolean verifV = false;
 	
 	/**
 	 * Permet de créer un objet Scanner qui va récupérer les entrées des utilisateurs
@@ -90,7 +90,7 @@ public class ModeJeuRech {
     		System.out.println();
     	}
     	
-    	while (!verifR && verifV){
+    	while (!verifR && !verifV){
     		propoH = jeu.combiHumain("Votre proposition : ");
     		logger.info("La proposition de l'utilisateur au tour " + tour + " est : " + jeu.afficheCombi(propoH));
         	reponse = jeu.compareProposition(jeu.getCombiO(), propoH);
@@ -98,14 +98,14 @@ public class ModeJeuRech {
         	logger.info("Le jeu nous donne comme réponse : " + jeu.afficheReponse(reponse));
         	verifR = jeu.verifReponse(reponse);
         	logger.info("Au tour " + tour + ", le jeu nous donne " + verifR + " pour savoir si l'utilisateur a trouvé la combinaison.");
-        	if (verifR == true){
+        	if (verifR){
         		System.out.println("Vous avez trouvé la combinaison.");
         		logger.info("L'utilisateur a trouvé la combinaison");
         		rejouer(str);
         	}
         	verifV = jeu.verifTour(tour);
-        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum n'est pas dépassé.");
-        	if (verifV == false){
+        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
+        	if (verifV){
         		System.out.print("Vous n'avez pas trouvé la combinaison. Celle-ci était : ");
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'utilisateur n'a pas trouvé la combinaison secrète en " + tourMax + " tours.");
@@ -129,7 +129,7 @@ public class ModeJeuRech {
     	logger.info("La combinaison donné par l'utilisateur est : " + jeu.afficheCombi(combiH));
     	System.out.print("\n\n");
     	
-    	while (!verifR && verifV){
+    	while (!verifR && !verifV){
     		jeu.propoOrdi(reponse, tour, "Proposition de l'ordinateur : ", jeu.getPropoO());
     		logger.info("La proposition donné par l'ordinateur au tour " + tour + "est : " + jeu.afficheCombi(jeu.getPropoO()));
     		System.out.print(jeu.afficheCombi(jeu.getPropoO()));
@@ -139,14 +139,14 @@ public class ModeJeuRech {
         	logger.info("Le jeu nous donne comme réponse : " + jeu.afficheReponse(reponse));
         	verifR = jeu.verifReponse(reponse);
         	logger.info("Au tour " + tour + ", le jeu nous donne " + verifR + " pour savoir si l'ordinateur a trouvé la combinaison.");
-        	if (verifR == true){
+        	if (verifR){
         		System.out.println("L'ordinateur a trouvé votre combinaison.");
         		logger.info("L'ordinateur a trouvé la combinaison");
         		rejouer(str);
         	}
         	verifV = jeu.verifTour(tour);
-        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum n'est pas dépassé.");
-        	if (verifV == false){
+        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
+        	if (verifV){
         		System.out.println("L'ordinateur n'a pas trouvé votre combinaison dans le temps imparti.");
         		logger.info("L'ordinateur n'a pas trouvé la combinaison secrète en " + tourMax + " tours.");
         		rejouer(str);
@@ -169,7 +169,6 @@ public class ModeJeuRech {
     	String[] reponseO = new String[jeu.getSize()];
     	boolean verifH = false;
     	boolean verifO = false;
-    	boolean verifV = true;
     	
     	combiH = jeu.combiHumain("Votre combinaison secrète : ");
     	logger.info("La combinaison secrète de l'utilisateur est : " + jeu.afficheCombi(combiH));
@@ -180,7 +179,7 @@ public class ModeJeuRech {
     	}
     	System.out.println("\n\n");
     	
-    	while (!verifH && !verifO && verifV){
+    	while (!verifH && !verifO && !verifV){
     		
     		propoH = jeu.combiHumain("Votre proposition : ");
     		logger.info("La proposition de l'utilisateur au tour " + tour + " est : " + jeu.afficheCombi(propoH));
@@ -197,25 +196,25 @@ public class ModeJeuRech {
         	logger.info("Au tour " + tour + ", le jeu nous donne " + verifH + " pour savoir si l'utilisateur a trouvé la combinaison.");
         	verifO = jeu.verifReponse(reponseO);
         	logger.info("Au tour " + tour + ", le jeu nous donne " + verifO + " pour savoir si l'ordinateur a trouvé la combinaison.");
-        	if (verifH == true && verifO == false){
+        	if (verifH && !verifO){
         		System.out.println("Vous avez trouvé la combinaison de l'ordinateur.");
         		logger.info("L'utilisateur a trouvé la combinaison");
         		rejouer(str);
         	}
-        	if (verifH == false && verifO == true){
+        	if (!verifH && verifO){
         		System.out.print("L'ordinateur a trouvé votre combinaison. La combinaison de l'ordinateur était : ");
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'ordinateur a trouvé la combinaison de l'utilisateur.");
         		rejouer(str);
         	}
-        	if (verifH == true && verifO == true){
+        	if (verifH && verifO){
         		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
         		logger.info("L'ordinateur et l'utilisateur ont trouvé en même temps les combinaisons secrètes.");
         		rejouer(str);
         	}
         	verifV = jeu.verifTour(tour);
-        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum n'est pas dépassé.");
-        	if (verifV == false){
+        	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
+        	if (verifV){
         		System.out.print("Match nul. Les combinaison n'ont pas été trouvé dans le temps imparti. La combinaison de l'ordinateur était : ");
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'ordinateur et l'utilisateur n'ont pas trouvé la combinaison secrète en " + tourMax + " tours.");

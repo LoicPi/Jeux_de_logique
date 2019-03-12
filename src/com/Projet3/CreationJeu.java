@@ -324,7 +324,7 @@ public class CreationJeu {
      */
     public boolean verifTour (int tour){
     	
-    	if (tour < nbreTour){
+    	if (tour >= nbreTour){
     		return true;
     	}
     	return false;
