@@ -5,7 +5,22 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * ProprieteJeu est une classe faisant appel au fichier config.properties afin d'appeler les paramètres configurer dans ce fichier
+ * 
+ * @author Loïc
+ * @version 1.0
+ */
+
 public class ProprieteJeu {
+	
+	/**
+	 * Méthode pour retourner un parmaètre du fichier config.properties
+	 * @param 
+	 * 		Appel du parametre configurer dans le fichier config.properties
+	 * @return
+	 * 		Retourne la valeur du paramètre en une chaîne de caractère
+	 */
 
 	public String valeurPropriete (String parametre) {
 		InputStream inputStream = null;

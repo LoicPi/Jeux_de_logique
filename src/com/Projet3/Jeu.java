@@ -5,7 +5,7 @@ import java.util.Scanner;
 import org.apache.log4j.Logger;
 
 /**
- * Jeu est une classe contenant toutes les méthodes de présentation des jeux et permettant d'effectuer son choix
+ * Jeu est une classe contenant toutes les méthodes de présentation des jeux et permettant d'effectuer ses choix de jeu
  * Chacune des méthodes va faire appel aux méthodes contenu dans les classes ModeJeuRech et ModeJeuMaster.
  * @see Classe ModeJeuRech
  * @see Classe ModeJeuMaster
