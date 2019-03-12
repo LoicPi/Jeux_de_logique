@@ -2,7 +2,10 @@ package com.Projet3;
 
 import java.util.Scanner;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
 
 /**
  * Jeu est une classe contenant toutes les méthodes de présentation des jeux et permettant d'effectuer ses choix de jeu
@@ -16,7 +19,10 @@ import org.apache.log4j.Logger;
 
 public class Jeu {
 	
-	static Logger logger = Logger.getLogger(Jeu.class);
+	/**
+	 * Création d'un objet logger pour retranscrire les infos dans le fichier de log
+	 */
+	static Logger logger = LogManager.getLogger(Main.class.getName());
 	
 	/**
 	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   

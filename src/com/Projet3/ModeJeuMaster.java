@@ -2,7 +2,12 @@ package com.Projet3;
 
 import java.util.Scanner;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+
+
 
 /**
  * ModeJeuMaster est une classe contenant toutes les méthodes des différents modes contenu dans le jeu Mastermind
@@ -16,7 +21,10 @@ import org.apache.log4j.Logger;
 
 public class ModeJeuMaster {
 	
-	static Logger logger = Logger.getLogger(ModeJeuMaster.class);
+	/**
+	 * Création d'un objet logger pour retranscrire les infos dans le fichier de log
+	 */
+	static Logger logger = LogManager.getLogger(Main.class.getName());
 	
 	/**
 	 * Créer un objet jeu afin de pouvoir l'appeler dans les différentes méthodes

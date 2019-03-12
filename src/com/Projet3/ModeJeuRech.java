@@ -2,7 +2,9 @@ package com.Projet3;
 
 import java.util.Scanner;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  * ModeJeuRech est une classe contenant toutes les méthodes des différents modes contenu dans le jeu Recherche+/-
@@ -16,7 +18,10 @@ import org.apache.log4j.Logger;
 
 public class ModeJeuRech {
 	
-	static Logger logger = Logger.getLogger(ModeJeuRech.class);
+	/**
+	 * Création d'un objet logger pour retranscrire les infos dans le fichier de log
+	 */
+	static Logger logger = LogManager.getLogger(Main.class.getName());
 	
 	/**
 	 * Créer un objet jeu afin de pouvoir l'appeler dans les différentes méthodes

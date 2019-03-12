@@ -3,7 +3,8 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * CreationJeu est une classe contenant toutes les méthodes permettant la création de Recherche +/- et Mastermind.
@@ -17,7 +18,7 @@ public class CreationJeu {
 	/**
 	 * Création d'un objet logger pour retranscrire les infos dans le fichier de log
 	 */
-	static Logger logger = Logger.getLogger(CreationJeu.class);
+	static Logger logger = LogManager.getLogger(Main.class.getName());
 	
 	/**
 	 * Création d'un objet prop pour récupérer les propriétés définit dans le fichier   
