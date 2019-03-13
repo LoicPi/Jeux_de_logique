@@ -89,8 +89,7 @@ public class ModeJeuMaster {
     	jeu.combiMasterOrdi();
     	logger.info("La combinaison secrète est : " + jeu.afficheCombi(jeu.getCombiO()));
     	if (value){
-    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO()));
-    		System.out.print("\n\n");
+    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO()) + "\n" + "\n");
     	}
     	
     	while (!verifR && !verifV){
@@ -134,7 +133,7 @@ public class ModeJeuMaster {
     	
     	combiH = jeu.combiMasterHumain("Votre combinaison secrète : ");
     	logger.info("La combinaison donné par l'utilisateur est : " + jeu.afficheCombi(combiH));
-    	System.out.print("\n\n");
+    	System.out.print("\n" + "\n");
     	
     	while (!verifR && !verifV){
     		jeu.propoOrdiMaster(jeu.getPropoO(), infoPlace, combiH, "Proposition de l'ordinateur : ", tour);
@@ -189,7 +188,7 @@ public class ModeJeuMaster {
     	if (value){
     		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO()));
     	}
-    	System.out.print("\n\n");
+    	System.out.print("\n" + "\n");
     	
     	while (!verifH && !verifO && !verifV){
     		
@@ -224,14 +223,14 @@ public class ModeJeuMaster {
         		rejouer (value);
         	}
         	if (verifH == true && verifO == true){
-        		System.out.println("Match nul. L'ordinateur et vous avez trouvé la combinaison en même temps.");
+        		System.out.println("Match nul. Vous et l'ordinateur avez trouvé les combinaisons secrètes en même temps.");
         		logger.info("L'ordinateur et l'utilisateur ont trouvé en même temps les combinaisons secrètes.");
         		rejouer (value);
         	}
         	verifV = jeu.verifTour(tour);
         	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
         	if (verifV){
-        		System.out.print("Match nul. La combinaison n'a pas été trouvé dans le temps imparti.La combinaison de l'ordinateur était :");
+        		System.out.print("Match nul. Les combinaisons n'ont pas été trouvées dans le temps imparti. La combinaison de l'ordinateur était :");
         		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'ordinateur et l'utilisateur n'ont pas trouvé la combinaison secrète en " + tourMax + " tours.");
         		rejouer (value);
@@ -276,7 +275,7 @@ public class ModeJeuMaster {
 		System.out.println("Que voulez vous faire ?");
 		System.out.println("	1 - Rejouer au même jeu");
 		System.out.println("	2 - Revenir au menu principal");
-		System.out.println("	3 - Quitter le jeu");
+		System.out.println("	3 - Quitter le jeu" + "\n");
 		
 		do {
             System.out.println("Quel est votre choix ?");
@@ -290,7 +289,7 @@ public class ModeJeuMaster {
                 }
             } else{
             	logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
-                System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3.");
+                System.out.println("Votre saisie est incorrecte. Merci de choisir entre les choix 1, 2, 3.");
                 sc.nextLine();
             }
         }while (!testRejouer );

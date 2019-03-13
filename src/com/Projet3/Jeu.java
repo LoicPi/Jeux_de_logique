@@ -52,8 +52,8 @@ public class Jeu {
 		
 		System.out.println("		Bienvenue dans Jeu de Logique.		" + "\n\n");
 		System.out.println("Dans Jeu de Logique, vous avez la possibilité de choisir entre deux jeux :");
-		System.out.println("	1 - Recherche +/- : Recherche d'une combinaison chiffré grâce à des indications +, -, =	");
-		System.out.println("	2 - Mastermind	  : Recherche d'une combinaison chiffré grâce à des indications sur les chiffres bien placés ou mal placés");
+		System.out.println("	1 - Recherche +/- : Recherche d'une combinaison chiffrée grâce à des indications +, -, =	");
+		System.out.println("	2 - Mastermind	  : Recherche d'une combinaison chiffrée grâce à des indications sur les chiffres bien placés ou mal placés");
 		System.out.println("	3 - Quitter le jeu " + "\n");
 
 		do {
@@ -68,7 +68,7 @@ public class Jeu {
                 }
             } else{
             	logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
-                System.out.println("Votre saisi est incorrect. Merci de saisir le chiffre 1, 2 ou 3 selon votre choix.");
+                System.out.println("Votre saisie est incorrecte. Merci de saisir le chiffre 1, 2 ou 3 selon votre choix.");
                 sc.nextLine();
             }
         }while (!testChoix );
@@ -99,19 +99,17 @@ public class Jeu {
 		
 		ModeJeuRech mode = new ModeJeuRech();
 		
-        System.out.println("		Recherche de Combinaison");
-        System.out.println();
+        System.out.println("		Recherche de Combinaison"+ "\n");
         System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres en " +prop.valeurPropriete("jeu.nbreTour") + " tours maximum.");
         System.out.println("Pour cela des indications +, -, = seront données sur chacun des chiffres proposés.");
-        System.out.println("Si le chiffre cherché est plus petit que celui proposé alors il sera indiqué par un +.");
-        System.out.println("Si le chiffre cherché est plus grand que celui proposé alors il sera indiqué par un -.");
-        System.out.println("Si le chiffre cherché est correct alors il sera indiqué par un =.");
-        System.out.println();
-        System.out.println("3 modes de jeu s'offre à vous : ");
+        System.out.println("Si le chiffre cherché est plus petit que celui proposé alors il sera indiqué par un -.");
+        System.out.println("Si le chiffre cherché est plus grand que celui proposé alors il sera indiqué par un +.");
+        System.out.println("Si le chiffre proposé est correct alors il sera indiqué par un =." + "\n");
+        System.out.println("3 modes de jeu s'offrent à vous : ");
         System.out.println("    1 - Mode Challenger : Trouverez vous la combinaison secrète de l'ordinateur ?");
         System.out.println("    2 - Mode Défenseur  : L'ordinateur trouvera-t-il votre combinaison secrète ?");
-        System.out.println("    3 - Mode Duel       : Combattez l'ordinateur, qui gagnera ?");
-        System.out.println("    4 - Revenir au Menu Principal");
+        System.out.println("    3 - Mode Duel       : Affrontez l'ordinateur, qui trouvera la combinaison de l'autre en premier ?");
+        System.out.println("    4 - Revenir au Menu Principal" + "\n");
 
         do {
             System.out.println("Quel est votre choix ?");
@@ -125,7 +123,7 @@ public class Jeu {
                 }
             } else{
             	logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
-                System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3, 4.");
+                System.out.println("Votre saisie est incorrecte. Merci de choisir entre les choix 1, 2, 3, 4.");
                 sc.nextLine();
             }
         }while (!testChoix );
@@ -133,18 +131,18 @@ public class Jeu {
         
         switch (choixJeu) {
         	case 1 :
-        		System.out.println("Vous avez choisi le Mode Challenger.");
         		System.out.println();
+        		System.out.println("Vous avez choisi le Mode Challenger." + "\n");
         		mode.modeChallenger(value);
         		break;
         	case 2 :
-        		System.out.println("Vous avez choisi le Mode Défenseur.");
         		System.out.println();
+        		System.out.println("Vous avez choisi le Mode Défenseur."+ "\n");
         		mode.modeDefenseur(value);
         		break;
         	case 3 :
-        		System.out.println("Vous avez choisi le Mode Duel.");
         		System.out.println();
+        		System.out.println("Vous avez choisi le Mode Duel."+ "\n");
         		mode.modeDuel(value);
         		break;
         	case 4 :
@@ -163,19 +161,18 @@ public class Jeu {
 		        
         ModeJeuMaster mode = new ModeJeuMaster();
 
-        System.out.println("		Mastermind");
-        System.out.println();
-        System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres compris entre 0 et " + prop.valeurPropriete("jeu.nbreCouleurs") + " inclus.");
-        System.out.println("Il faut effectuer cela en " +prop.valeurPropriete("jeu.nbreTour") + " tours maximum.");
-        System.out.println("Des indications sur chacun des chiffres proposés est indiqués.");
-        System.out.println("A savoir le nombre de chiffre bien placés et ceux présent dans la combinaison mais mal placé.");
-        System.out.println();
-        System.out.println("3 modes de jeu s'offre à vous : ");
+        System.out.println("		Mastermind" + "\n");
+        System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres.");
+        System.out.println("Chaque chiffre a une valeur comprise entre 0 et " + prop.valeurPropriete("jeu.nbreCouleurs") + " inclus.");
+        System.out.println("Il faut retrouver la combinaison en " +prop.valeurPropriete("jeu.nbreTour") + " tours maximum.");
+        System.out.println("Des indications sur chacun des chiffres proposés est indiquées.");
+        System.out.println("Le nombre de chiffres bien placés, il sera alors indiqué le nombre avec le terme 'bien placé(s)'.");
+        System.out.println("Le nombre de chiffres mal placés, il sera alors indiqué le nombre avec le terme 'présent(s)'." + "\n");
+        System.out.println("3 modes de jeu s'offrent à vous : ");
         System.out.println("    1 - Mode Challenger : Trouverez vous la combinaison secrète de l'ordinateur ?");
         System.out.println("    2 - Mode Défenseur  : L'ordinateur trouvera-t-il votre combinaison secrète ?");
-        System.out.println("    3 - Mode Duel       : Combattez l'ordinateur, qui gagnera ?");
-        System.out.println("    4 - Revenir au Menu Principal");
-        System.out.println();
+        System.out.println("    3 - Mode Duel       : Affrontez l'ordinateur, qui trouvera la combinaison de l'autre en premier ?");
+        System.out.println("    4 - Revenir au Menu Principal" + "\n");
 
         do {
             System.out.println("Quel est votre choix ?");
@@ -189,7 +186,7 @@ public class Jeu {
                 }
             } else{
             	logger.error("La combinaison n'est pas bonne car ce n'est pas un entier.");
-                System.out.println("Votre saisi est incorrect. Merci de choisir entre les choix 1, 2, 3, 4.");
+                System.out.println("Votre saisie est incorrecte. Merci de choisir entre les choix 1, 2, 3, 4.");
                 sc.nextLine();
             }
         }while (!testChoix );
@@ -198,20 +195,17 @@ public class Jeu {
         switch (choixJeu) {
         	case 1 :
         		System.out.println();
-        		System.out.println("Vous avez choisi le Mode Challenger.");
-        		System.out.println();
+        		System.out.println("Vous avez choisi le Mode Challenger." + "\n");
         		mode.modeChallenger(value);
         		break;
         	case 2 :
         		System.out.println();
-        		System.out.println("Vous avez choisi le Mode Défenseur.");
-        		System.out.println();
+        		System.out.println("Vous avez choisi le Mode Défenseur." + "\n");
         		mode.modeDefenseur(value);
         		break;
         	case 3 :
         		System.out.println();
-        		System.out.println("Vous avez choisi le Mode Duel.");
-        		System.out.println();
+        		System.out.println("Vous avez choisi le Mode Duel." + "\n");
         		mode.modeDuel(value);
         		break;
         	case 4 :
