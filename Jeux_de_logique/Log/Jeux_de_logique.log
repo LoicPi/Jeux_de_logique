@@ -1,0 +1,26 @@
+[INFO ] 2019-03-18 15:08:39.896 Jeu:75 - Le choix de l'utilisateur est 1
+[INFO ] 2019-03-18 15:08:45.078 Jeu:130 - Le choix de l'utilisateur est 2
+[INFO ] 2019-03-18 15:08:48.758 ModeJeuRech:131 - La combinaison donné par l'utilisateur est : 5674
+[INFO ] 2019-03-18 15:08:48.758 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 1est : 7777
+[INFO ] 2019-03-18 15:08:48.759 ModeJeuRech:141 - Le jeu nous donne comme réponse : --=-
+[INFO ] 2019-03-18 15:08:48.759 ModeJeuRech:143 - Au tour 1, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-18 15:08:48.759 ModeJeuRech:150 - Au tour 1, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 15:08:48.764 ModeJeuRech:157 - Il reste 4 tour.
+[INFO ] 2019-03-18 15:08:48.764 ModeJeuRech:159 - On passe au tour : 2
+[INFO ] 2019-03-18 15:08:48.764 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 2est : 2272
+[INFO ] 2019-03-18 15:08:48.764 ModeJeuRech:141 - Le jeu nous donne comme réponse : ++=+
+[INFO ] 2019-03-18 15:08:48.765 ModeJeuRech:143 - Au tour 2, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-18 15:08:48.765 ModeJeuRech:150 - Au tour 2, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 15:08:48.765 ModeJeuRech:157 - Il reste 3 tour.
+[INFO ] 2019-03-18 15:08:48.765 ModeJeuRech:159 - On passe au tour : 3
+[INFO ] 2019-03-18 15:08:48.765 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 3est : 5575
+[INFO ] 2019-03-18 15:08:48.765 ModeJeuRech:141 - Le jeu nous donne comme réponse : =+=-
+[INFO ] 2019-03-18 15:08:48.766 ModeJeuRech:143 - Au tour 3, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-18 15:08:48.766 ModeJeuRech:150 - Au tour 3, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 15:08:48.766 ModeJeuRech:157 - Il reste 2 tour.
+[INFO ] 2019-03-18 15:08:48.766 ModeJeuRech:159 - On passe au tour : 4
+[INFO ] 2019-03-18 15:08:48.766 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 4est : 5674
+[INFO ] 2019-03-18 15:08:48.766 ModeJeuRech:141 - Le jeu nous donne comme réponse : ====
+[INFO ] 2019-03-18 15:08:48.767 ModeJeuRech:143 - Au tour 4, le jeu nous donne true pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-18 15:08:48.767 ModeJeuRech:146 - L'ordinateur a trouvé la combinaison
+[INFO ] 2019-03-18 15:08:58.965 ModeJeuRech:285 - Le choix de l'utilisateur est 3
