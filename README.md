@@ -2,8 +2,8 @@
   
 ## Presentation :   
 Jeux de Logique est un jeu où vous avez la possibilité de jouer à deux jeux :   
-    - Recherche +/- : Recherche d'une combinaison, en un nombre de tour prédéfini, via des indications +, -, =	  
-    - Mastermind : Recherche d'une combinaison, en un nombre de tour prédéfini et avec un nombre de couleurs prédéfini, via des indications de placements 
+     - Recherche +/- : Recherche d'une combinaison, en un nombre de tour prédéfini, via des indications +, -, =	  
+     - Mastermind : Recherche d'une combinaison, en un nombre de tour prédéfini et avec un nombre de couleurs prédéfini, via des indications de placements 
 	 
 Pour chacun des jeux trois modes sont proposés :   
     - Mode Challenger : Il faut retrouver la combinaison de l'ordinateur  
@@ -17,5 +17,5 @@ Voici les différents propriétés modifiables :
 	- Le nombre de tour via `jeu.nbreTour`  
 	- Le nombre de couleurs via `jeu.nbreCouleurs`  
 	- Le mode développeur via `jeu.modeDeveloppeur`  
-		- La valeur `True` permet de le lancer en mode développeur  
-		- La valeur `False` permettra de ne pas le lancer en mode développeur   
+	    - La valeur `True` permet de le lancer en mode développeur  
+	    - La valeur `False` permettra de ne pas le lancer en mode développeur   
