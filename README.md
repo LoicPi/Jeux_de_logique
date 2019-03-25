@@ -2,7 +2,7 @@
   
 ## Presentation :   
 Jeux de Logique est un jeu où vous avez la possibilité de jouer à deux jeux :   
-1. **_Recherche +/-_** : Recherche d'une combinaison, en un nombre de tour prédéfini, via des indications +, -, =	  
+1. **Recherche +/-** : Recherche d'une combinaison, en un nombre de tour prédéfini, via des indications +, -, =	  
 2. **_Mastermind_** : Recherche d'une combinaison, en un nombre de tour prédéfini et avec un nombre de couleurs prédéfini, via des indications de placements 
 	 
 Pour chacun des jeux trois modes sont proposés :   
