@@ -57,7 +57,7 @@ public class Jeu {
 		System.out.println("	3 - Quitter le jeu " + "\n");
 
 		do {
-            System.out.println("Quel est votre choix ?");
+            System.out.print("Quel est votre choix ? ");
             testChoix = sc.hasNextInt();
             if(testChoix){
                 choixJeu = sc.nextInt();
@@ -99,7 +99,7 @@ public class Jeu {
 		
 		ModeJeuRech mode = new ModeJeuRech();
 		
-        System.out.println("		Recherche de Combinaison"+ "\n");
+        System.out.println("		Recherche +/-"+ "\n");
         System.out.println("Le but du jeu est de retrouver la combinaison secrète de " + prop.valeurPropriete("jeu.size") + " chiffres en " +prop.valeurPropriete("jeu.nbreTour") + " tours maximum.");
         System.out.println("Pour cela des indications +, -, = seront données sur chacun des chiffres proposés.");
         System.out.println("Si le chiffre cherché est plus petit que celui proposé alors il sera indiqué par un -.");
@@ -112,7 +112,7 @@ public class Jeu {
         System.out.println("    4 - Revenir au Menu Principal" + "\n");
 
         do {
-            System.out.println("Quel est votre choix ?");
+            System.out.print("Quel est votre choix ? ");
             testChoix = sc.hasNextInt();
             if(testChoix){
                 choixJeu = sc.nextInt();
@@ -131,17 +131,14 @@ public class Jeu {
         
         switch (choixJeu) {
         	case 1 :
-        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Challenger." + "\n");
         		mode.modeChallenger(value);
         		break;
         	case 2 :
-        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Défenseur."+ "\n");
         		mode.modeDefenseur(value);
         		break;
         	case 3 :
-        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Duel."+ "\n");
         		mode.modeDuel(value);
         		break;
@@ -175,7 +172,7 @@ public class Jeu {
         System.out.println("    4 - Revenir au Menu Principal" + "\n");
 
         do {
-            System.out.println("Quel est votre choix ?");
+            System.out.print("Quel est votre choix ? ");
             testChoix = sc.hasNextInt();
             if(testChoix){
                 choixJeu = sc.nextInt();
@@ -194,17 +191,14 @@ public class Jeu {
         
         switch (choixJeu) {
         	case 1 :
-        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Challenger." + "\n");
         		mode.modeChallenger(value);
         		break;
         	case 2 :
-        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Défenseur." + "\n");
         		mode.modeDefenseur(value);
         		break;
         	case 3 :
-        		System.out.println();
         		System.out.println("Vous avez choisi le Mode Duel." + "\n");
         		mode.modeDuel(value);
         		break;

@@ -86,11 +86,16 @@ public class ModeJeuMaster {
 	 */
 	public void modeChallenger(Boolean value) {
 
+		System.out.println("---------- ---------- ---------- ---------- ---------- ----------");
+		System.out.println("---------- ----------    MODE CHALLENGER    ---------- ----------");
+		System.out.println("---------- ---------- ---------- ---------- ---------- ----------" + "\n");
+		
     	jeu.combiMasterOrdi();
     	logger.info("La combinaison secrète est : " + jeu.afficheCombi(jeu.getCombiO()));
     	if (value){
-    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO()) + "\n" + "\n");
+    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO())+ "\n");
     	}
+    	System.out.println("L'ordinateur a choisi sa combinaison."+ "\n");
     	
     	while (!verifR && !verifV){
     		propoH = jeu.combiMasterHumain("Votre proposition : ");
@@ -110,8 +115,7 @@ public class ModeJeuMaster {
         	verifV = jeu.verifTour(tour);
         	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
         	if (verifV){
-        		System.out.print("Vous n'avez pas trouvé la combinaison dans le temps imparti. Celle-ci était : "); 
-        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
+        		System.out.println("Vous n'avez pas trouvé la combinaison dans le temps imparti. Celle-ci était : " + jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'utilisateur n'a pas trouvé la combinaison secrète en " + tourMax + " tours.");
         		rejouer (value);
         	}
@@ -131,9 +135,13 @@ public class ModeJeuMaster {
 	 */
 	public void modeDefenseur (boolean value) {
     	
-    	combiH = jeu.combiMasterHumain("Votre combinaison secrète : ");
+		System.out.println("---------- ---------- ---------- ---------- ---------- ----------");
+		System.out.println("---------- ----------    MODE  DEFENSEUR    ---------- ----------");
+		System.out.println("---------- ---------- ---------- ---------- ---------- ----------" + "\n");
+		
+    	combiH = jeu.combiMasterHumain("Choisissez votre combinaison secrète ? ");
     	logger.info("La combinaison donné par l'utilisateur est : " + jeu.afficheCombi(combiH));
-    	System.out.print("\n" + "\n");
+    	System.out.print("\n");
     	
     	while (!verifR && !verifV){
     		jeu.propoOrdiMaster(jeu.getPropoO(), infoPlace, combiH, "Proposition de l'ordinateur : ", tour);
@@ -158,7 +166,7 @@ public class ModeJeuMaster {
         		logger.info("L'ordinateur n'a pas trouvé la combinaison secrète en " + tourMax + " tours.");
         		rejouer (value);
         	}
-        	System.out.println ("Il vous reste encore " + (tourMax -tour) + proposition((tourMax-tour))+"\n");
+        	System.out.println ("Il lui reste encore " + (tourMax -tour) + proposition((tourMax-tour))+"\n");
         	logger.info("Il reste " + (tourMax -tour) + " tour.");
         	tour ++;
         	logger.info("On passe au tour : " + tour);
@@ -181,14 +189,18 @@ public class ModeJeuMaster {
     	boolean verifH = false;
     	boolean verifO = false;
     	
-    	combiH = jeu.combiMasterHumain("Votre combinaison secrète : ");
+    	System.out.println("---------- ---------- ---------- ---------- ---------- ----------");
+		System.out.println("---------- ----------       MODE DUEL       ---------- ----------");
+		System.out.println("---------- ---------- ---------- ---------- ---------- ----------" + "\n");
+    	
+    	combiH = jeu.combiMasterHumain("Choisissez votre combinaison secrète : ");
     	logger.info("La combinaison secrète de l'utilisateur est : " + jeu.afficheCombi(combiH));
     	jeu.combiMasterOrdi();
     	logger.info("La combinaison secrète de l'ordinateur est : " + jeu.afficheCombi(jeu.getCombiO()));
     	if (value){
-    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO()));
+    		System.out.println("Combinaison secrète de l'ordinateur : " + jeu.afficheCombi(jeu.getCombiO())+ "\n");
     	}
-    	System.out.print("\n" + "\n");
+    	System.out.println("L'ordinateur a choisi sa combinaison."+ "\n");
     	
     	while (!verifH && !verifO && !verifV){
     		
@@ -217,8 +229,7 @@ public class ModeJeuMaster {
         		rejouer (value);
         	}
         	if (verifH == false && verifO == true){
-        		System.out.print("L'ordinateur a trouvé votre combinaison. Sa combinaison était : ");
-        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
+        		System.out.print("L'ordinateur a trouvé votre combinaison. Sa combinaison était : " + jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'ordinateur a trouvé la combinaison de l'utilisateur.");
         		rejouer (value);
         	}
@@ -230,12 +241,11 @@ public class ModeJeuMaster {
         	verifV = jeu.verifTour(tour);
         	logger.info("Au tour " + tour + ", le jeu nous donne " + verifV + " pour savoir si le nombre de tour maximum est dépassé.");
         	if (verifV){
-        		System.out.print("Match nul. Les combinaisons n'ont pas été trouvées dans le temps imparti. La combinaison de l'ordinateur était :");
-        		System.out.println(jeu.afficheCombi(jeu.getCombiO()));
+        		System.out.print("Match nul. Les combinaisons n'ont pas été trouvées dans le temps imparti. La combinaison de l'ordinateur était :" + jeu.afficheCombi(jeu.getCombiO()));
         		logger.info("L'ordinateur et l'utilisateur n'ont pas trouvé la combinaison secrète en " + tourMax + " tours.");
         		rejouer (value);
         	}
-        	System.out.println ("Il vous reste encore " + (tourMax-tour) + proposition((tourMax-tour))+"\n");
+        	System.out.println ("Il reste encore " + (tourMax-tour) + proposition((tourMax-tour))+"\n");
         	logger.info("Il reste " + (tourMax -tour) + " tour.");
         	tour++;
         	logger.info("On passe au tour : " + tour);
@@ -271,14 +281,13 @@ public class ModeJeuMaster {
 		int choixRejouer = 0;
 		Jeu rejouer = new Jeu();
 		
-		System.out.println();
-		System.out.println("Que voulez vous faire ?");
+		System.out.println("\n" + "Que voulez vous faire ?");
 		System.out.println("	1 - Rejouer au même jeu");
 		System.out.println("	2 - Revenir au menu principal");
 		System.out.println("	3 - Quitter le jeu" + "\n");
 		
 		do {
-            System.out.println("Quel est votre choix ?");
+            System.out.print("Quel est votre choix ? ");
             testRejouer = sc.hasNextInt();
             if(testRejouer){
                 choixRejouer = sc.nextInt();
