@@ -1,69 +1,122 @@
-[INFO ] 2019-03-21 10:22:18.545 Jeu:75 - Le choix de l'utilisateur est 1
-[INFO ] 2019-03-21 10:23:13.220 Jeu:130 - Le choix de l'utilisateur est 1
-[INFO ] 2019-03-21 10:23:13.221 ModeJeuRech:88 - La combinaison secrète est : 7410
-[INFO ] 2019-03-21 10:23:29.822 ModeJeuRech:95 - La proposition de l'utilisateur au tour 1 est : 1234
-[INFO ] 2019-03-21 10:23:29.823 ModeJeuRech:98 - Le jeu nous donne comme réponse : ++--
-[INFO ] 2019-03-21 10:23:29.823 ModeJeuRech:100 - Au tour 1, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:23:29.824 ModeJeuRech:107 - Au tour 1, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
-[INFO ] 2019-03-21 10:23:29.833 ModeJeuRech:115 - Il reste 4 tour.
-[INFO ] 2019-03-21 10:23:29.833 ModeJeuRech:117 - On passe au tour : 2
-[INFO ] 2019-03-21 10:23:42.837 ModeJeuRech:95 - La proposition de l'utilisateur au tour 2 est : 2323
-[INFO ] 2019-03-21 10:23:42.838 ModeJeuRech:98 - Le jeu nous donne comme réponse : ++--
-[INFO ] 2019-03-21 10:23:42.838 ModeJeuRech:100 - Au tour 2, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:23:42.838 ModeJeuRech:107 - Au tour 2, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
-[INFO ] 2019-03-21 10:23:42.839 ModeJeuRech:115 - Il reste 3 tour.
-[INFO ] 2019-03-21 10:23:42.839 ModeJeuRech:117 - On passe au tour : 3
-[INFO ] 2019-03-21 10:23:53.017 ModeJeuRech:95 - La proposition de l'utilisateur au tour 3 est : 3412
-[INFO ] 2019-03-21 10:23:53.017 ModeJeuRech:98 - Le jeu nous donne comme réponse : +==-
-[INFO ] 2019-03-21 10:23:53.018 ModeJeuRech:100 - Au tour 3, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:23:53.018 ModeJeuRech:107 - Au tour 3, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
-[INFO ] 2019-03-21 10:23:53.019 ModeJeuRech:115 - Il reste 2 tour.
-[INFO ] 2019-03-21 10:23:53.020 ModeJeuRech:117 - On passe au tour : 4
-[INFO ] 2019-03-21 10:24:01.315 ModeJeuRech:95 - La proposition de l'utilisateur au tour 4 est : 4411
-[INFO ] 2019-03-21 10:24:01.316 ModeJeuRech:98 - Le jeu nous donne comme réponse : +==-
-[INFO ] 2019-03-21 10:24:01.316 ModeJeuRech:100 - Au tour 4, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:24:01.317 ModeJeuRech:107 - Au tour 4, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
-[INFO ] 2019-03-21 10:24:01.318 ModeJeuRech:115 - Il reste 1 tour.
-[INFO ] 2019-03-21 10:24:01.318 ModeJeuRech:117 - On passe au tour : 5
-[INFO ] 2019-03-21 10:24:08.911 ModeJeuRech:95 - La proposition de l'utilisateur au tour 5 est : 5410
-[INFO ] 2019-03-21 10:24:08.912 ModeJeuRech:98 - Le jeu nous donne comme réponse : +===
-[INFO ] 2019-03-21 10:24:08.912 ModeJeuRech:100 - Au tour 5, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:24:08.913 ModeJeuRech:107 - Au tour 5, le jeu nous donne true pour savoir si le nombre de tour maximum est dépassé.
-[INFO ] 2019-03-21 10:24:08.914 ModeJeuRech:111 - L'utilisateur n'a pas trouvé la combinaison secrète en 5 tours.
-[INFO ] 2019-03-21 10:24:34.245 ModeJeuRech:285 - Le choix de l'utilisateur est 2
-[INFO ] 2019-03-21 10:24:51.402 Jeu:75 - Le choix de l'utilisateur est 2
-[INFO ] 2019-03-21 10:25:29.017 Jeu:193 - Le choix de l'utilisateur est 3
-[INFO ] 2019-03-21 10:25:40.149 ModeJeuMaster:185 - La combinaison secrète de l'utilisateur est : 2031
-[INFO ] 2019-03-21 10:25:40.150 ModeJeuMaster:187 - La combinaison secrète de l'ordinateur est : 0111
-[INFO ] 2019-03-21 10:25:50.688 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 1 est : 0123
-[INFO ] 2019-03-21 10:25:50.688 ModeJeuMaster:198 - Pour l'utilisateur au tour 1, le nombre de chiffre bien placés est 2 et le nombre de chiffre mal placés est 0
-[INFO ] 2019-03-21 10:25:50.688 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 2 bien placés
-[INFO ] 2019-03-21 10:25:50.689 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 1 est : 1440
-[INFO ] 2019-03-21 10:25:50.690 ModeJeuMaster:206 - Pour l'ordinateur au tour 1, le nombre de chiffre bien placés est 0 et le nombre de chiffre mal placés est 2
-[INFO ] 2019-03-21 10:25:50.690 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 2 bien placés
-[INFO ] 2019-03-21 10:25:50.690 ModeJeuMaster:211 - Au tour 1, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:25:50.691 ModeJeuMaster:213 - Au tour 1, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:25:50.691 ModeJeuMaster:231 - Au tour 1, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
-[INFO ] 2019-03-21 10:25:50.691 ModeJeuMaster:239 - Il reste 4 tour.
-[INFO ] 2019-03-21 10:25:50.691 ModeJeuMaster:241 - On passe au tour : 2
-[INFO ] 2019-03-21 10:26:08.887 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 2 est : 0144
-[INFO ] 2019-03-21 10:26:08.887 ModeJeuMaster:198 - Pour l'utilisateur au tour 2, le nombre de chiffre bien placés est 2 et le nombre de chiffre mal placés est 0
-[INFO ] 2019-03-21 10:26:08.887 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 2 bien placés
-[INFO ] 2019-03-21 10:26:08.888 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 2 est : 0144
-[INFO ] 2019-03-21 10:26:08.889 ModeJeuMaster:206 - Pour l'ordinateur au tour 2, le nombre de chiffre bien placés est 0 et le nombre de chiffre mal placés est 2
-[INFO ] 2019-03-21 10:26:08.889 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 2 bien placés
-[INFO ] 2019-03-21 10:26:08.890 ModeJeuMaster:211 - Au tour 2, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:26:08.890 ModeJeuMaster:213 - Au tour 2, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:26:08.890 ModeJeuMaster:231 - Au tour 2, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
-[INFO ] 2019-03-21 10:26:08.891 ModeJeuMaster:239 - Il reste 3 tour.
-[INFO ] 2019-03-21 10:26:08.891 ModeJeuMaster:241 - On passe au tour : 3
-[INFO ] 2019-03-21 10:26:26.824 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 3 est : 0111
-[INFO ] 2019-03-21 10:26:26.824 ModeJeuMaster:198 - Pour l'utilisateur au tour 3, le nombre de chiffre bien placés est 4 et le nombre de chiffre mal placés est 0
-[INFO ] 2019-03-21 10:26:26.824 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 4 bien placés
-[INFO ] 2019-03-21 10:26:26.825 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 3 est : 4014
-[INFO ] 2019-03-21 10:26:26.826 ModeJeuMaster:206 - Pour l'ordinateur au tour 3, le nombre de chiffre bien placés est 1 et le nombre de chiffre mal placés est 1
-[INFO ] 2019-03-21 10:26:26.826 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 4 bien placés
-[INFO ] 2019-03-21 10:26:26.826 ModeJeuMaster:211 - Au tour 3, le jeu nous donne true pour savoir si l'utilisateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:26:26.826 ModeJeuMaster:213 - Au tour 3, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
-[INFO ] 2019-03-21 10:26:26.826 ModeJeuMaster:216 - L'utilisateur a trouvé la combinaison
-[INFO ] 2019-03-21 10:26:49.342 ModeJeuMaster:296 - Le choix de l'utilisateur est 3
+[INFO ] 2019-03-23 15:22:15.112 Jeu:75 - Le choix de l'utilisateur est 1
+[INFO ] 2019-03-23 15:22:52.972 Jeu:130 - Le choix de l'utilisateur est 2
+[INFO ] 2019-03-23 15:23:19.475 ModeJeuRech:131 - La combinaison donné par l'utilisateur est : 9753
+[INFO ] 2019-03-23 15:23:19.476 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 1est : 7777
+[INFO ] 2019-03-23 15:23:19.476 ModeJeuRech:141 - Le jeu nous donne comme réponse : +=--
+[INFO ] 2019-03-23 15:23:19.476 ModeJeuRech:143 - Au tour 1, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:23:19.476 ModeJeuRech:150 - Au tour 1, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:23:19.478 ModeJeuRech:157 - Il reste 4 tour.
+[INFO ] 2019-03-23 15:23:19.478 ModeJeuRech:159 - On passe au tour : 2
+[INFO ] 2019-03-23 15:23:19.482 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 2est : 8722
+[INFO ] 2019-03-23 15:23:19.482 ModeJeuRech:141 - Le jeu nous donne comme réponse : +=++
+[INFO ] 2019-03-23 15:23:19.482 ModeJeuRech:143 - Au tour 2, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:23:19.482 ModeJeuRech:150 - Au tour 2, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:23:19.483 ModeJeuRech:157 - Il reste 3 tour.
+[INFO ] 2019-03-23 15:23:19.483 ModeJeuRech:159 - On passe au tour : 3
+[INFO ] 2019-03-23 15:23:19.483 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 3est : 9755
+[INFO ] 2019-03-23 15:23:19.483 ModeJeuRech:141 - Le jeu nous donne comme réponse : ===-
+[INFO ] 2019-03-23 15:23:19.483 ModeJeuRech:143 - Au tour 3, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:23:19.484 ModeJeuRech:150 - Au tour 3, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:23:19.484 ModeJeuRech:157 - Il reste 2 tour.
+[INFO ] 2019-03-23 15:23:19.484 ModeJeuRech:159 - On passe au tour : 4
+[INFO ] 2019-03-23 15:23:19.484 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 4est : 9754
+[INFO ] 2019-03-23 15:23:19.484 ModeJeuRech:141 - Le jeu nous donne comme réponse : ===-
+[INFO ] 2019-03-23 15:23:19.484 ModeJeuRech:143 - Au tour 4, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:23:19.485 ModeJeuRech:150 - Au tour 4, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:23:19.485 ModeJeuRech:157 - Il reste 1 tour.
+[INFO ] 2019-03-23 15:23:19.485 ModeJeuRech:159 - On passe au tour : 5
+[INFO ] 2019-03-23 15:23:19.486 ModeJeuRech:136 - La proposition donné par l'ordinateur au tour 5est : 9753
+[INFO ] 2019-03-23 15:23:19.486 ModeJeuRech:141 - Le jeu nous donne comme réponse : ====
+[INFO ] 2019-03-23 15:23:19.486 ModeJeuRech:143 - Au tour 5, le jeu nous donne true pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:23:19.486 ModeJeuRech:146 - L'ordinateur a trouvé la combinaison
+[INFO ] 2019-03-23 15:23:48.523 ModeJeuRech:285 - Le choix de l'utilisateur est 1
+[INFO ] 2019-03-23 15:23:52.053 Jeu:130 - Le choix de l'utilisateur est 1
+[INFO ] 2019-03-23 15:23:52.054 ModeJeuRech:88 - La combinaison secrète est : 0941
+[INFO ] 2019-03-23 15:24:22.447 ModeJeuRech:95 - La proposition de l'utilisateur au tour 1 est : 7777
+[INFO ] 2019-03-23 15:24:22.447 ModeJeuRech:98 - Le jeu nous donne comme réponse : -+--
+[INFO ] 2019-03-23 15:24:22.448 ModeJeuRech:100 - Au tour 1, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:24:22.449 ModeJeuRech:107 - Au tour 1, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:24:22.449 ModeJeuRech:115 - Il reste 4 tour.
+[INFO ] 2019-03-23 15:24:22.449 ModeJeuRech:117 - On passe au tour : 2
+[INFO ] 2019-03-23 15:24:45.165 ModeJeuRech:95 - La proposition de l'utilisateur au tour 2 est : 5955
+[INFO ] 2019-03-23 15:24:45.165 ModeJeuRech:98 - Le jeu nous donne comme réponse : -=--
+[INFO ] 2019-03-23 15:24:45.166 ModeJeuRech:100 - Au tour 2, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:24:45.166 ModeJeuRech:107 - Au tour 2, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:24:45.166 ModeJeuRech:115 - Il reste 3 tour.
+[INFO ] 2019-03-23 15:24:45.166 ModeJeuRech:117 - On passe au tour : 3
+[INFO ] 2019-03-23 15:25:01.558 ModeJeuRech:95 - La proposition de l'utilisateur au tour 3 est : 3933
+[INFO ] 2019-03-23 15:25:01.558 ModeJeuRech:98 - Le jeu nous donne comme réponse : -=+-
+[INFO ] 2019-03-23 15:25:01.559 ModeJeuRech:100 - Au tour 3, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:25:01.559 ModeJeuRech:107 - Au tour 3, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:25:01.559 ModeJeuRech:115 - Il reste 2 tour.
+[INFO ] 2019-03-23 15:25:01.559 ModeJeuRech:117 - On passe au tour : 4
+[INFO ] 2019-03-23 15:25:32.921 ModeJeuRech:95 - La proposition de l'utilisateur au tour 4 est : 1941
+[INFO ] 2019-03-23 15:25:32.921 ModeJeuRech:98 - Le jeu nous donne comme réponse : -===
+[INFO ] 2019-03-23 15:25:32.922 ModeJeuRech:100 - Au tour 4, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:25:32.922 ModeJeuRech:107 - Au tour 4, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:25:32.923 ModeJeuRech:115 - Il reste 1 tour.
+[INFO ] 2019-03-23 15:25:32.923 ModeJeuRech:117 - On passe au tour : 5
+[INFO ] 2019-03-23 15:25:47.481 ModeJeuRech:95 - La proposition de l'utilisateur au tour 5 est : 0941
+[INFO ] 2019-03-23 15:25:47.481 ModeJeuRech:98 - Le jeu nous donne comme réponse : ====
+[INFO ] 2019-03-23 15:25:47.482 ModeJeuRech:100 - Au tour 5, le jeu nous donne true pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:25:47.482 ModeJeuRech:103 - L'utilisateur a trouvé la combinaison
+[INFO ] 2019-03-23 15:26:01.262 ModeJeuRech:285 - Le choix de l'utilisateur est 2
+[INFO ] 2019-03-23 15:26:04.398 Jeu:75 - Le choix de l'utilisateur est 2
+[INFO ] 2019-03-23 15:26:21.834 Jeu:193 - Le choix de l'utilisateur est 3
+[INFO ] 2019-03-23 15:27:15.363 ModeJeuMaster:185 - La combinaison secrète de l'utilisateur est : 0421
+[INFO ] 2019-03-23 15:27:15.363 ModeJeuMaster:187 - La combinaison secrète de l'ordinateur est : 2410
+[INFO ] 2019-03-23 15:27:26.975 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 1 est : 2222
+[INFO ] 2019-03-23 15:27:26.975 ModeJeuMaster:198 - Pour l'utilisateur au tour 1, le nombre de chiffre bien placés est 1 et le nombre de chiffre mal placés est 0
+[INFO ] 2019-03-23 15:27:26.976 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 1 bien placé
+[INFO ] 2019-03-23 15:27:26.977 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 1 est : 0302
+[INFO ] 2019-03-23 15:27:26.977 ModeJeuMaster:206 - Pour l'ordinateur au tour 1, le nombre de chiffre bien placés est 1 et le nombre de chiffre mal placés est 1
+[INFO ] 2019-03-23 15:27:26.977 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 1 bien placé
+[INFO ] 2019-03-23 15:27:26.978 ModeJeuMaster:211 - Au tour 1, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:27:26.978 ModeJeuMaster:213 - Au tour 1, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:27:26.978 ModeJeuMaster:231 - Au tour 1, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:27:26.978 ModeJeuMaster:239 - Il reste 4 tour.
+[INFO ] 2019-03-23 15:27:26.978 ModeJeuMaster:241 - On passe au tour : 2
+[INFO ] 2019-03-23 15:28:00.139 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 2 est : 2401
+[INFO ] 2019-03-23 15:28:00.139 ModeJeuMaster:198 - Pour l'utilisateur au tour 2, le nombre de chiffre bien placés est 2 et le nombre de chiffre mal placés est 2
+[INFO ] 2019-03-23 15:28:00.139 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 2 présents, 2 bien placés
+[INFO ] 2019-03-23 15:28:00.140 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 2 est : 0230
+[INFO ] 2019-03-23 15:28:00.140 ModeJeuMaster:206 - Pour l'ordinateur au tour 2, le nombre de chiffre bien placés est 1 et le nombre de chiffre mal placés est 1
+[INFO ] 2019-03-23 15:28:00.140 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 2 présents, 2 bien placés
+[INFO ] 2019-03-23 15:28:00.140 ModeJeuMaster:211 - Au tour 2, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:28:00.141 ModeJeuMaster:213 - Au tour 2, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:28:00.141 ModeJeuMaster:231 - Au tour 2, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:28:00.141 ModeJeuMaster:239 - Il reste 3 tour.
+[INFO ] 2019-03-23 15:28:00.142 ModeJeuMaster:241 - On passe au tour : 3
+[INFO ] 2019-03-23 15:28:35.759 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 3 est : 4210
+[INFO ] 2019-03-23 15:28:35.760 ModeJeuMaster:198 - Pour l'utilisateur au tour 3, le nombre de chiffre bien placés est 2 et le nombre de chiffre mal placés est 2
+[INFO ] 2019-03-23 15:28:35.760 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 2 présents, 2 bien placés
+[INFO ] 2019-03-23 15:28:35.760 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 3 est : 0023
+[INFO ] 2019-03-23 15:28:35.761 ModeJeuMaster:206 - Pour l'ordinateur au tour 3, le nombre de chiffre bien placés est 2 et le nombre de chiffre mal placés est 0
+[INFO ] 2019-03-23 15:28:35.761 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 2 présents, 2 bien placés
+[INFO ] 2019-03-23 15:28:35.761 ModeJeuMaster:211 - Au tour 3, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:28:35.761 ModeJeuMaster:213 - Au tour 3, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:28:35.761 ModeJeuMaster:231 - Au tour 3, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:28:35.762 ModeJeuMaster:239 - Il reste 2 tour.
+[INFO ] 2019-03-23 15:28:35.763 ModeJeuMaster:241 - On passe au tour : 4
+[INFO ] 2019-03-23 15:29:09.833 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 4 est : 0241
+[INFO ] 2019-03-23 15:29:09.833 ModeJeuMaster:198 - Pour l'utilisateur au tour 4, le nombre de chiffre bien placés est 0 et le nombre de chiffre mal placés est 4
+[INFO ] 2019-03-23 15:29:09.833 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 4 présents
+[INFO ] 2019-03-23 15:29:09.834 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 4 est : 0224
+[INFO ] 2019-03-23 15:29:09.834 ModeJeuMaster:206 - Pour l'ordinateur au tour 4, le nombre de chiffre bien placés est 2 et le nombre de chiffre mal placés est 1
+[INFO ] 2019-03-23 15:29:09.834 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 4 présents
+[INFO ] 2019-03-23 15:29:09.834 ModeJeuMaster:211 - Au tour 4, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:29:09.835 ModeJeuMaster:213 - Au tour 4, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:29:09.835 ModeJeuMaster:231 - Au tour 4, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:29:09.835 ModeJeuMaster:239 - Il reste 1 tour.
+[INFO ] 2019-03-23 15:29:09.835 ModeJeuMaster:241 - On passe au tour : 5
+[INFO ] 2019-03-23 15:30:32.322 ModeJeuMaster:196 - La proposition de l'utilisateur au tour 5 est : 2014
+[INFO ] 2019-03-23 15:30:32.323 ModeJeuMaster:198 - Pour l'utilisateur au tour 5, le nombre de chiffre bien placés est 2 et le nombre de chiffre mal placés est 2
+[INFO ] 2019-03-23 15:30:32.324 ModeJeuMaster:200 - Le jeu nous donne comme réponse pour l'utilisateur : 2 présents, 2 bien placés
+[INFO ] 2019-03-23 15:30:32.327 ModeJeuMaster:203 - La proposition de l'ordinateur au tour 5 est : 0422
+[INFO ] 2019-03-23 15:30:32.330 ModeJeuMaster:206 - Pour l'ordinateur au tour 5, le nombre de chiffre bien placés est 3 et le nombre de chiffre mal placés est 0
+[INFO ] 2019-03-23 15:30:32.330 ModeJeuMaster:208 - Le jeu nous donne comme réponse pour l'ordinateur : 2 présents, 2 bien placés
+[INFO ] 2019-03-23 15:30:32.330 ModeJeuMaster:211 - Au tour 5, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:30:32.330 ModeJeuMaster:213 - Au tour 5, le jeu nous donne false pour savoir si l'ordinateur a trouvé la combinaison.
+[INFO ] 2019-03-23 15:30:32.330 ModeJeuMaster:231 - Au tour 5, le jeu nous donne true pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-23 15:30:32.330 ModeJeuMaster:235 - L'ordinateur et l'utilisateur n'ont pas trouvé la combinaison secrète en 5 tours.
+[INFO ] 2019-03-23 15:32:56.077 ModeJeuMaster:296 - Le choix de l'utilisateur est 3
