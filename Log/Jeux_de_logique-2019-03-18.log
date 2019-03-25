@@ -1,0 +1,42 @@
+[INFO ] 2019-03-18 17:44:30.752 Jeu:75 - Le choix de l'utilisateur est 1
+[INFO ] 2019-03-18 17:44:36.099 Jeu:130 - Le choix de l'utilisateur est 1
+[INFO ] 2019-03-18 17:44:36.101 ModeJeuRech:88 - La combinaison secrète est : 7039
+[ERROR] 2019-03-18 17:44:38.071 CreationJeu:234 - La taille n'est pas bonne, elle est de 1 au lieu de 4.
+[ERROR] 2019-03-18 17:44:45.485 CreationJeu:234 - La taille n'est pas bonne, elle est de 0 au lieu de 4.
+[ERROR] 2019-03-18 17:44:45.488 CreationJeu:234 - La taille n'est pas bonne, elle est de 0 au lieu de 4.
+[ERROR] 2019-03-18 17:44:45.488 CreationJeu:234 - La taille n'est pas bonne, elle est de 0 au lieu de 4.
+[ERROR] 2019-03-18 17:44:45.489 CreationJeu:234 - La taille n'est pas bonne, elle est de 0 au lieu de 4.
+[ERROR] 2019-03-18 17:44:45.490 CreationJeu:234 - La taille n'est pas bonne, elle est de 1 au lieu de 4.
+[ERROR] 2019-03-18 17:44:46.381 CreationJeu:234 - La taille n'est pas bonne, elle est de 1 au lieu de 4.
+[ERROR] 2019-03-18 17:44:47.505 CreationJeu:234 - La taille n'est pas bonne, elle est de 1 au lieu de 4.
+[ERROR] 2019-03-18 17:44:48.103 CreationJeu:234 - La taille n'est pas bonne, elle est de 1 au lieu de 4.
+[INFO ] 2019-03-18 17:44:55.805 ModeJeuRech:95 - La proposition de l'utilisateur au tour 1 est : 1234
+[INFO ] 2019-03-18 17:44:55.805 ModeJeuRech:98 - Le jeu nous donne comme réponse : +-=+
+[INFO ] 2019-03-18 17:44:55.811 ModeJeuRech:100 - Au tour 1, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-18 17:44:55.811 ModeJeuRech:107 - Au tour 1, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 17:44:55.811 ModeJeuRech:115 - Il reste 4 tour.
+[INFO ] 2019-03-18 17:44:55.812 ModeJeuRech:117 - On passe au tour : 2
+[INFO ] 2019-03-18 17:44:57.531 ModeJeuRech:95 - La proposition de l'utilisateur au tour 2 est : 1234
+[INFO ] 2019-03-18 17:44:57.531 ModeJeuRech:98 - Le jeu nous donne comme réponse : +-=+
+[INFO ] 2019-03-18 17:44:57.531 ModeJeuRech:100 - Au tour 2, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-18 17:44:57.531 ModeJeuRech:107 - Au tour 2, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 17:44:57.531 ModeJeuRech:115 - Il reste 3 tour.
+[INFO ] 2019-03-18 17:44:57.542 ModeJeuRech:117 - On passe au tour : 3
+[INFO ] 2019-03-18 17:44:59.809 ModeJeuRech:95 - La proposition de l'utilisateur au tour 3 est : 1223
+[INFO ] 2019-03-18 17:44:59.809 ModeJeuRech:98 - Le jeu nous donne comme réponse : +-++
+[INFO ] 2019-03-18 17:44:59.810 ModeJeuRech:100 - Au tour 3, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-18 17:44:59.810 ModeJeuRech:107 - Au tour 3, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 17:44:59.810 ModeJeuRech:115 - Il reste 2 tour.
+[INFO ] 2019-03-18 17:44:59.811 ModeJeuRech:117 - On passe au tour : 4
+[INFO ] 2019-03-18 17:45:01.640 ModeJeuRech:95 - La proposition de l'utilisateur au tour 4 est : 1222
+[INFO ] 2019-03-18 17:45:01.640 ModeJeuRech:98 - Le jeu nous donne comme réponse : +-++
+[INFO ] 2019-03-18 17:45:01.645 ModeJeuRech:100 - Au tour 4, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-18 17:45:01.645 ModeJeuRech:107 - Au tour 4, le jeu nous donne false pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 17:45:01.645 ModeJeuRech:115 - Il reste 1 tour.
+[INFO ] 2019-03-18 17:45:01.646 ModeJeuRech:117 - On passe au tour : 5
+[INFO ] 2019-03-18 17:45:03.163 ModeJeuRech:95 - La proposition de l'utilisateur au tour 5 est : 2222
+[INFO ] 2019-03-18 17:45:03.163 ModeJeuRech:98 - Le jeu nous donne comme réponse : +-++
+[INFO ] 2019-03-18 17:45:03.168 ModeJeuRech:100 - Au tour 5, le jeu nous donne false pour savoir si l'utilisateur a trouvé la combinaison.
+[INFO ] 2019-03-18 17:45:03.168 ModeJeuRech:107 - Au tour 5, le jeu nous donne true pour savoir si le nombre de tour maximum est dépassé.
+[INFO ] 2019-03-18 17:45:03.168 ModeJeuRech:111 - L'utilisateur n'a pas trouvé la combinaison secrète en 5 tours.
+[INFO ] 2019-03-18 17:45:07.746 ModeJeuRech:285 - Le choix de l'utilisateur est 3
