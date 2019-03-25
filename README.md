@@ -2,13 +2,13 @@
   
 ## Presentation :   
 Jeux de Logique est un jeu où vous avez la possibilité de jouer à deux jeux :   
-     - Recherche +/- : Recherche d'une combinaison, en un nombre de tour prédéfini, via des indications +, -, =	  
-     - Mastermind : Recherche d'une combinaison, en un nombre de tour prédéfini et avec un nombre de couleurs prédéfini, via des indications de placements 
+1. **_Recherche +/-_** : Recherche d'une combinaison, en un nombre de tour prédéfini, via des indications +, -, =	  
+2. **_Mastermind_** : Recherche d'une combinaison, en un nombre de tour prédéfini et avec un nombre de couleurs prédéfini, via des indications de placements 
 	 
 Pour chacun des jeux trois modes sont proposés :   
-    - Mode Challenger : Il faut retrouver la combinaison de l'ordinateur  
-	- Mode Défenseur : L'ordinateur doit retrouver la combinaison générée par l'utilisateur   
-	- Mode Duel : L'utilisateur et l'ordinateur en tour par tour pour retrouver la combinaison de l'autre   
+1. **_Mode Challenger_** : Il faut retrouver la combinaison de l'ordinateur  
+	- **_Mode Défenseur_** : L'ordinateur doit retrouver la combinaison générée par l'utilisateur   
+	- **_Mode Duel_** : L'utilisateur et l'ordinateur en tour par tour pour retrouver la combinaison de l'autre   
 
 ## Configuration :  	
 La configuration du jeu s'effectue via le fichie `resources/config.properties`
